@@ -1,11 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
     {% for plant in plants %}
-        <div class="card" style="width: 18rem;">
-            <img src="https://images.pexels.com/photos/2557232/pexels-photo-2557232.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ plant.plant_latin_name }}</h5>
-                <p class="card-text">{{ plant.plant_common_name }}</p>
+        <div class="container">
+            <div class="row">
+                <div class="card col s12 m4 center-align">
+                    <img src="https://images.pexels.com/photos/2557232/pexels-photo-2557232.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href=""><strong>{{ plant.plant_latin_name }}</strong></a></h5>
+                        <p class="card-text">{{ plant.plant_common_name }}</p>
+                    </div>
+                </div>
+                <div class="card col s12 m4 center-align">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong> Care Information</strong></h5>
+                        <p class="card-text">Lighting: {{ plant.lighting }}</p>
+                        <p class="card-text">Watering: {{ plant.watering }}</p>
+                        <p class="card-text">Toxic: {{ plant.toxic }}</p>
+                        <p class="card-text">Humidity: {{ plant.humidity }}</p>
+                        <p class="card-text">Grow Speed: {{ plant.grow_speed }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     {% endfor %} 
