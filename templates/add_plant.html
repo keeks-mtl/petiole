@@ -45,10 +45,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="input-field col m6">
+            </div>
+            <div class="row">
+                <div class="range-field col m2">
                     <i class="fas fa-shower prefix"></i>
-                    <input id="watering" name="watering" type="text" minlength="3" 
-                        maxlength="50" class="validate" required>
+                    <input type="range" id="watering" name="watering" min="1" max="5" class="validate" Required/>
                     <label for="watering">Watering</label>
                 </div>
             </div>
@@ -65,10 +66,15 @@
                     </div>
                 </div>
                 <div class="input-field col m4">
-                    <i class="fas fa-tint prefix"></i>
-                    <input id="humidity" name="humidity" type="text" minlength="3" 
-                        maxlength="50" class="validate" required>
-                    <label for="humidity">Humidity</label>
+                    <div class="switch">
+                        <i class="fas fa-tint prefix"></i>
+                        <label for="humidity">
+                            Humidity
+                            <input type="checkbox" id="humidity" name="humidity" class="validate">
+                            <span class="lever"></span>
+                            Yes, Please
+                        </label>
+                    </div>
                 </div>
                 <div class="input-field col m4">
                     <i class="fas fa-seedling prefix"></i>
