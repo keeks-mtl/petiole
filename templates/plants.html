@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Plants</title>
+</head>
+<body>
+
+    {% for plant in plants %}
+        <div class="card" style="width: 18rem;">
+            <img src="https://images.pexels.com/photos/2557232/pexels-photo-2557232.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ plant.plant_latin_name }}</h5>
+                <p class="card-text">{{ plant.plant_common_name }}</p>
+            </div>
+        </div>
+    {% endfor %} 
+
+</body>
+</html>
