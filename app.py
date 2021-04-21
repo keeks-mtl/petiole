@@ -107,7 +107,7 @@ def logout():
 def add_plant():
     if request.method =="POST":
         toxic = "Yes" if request.form.get("toxic") else "No"
-        humidity = "Yes" if request.form.get("humidity") else "No"
+        humidity = "Yes, please" if request.form.get("humidity") else "No"
         plant = {
             "plant_latin_name" : request.form.get("plant_latin_name"),
             "plant_common_name" : request.form.get("plant_common_name"),
@@ -130,10 +130,11 @@ def add_plant():
 def edit_plant(plant_id):
     if request.method =="POST":
         toxic = "Yes" if request.form.get("toxic") else "No"
-        humidity = "Yes" if request.form.get("humidity") else "No"
+        humidity = "Yes, please" if request.form.get("humidity") else "No"
         submit = {
             "plant_latin_name" : request.form.get("plant_latin_name"),
             "plant_common_name" : request.form.get("plant_common_name"),
+            "plant_image" : request.form.get("plant_image"),
             "lighting" : request.form.get("lighting"),
             "watering" : request.form.get("watering"),
             "toxic" : toxic,

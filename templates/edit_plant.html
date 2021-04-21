@@ -1,138 +1,143 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align">Edit Plant</h3>
-
-      <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST" action="{{ url_for('edit_plant', plant_id=plant._id) }}">
-            <div class="row">
-                <!-- latin name input -->
-                <div class="input-field col m6">
-                    <i class="fas fa-book prefix"></i>
-                    <input id="plant_latin_name" name="plant_latin_name" minlength="3" 
-                        value="{{ plant.plant_latin_name }}" maxlength="50" type="text" class="validate" required>
-                    <label for="plant_latin_name">Latin Name</label>
+    <div class="container add-plant-form">
+        <h3 class="text-center">Add Plant</h3>
+        <div class="row light-grey-box justify-content-center">
+            <form class="col-md-11" method="POST" action="{{ url_for('edit_plant', plant_id=plant._id) }}">
+                <div class="form-group row">
+                    <!-- latin name input -->
+                    <label class="col-sm-2 col-form-label" for="plant_latin_name">
+                        Latin Name
+                    </label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="plant_latin_name" name="plant_latin_name" minlength="3"
+                            value="{{ plant.plant_latin_name }}" maxlength="50" type="text" class="validate" required>
+                    </div>
+                    <!-- common name input -->
+                    <label class="col-sm-2 col-form-label" for="plant_common_name">
+                        Common Name
+                    </label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="plant_common_name" name="plant_common_name" minlength="3"
+                            value="{{ plant.plant_common_name }}" maxlength="50" type="text" required>
+                    </div>
                 </div>
-                <!-- common name input -->
-                <div class="input-field col m6">
-                    <i class="fas fa-leaf prefix"></i>
-                    <input id="plant_common_name" name="plant_common_name" minlength="3" 
-                        value="{{ plant.plant_common_name }}" maxlength="50" type="text" class="validate" required>
-                    <label for="plant_common_name">Common Name</label>
+                <div class="form-group row">
+                    <!-- plant image url -->
+                    <label class="col-sm-2 col-form-label" for="plant_image">
+                        Image URL <i class="fas fa-image prefix"></i>
+                    </label>
+                    <div class="col-sm-10">
+                        <input class="form-control" type="text" name="plant_image" 
+                            value="{{ plant.plant_image }}" id="plant_image" maxlength="50" required>
+                    </div>
                 </div>
-            </div>
-            <!-- photo url -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-image prefix"></i>
-                    <input type="text" name="plant_image" id="plant_image" value="{{ plant.plant_image }}" 
-                        class="validate" required>
-                    <label for="plant_image">URL</label>
-                </div>
-            </div>
-            <!-- lighting radio -->
-            <div class="row">
-                <div class="input-field col m6">
-                    <div class="row">
-                        <div class="col m1">
-                            <i class="fas fa-sun prefix"></i>
-                        </div>
-                        <div class="col m2">
+                <!-- lighting radios -->
+                <div class="form-group row">
+                    <div class="col-2">
+                        <span>Lighting <i class="fas fa-sun prefix"></i></span>
+                    </div>
+                    <div class="col-10 text-justify">
+                        <div class="form-check form-check-inline">
+                            {% if plant.lighting == "Shade" %}
+                                <input id="Shade" name="lighting" value="Shade" type="radio" required checked />
+                            {% else %}
+                                <input id="Shade" name="lighting" value="Shade" type="radio" required />
+                            {% endif %}
                             <label for="Shade">
-                                {% if plant.lighting == "Shade" %}
-                                <input id="Shade" name="lighting" type="radio" value="Shade" class="validate" checked/>
-                                {% else %}
-                                <input id="Shade" name="lighting" type="radio" value="Shade" class="validate" required/>
-                                {% endif %}
-                                <span>Shade</span>
+                                Shade
                             </label>
                         </div>
-                        <div class="col m5">
-                            <label for="Indirect Sunlight">
-                                {% if plant.lighting == "Indirect Sunlight" %}
-                                <input id="Indirect Sunlight" name="lighting" value="Indirect Sunlight" type="radio" checked/>
-                                {% else %}
+                        <div class="form-check form-check-inline">
+                            {% if plant.lighting == "Indirect Sunlight" %}
+                                <input id="Indirect Sunlight" name="lighting" value="Indirect Sunlight" type="radio" checked />
+                            {% else %}
                                 <input id="Indirect Sunlight" name="lighting" value="Indirect Sunlight" type="radio" />
-                                {% endif %}
-                                <span>Indirect Sunlight</span>
+                            {% endif %}
+                            <label for="Indirect Sunlight">
+                                Indirect Sunlight
                             </label>
-                            </div>
-                        <div class="col m4">
-                            <label for="Full-sun">
-                                {% if plant.lighting == "Full-sun" %}
-                                <input id="Full-sun" name="lighting" value="Full-sun" type="radio" checked/>
-                                {% else %}
+                        </div>
+                        <div class="form-check form-check-inline">
+                            {% if plant.lighting == "Full-sun" %}
+                                <input id="Full-sun" name="lighting" value="Full-sun" type="radio" checked />
+                            {% else %}
                                 <input id="Full-sun" name="lighting" value="Full-sun" type="radio" />
-                                {% endif %}
-                                <span>Full-sun</span>
+                            {% endif %}
+                            <label for="Full-sun">
+                                Full-sun
                             </label>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- water range -->
-            <div class="row">
-                <div class="range-field col m2">
-                    <i class="fas fa-shower prefix"></i>
-                    <input type="range" id="watering" name="watering" value="{{ plant.watering }}" 
-                        min="1" max="5" class="validate" Required/>
-                    <label for="watering">Watering</label>
+                <!-- water range -->
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="watering">
+                        Watering <i class="fas fa-shower prefix"></i>
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="range" class="custom-range" id="watering" 
+                            value="{{ plant.watering }}" name="watering" 
+                            min="1" max="5" step="1" Required />
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <!-- toxic toggle -->
-                <div class="input-field col m4">
-                    <div class="switch">
-                        <i class="fas fa-skull-crossbones prefix"></i>
-                        <label for="toxic">
-                            Toxic
+                <div class="form-group row">
+                    <!-- toxic toggle -->
+                    <div class="col-2">
+                        <span>Toxic <i class="fas fa-skull-crossbones prefix"></i></span>
+                    </div>
+                    <div class="col-4">
+                        <div class="custom-control custom-switch custom-control-inline">
                             {% if plant.toxic == "Yes" %}
-                                <input type="checkbox" id="toxic" name="toxic" checked>
+                                <input type="checkbox" class="custom-control-input" id="toxic" name="toxic" checked>
                             {% else %}
-                                <input type="checkbox" id="toxic" name="toxic">
+                                <input type="checkbox" class="custom-control-input" id="toxic" name="toxic">
                             {% endif %}
-                            <span class="lever"></span>
-                            Yes
-                        </label>
+                            <label class="custom-control-label" for="toxic">
+                                Yes
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <!-- humidity toggle -->
-                <div class="input-field col m4">
-                    <div class="switch">
-                        <i class="fas fa-tint prefix"></i>
-                        <label for="humidity">
-                            Humidity
+                    <!-- humidity toggle -->
+                    <div class="col-2">
+                        <span>Humidity <i class="fas fa-tint prefix"></i></span>
+                    </div>
+                    <div class="col-4">
+                        <div class="custom-control custom-switch">
                             {% if plant.humidity == "Yes, please" %}
-                                <input type="checkbox" id="humidity" name="humidity" checked>
+                            <input type="checkbox" class="custom-control-input" id="humidity" name="humidity" checked>
                             {% else %}
-                                <input type="checkbox" id="humidity" name="humidity">
+                            <input type="checkbox" class="custom-control-input" id="humidity" name="humidity">
                             {% endif %}
-                            <span class="lever"></span>
-                            Yes, Please
-                        </label>
+                            <label class="custom-control-label col-sm-6" for="humidity">
+                                Yes, please
+                            </label>
+                        </div>
                     </div>
                 </div>
-                <!-- grow speed radios -->
-                <div class="input-field col m4">
-                    <i class="fas fa-seedling prefix"></i>
-                    <input id="grow_speed" name="grow_speed" type="text" minlength="3" 
-                        value="{{ plant.grow_speed }}" maxlength="50" class="validate" required>
-                    <label for="grow_speed">Grow Speed</label>
+                <!-- grow speed -->
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="grow_speed">
+                        Grow Speed <i class="fas fa-seedling prefix"></i>
+                    </label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="grow_speed" name="grow_speed" 
+                            value="{{ plant.grow_speed }}" type="text" minlength="3"
+                            maxlength="50" class="validate" required>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col s12 center-align">
-                    <!-- cancel button -->
-                    <a href="{{ url_for('get_plants') }}" class="btn-large red">
-                        Cancel <i class="fas fa-times-circle right"></i>
-                    </a>
-                    <!-- submit button -->
-                    <button type="submit" class="btn-large">
-                        Edit Plant <i class="fas fa-edit right"></i>
-                    </button>
+            <!-- submit -->
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <a class="btn del-btn" href="{{ url_for('profile', username=session['user']) }}">Cancel</a>
+                        <button type="submit" class="btn green-btn">
+                            Edit Plant <i class="fas fa-plus-square right"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
 {% endblock %}

@@ -90,7 +90,7 @@
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" id="humidity" name="humidity">
                             <label class="custom-control-label col-sm-6" for="humidity">
-                                yes
+                                Yes, please
                             </label>
                         </div>
                     </div>
@@ -116,112 +116,5 @@
             </form>
         </div>
     </div>
-    
-<!-- 
-      <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST" action="{{ url_for('add_plant') }}">
-            <div class="row">
-                 latin name input
-                <div class="input-field col m6">
-                    <i class="fas fa-book prefix"></i>
-                    <input id="plant_latin_name" name="plant_latin_name" minlength="3" 
-                        maxlength="50" type="text" class="validate" required>
-                    <label for="plant_latin_name">Latin Name</label>
-                </div>
-                common name input
-                <div class="input-field col m6">
-                    <i class="fas fa-leaf prefix"></i>
-                    <input id="plant_common_name" name="plant_common_name" minlength="3" 
-                        maxlength="50" type="text" class="validate" required>
-                    <label for="plant_common_name">Common Name</label>
-                </div>
-            </div>
-            photo url
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-image prefix"></i>
-                    <input type="text" name="plant_image" id="plant_image" class="validate" required>
-                    <label for="plant_image">URL</label>
-                </div>
-            </div>
-            lighting radio
-            <div class="row">
-                <div class="input-field col m6">
-                    <div class="row">
-                        <div class="col m1">
-                            <i class="fas fa-sun prefix"></i>
-                        </div>
-                        <div class="col m2">
-                            <label for="Shade">
-                                <input id="Shade" name="lighting" value="Shade" type="radio" class="validate" required/>
-                                <span>Shade</span>
-                            </label>
-                        </div>
-                        <div class="col m5">
-                            <label for="Indirect Sunlight">
-                                <input id="Indirect Sunlight" name="lighting" value="Indirect Sunlight" type="radio" />
-                                <span>Indirect Sunlight</span>
-                            </label>
-                            </div>
-                        <div class="col m4">
-                            <label for="Full-sun">
-                                <input id="Full-sun" name="lighting" value="Full-sun" type="radio" />
-                                <span>Full-sun</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            water range
-            <div class="row">
-                <div class="range-field col m2">
-                    <i class="fas fa-shower prefix"></i>
-                    <input type="range" id="watering" name="watering" min="1" max="5" class="validate" Required/>
-                    <label for="watering">Watering</label>
-                </div>
-            </div>
-            <div class="row">
-                toxic toggle
-                <div class="input-field col m4">
-                    <div class="switch">
-                        <i class="fas fa-skull-crossbones prefix"></i>
-                        <label for="toxic">
-                            Toxic
-                            <input type="checkbox" id="toxic" name="toxic">
-                            <span class="lever"></span>
-                            Yes
-                        </label>
-                    </div>
-                </div>
-                humidity toggle
-                <div class="input-field col m4">
-                    <div class="switch">
-                        <i class="fas fa-tint prefix"></i>
-                        <label for="humidity">
-                            Humidity
-                            <input type="checkbox" id="humidity" name="humidity">
-                            <span class="lever"></span>
-                            Yes, Please
-                        </label>
-                    </div>
-                </div>
-                grow speed radios
-                <div class="input-field col m4">
-                    <i class="fas fa-seedling prefix"></i>
-                    <input id="grow_speed" name="grow_speed" type="text" minlength="3" 
-                        maxlength="50" class="validate" required>
-                    <label for="grow_speed">Grow Speed</label>
-                </div>
-            </div>
-            submit button
-            <div class="row">
-                <div class="col s12 center-align">
-                    <button type="submit" class="btn-large">
-                        Add Plant <i class="fas fa-plus-square right"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
-    </div> -->
 
 {% endblock %}
