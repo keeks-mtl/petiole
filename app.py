@@ -108,6 +108,7 @@ def add_plant():
         plant = {
             "plant_latin_name" : request.form.get("plant_latin_name"),
             "plant_common_name" : request.form.get("plant_common_name"),
+            "plant_image" : request.form.get("plant_image"),
             "lighting" : request.form.get("lighting"),
             "watering" : request.form.get("watering"),
             "toxic" : toxic,
