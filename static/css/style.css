@@ -20,6 +20,6 @@ nav .nav-link {
 
 /* register form */
 
-.register-form {
+.register-form, .login-form {
     margin-top: 4%;
 }
