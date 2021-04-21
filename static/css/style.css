@@ -1,3 +1,16 @@
+.navbar a {
+    color: black;
+}
+nav .nav-link {
+    color: black;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
 .flashes h4 {
     line-height: 2;
+}
+
+.fab {
+    color: black;
 }
