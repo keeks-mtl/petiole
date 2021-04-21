@@ -6,11 +6,20 @@ nav .nav-link {
     font-weight: 600;
     font-size: 1.25rem;
 }
-
+/* buttons */
+.green-btn {
+    background-color: #65A15A;
+}
 .flashes h4 {
     line-height: 2;
 }
 
 .fab {
     color: black;
+}
+
+/* register form */
+
+.register-form {
+    margin-top: 4%;
 }

@@ -1,42 +1,69 @@
 {% extends "base.html" %}
 {% block content %}
-
-    <h3 class="center-align">Register</h3>
-
-    <div class="row">
-        <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
-            <div class="card-panel">
-                <!-- username -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fas fa-user-plus prefix"></i>
-                        <input id="username" name="username" type="text" minlength="5"
-                        max-length="15" pattern="^[a-zA-50-9]{5,15}$" class="validate" required>
-                        <label for="username">Username</label>
+    
+    <div class="container register-form">
+        <h3 class="text-center">Register</h3>
+        <div class="row">
+            <div class="col-12 justify-content-center">
+                <form method="POST" action="{{ url_for('register') }}">
+                    <!-- name -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="first_name">
+                            First Name
+                        </label>
+                        <div class="col-sm-4">
+                            <input class="form-control" id="first_name" name="first_name" type="text" minlength="3"
+                                max-length="15" pattern="^[a-zA-50-9]{5,15}$" class="validate" required>
+                        </div>
+                        <label class="col-sm-2 col-form-label" for="last_name">
+                            Last Name
+                        </label>
+                        <div class="col-sm-4">
+                            <input class="form-control" id="last_name" name="last_name" type="text" minlength="2"
+                                max-length="25" pattern="^[a-zA-50-9]{5,15}$" class="validate" required>
+                        </div>
                     </div>
-                </div>
-                <!-- password -->
-                <div class="row">
-                    <div class="input-field col s12">
-                        <i class="fas fa-user-lock prefix"></i>
-                        <input id="password" name="password" pattern="^[a-zA-50-9]{5,15}$" minlength="5"
-                        maxlength="15" type="password" class="validate" required>
-                        <label for="password">Password</label>
+                    <!-- email -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="email">
+                            Email
+                        </label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="email" name="email" type="email" minlength="5"
+                                max-length="50" class="validate" required>
+                        </div>
                     </div>
-                </div>
-                <!-- register -->
-                <div class="row">
-                    <button type="submit" class="col s12 btn-large">
+                    <!-- username -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="username">
+                            Username
+                        </label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="username" name="username" type="text" minlength="5"
+                                max-length="15" pattern="^[a-zA-50-9]{5,15}$" class="validate" required>
+                        </div>
+                    </div>
+                    <!-- password -->
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="password">
+                            Password
+                        </label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="password" name="password" pattern="^[a-zA-50-9]{5,15}$" minlength="5"
+                                maxlength="15" type="password" class="validate" required>
+                        </div>
+                    </div>
+                    <!-- register -->
+                    <button type="submit" class="btn green-btn btn-lg btn-block">
                         Register <i class="fas fa-sign-in-alt"></i>
                     </button>
-                </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
-
     <div class="row">
         <div class="col s12">
-            <p class="center-align">
+            <p class="text-center">
                 Already Registered? 
                 <a href="{{ url_for('login') }}" class="light-green-text text-lighten-3">Login</a>
             </p>
