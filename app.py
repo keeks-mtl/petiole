@@ -143,6 +143,13 @@ def edit_plant(plant_id):
     return render_template("edit_plant.html", plant=plant)
 
 
+@app.route('/delete_plant/<plant_id>')
+def delete_plant(plant_id):
+    mongo.db.plants.remove({"_id": ObjectId(plant_id)})
+    flash("Task Successfully Deleted")
+    return redirect(url_for("get_plants"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
