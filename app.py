@@ -121,6 +121,12 @@ def add_plant():
     return render_template("add_plant.html")
 
 
+@app.route("/edit_plant/<plant_id>", methods=["GET", "POST"])
+def edit_plant(plant_id):
+    plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
+    return render_template("edit_plant.html", plant=plant)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
