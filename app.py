@@ -147,7 +147,7 @@ def edit_plant(plant_id):
 @app.route('/delete_plant/<plant_id>')
 def delete_plant(plant_id):
     mongo.db.plants.remove({"_id": ObjectId(plant_id)})
-    flash("Task Successfully Deleted")
+    flash("Plant Successfully Deleted")
     return redirect(url_for("get_plants"))
 
 
