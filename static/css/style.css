@@ -1,3 +1,9 @@
+:root {
+  --main-color: #65A15A;
+  --secondary-color: #94A389;
+  --third-color: #A3797D;
+}
+
 .navbar a {
     color: black;
 }
@@ -8,7 +14,13 @@ nav .nav-link {
 }
 /* buttons */
 .green-btn {
-    background-color: #65A15A;
+    background-color: var(--main-color);
+}
+.del-btn {
+    background-color: var(--third-color);
+}
+.edit-btn {
+    background-color: var(--secondary-color);
 }
 .flashes h4 {
     line-height: 2;
@@ -20,6 +32,15 @@ nav .nav-link {
 
 /* register form */
 
-.register-form, .login-form {
+.register-form, .login-form, .profile-container {
     margin-top: 4%;
+}
+
+/* profile page */
+.profile-container a {
+    margin: 2%;
+}
+.plant-info {
+    background-color: rgba(240,252,242,0.2);
+    padding: 2%;
 }
