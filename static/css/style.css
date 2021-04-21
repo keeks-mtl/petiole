@@ -44,3 +44,22 @@ nav .nav-link {
     background-color: rgba(240,252,242,0.2);
     padding: 2%;
 }
+
+/* add plant page */
+.form-group .form-check-inline {
+    margin-left: 10%;
+}
+
+.add-plant-form {
+    margin-top: 4%;
+}
+
+.light-grey-box {
+    background-color: rgba(240,252,242,0.2);
+    padding: 2%;
+}
+
+/* footer */
+footer {
+    margin-top: 4%;
+}

@@ -3,8 +3,8 @@
 
     <div class="container add-plant-form">
         <h3 class="text-center">Add Plant</h3>
-        <div class="row light-grey-box">
-            <form class="col-md-10" method="POST" action="{{ url_for('add_plant') }}">
+        <div class="row light-grey-box justify-content-center">
+            <form class="col-md-11" method="POST" action="{{ url_for('add_plant') }}">
                 <div class="form-group row">
                     <!-- latin name input -->
                     <label class="col-sm-2 col-form-label" for="plant_latin_name">
@@ -38,7 +38,7 @@
                     <div class="col-2">
                         <span>Lighting <i class="fas fa-sun prefix"></i></span>
                     </div>
-                    <div class="col-10 justify-content-around">
+                    <div class="col-10 text-justify">
                         <div class="form-check form-check-inline">
                             <input id="Shade" name="lighting" value="Shade" type="radio" required />
                             <label for="Shade">
@@ -71,20 +71,28 @@
                 </div>
                 <div class="form-group row">
                     <!-- toxic toggle -->
-                    <div class="custom-control custom-switch">
-                        <label class="custom-control-label col-sm-6" for="toxic">
-                            Toxic <i class="fas fa-skull-crossbones prefix"></i>
+                    <div class="col-2">
+                        <span>Toxic <i class="fas fa-skull-crossbones prefix"></i></span>
+                    </div>
+                    <div class="col-4">
+                        <div class="custom-control custom-switch custom-control-inline">
                             <input type="checkbox" class="custom-control-input" id="toxic" name="toxic">
-                            Yes
-                        </label>
+                            <label class="custom-control-label" for="toxic">
+                                Yes
+                            </label>
+                        </div>
                     </div>
                     <!-- humidity toggle -->
-                    <div class="custom-control custom-switch">
-                        <label class="custom-control-label col-sm-6" for="humidity">
-                            Humidity <i class="fas fa-tint prefix"></i>
+                    <div class="col-2">
+                        <span>Humidity <i class="fas fa-tint prefix"></i></span>
+                    </div>
+                    <div class="col-4">
+                        <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" id="humidity" name="humidity">
-                            Yes
-                        </label>
+                            <label class="custom-control-label col-sm-6" for="humidity">
+                                yes
+                            </label>
+                        </div>
                     </div>
                 </div>
                 <!-- grow speed -->
@@ -92,7 +100,7 @@
                     <label class="col-sm-2 col-form-label" for="grow_speed">
                         Grow Speed <i class="fas fa-seedling prefix"></i>
                     </label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-10">
                         <input class="form-control" id="grow_speed" name="grow_speed" type="text" minlength="3"
                             maxlength="50" class="validate" required>
                     </div>
