@@ -31,9 +31,9 @@
                         <div class="col m2">
                             <label for="Shade">
                                 {% if plant.lighting == "Shade" %}
-                                <input id="Shade" name="lighting" type="radio" class="validate" checked/>
+                                <input id="Shade" name="lighting" type="radio" value="Shade" class="validate" checked/>
                                 {% else %}
-                                <input id="Shade" name="lighting" type="radio" class="validate" required/>
+                                <input id="Shade" name="lighting" type="radio" value="Shade" class="validate" required/>
                                 {% endif %}
                                 <span>Shade</span>
                             </label>
@@ -41,9 +41,9 @@
                         <div class="col m5">
                             <label for="Indirect Sunlight">
                                 {% if plant.lighting == "Indirect Sunlight" %}
-                                <input id="Indirect Sunlight" name="lighting" type="radio" checked/>
+                                <input id="Indirect Sunlight" name="lighting" value="Indirect Sunlight" type="radio" checked/>
                                 {% else %}
-                                <input id="Indirect Sunlight" name="lighting" type="radio" />
+                                <input id="Indirect Sunlight" name="lighting" value="Indirect Sunlight" type="radio" />
                                 {% endif %}
                                 <span>Indirect Sunlight</span>
                             </label>
@@ -51,9 +51,9 @@
                         <div class="col m4">
                             <label for="Full-sun">
                                 {% if plant.lighting == "Full-sun" %}
-                                <input id="Full-sun" name="lighting" type="radio" checked/>
+                                <input id="Full-sun" name="lighting" value="Full-sun" type="radio" checked/>
                                 {% else %}
-                                <input id="Full-sun" name="lighting" type="radio" />
+                                <input id="Full-sun" name="lighting" value="Full-sun" type="radio" />
                                 {% endif %}
                                 <span>Full-sun</span>
                             </label>

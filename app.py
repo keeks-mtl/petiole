@@ -102,11 +102,11 @@ def logout():
 @app.route("/add_plant", methods=["GET", "POST"])
 def add_plant():
     if request.method =="POST":
-        toxic = "Yes" if request.form.get("toxic") else "off"
-        humidity = "Yes" if request.form.get("humidity") else "off"
+        toxic = "Yes" if request.form.get("toxic") else "No"
+        humidity = "Yes" if request.form.get("humidity") else "No"
         plant = {
             "plant_latin_name" : request.form.get("plant_latin_name"),
-            "common_name" : request.form.get("common_name"),
+            "plant_common_name" : request.form.get("plant_common_name"),
             "lighting" : request.form.get("lighting"),
             "watering" : request.form.get("watering"),
             "toxic" : toxic,
@@ -123,6 +123,22 @@ def add_plant():
 
 @app.route("/edit_plant/<plant_id>", methods=["GET", "POST"])
 def edit_plant(plant_id):
+    if request.method =="POST":
+        toxic = "Yes" if request.form.get("toxic") else "No"
+        humidity = "Yes" if request.form.get("humidity") else "No"
+        submit = {
+            "plant_latin_name" : request.form.get("plant_latin_name"),
+            "plant_common_name" : request.form.get("plant_common_name"),
+            "lighting" : request.form.get("lighting"),
+            "watering" : request.form.get("watering"),
+            "toxic" : toxic,
+            "humidity" : humidity,
+            "grow_speed" : request.form.get("grow_speed"),
+            "created_by": session["user"]
+        }
+        mongo.db.plants.update({"_id": ObjectId(plant_id)}, submit)
+        flash("Plant Successfully Updated!")
+
     plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
     return render_template("edit_plant.html", plant=plant)
 
