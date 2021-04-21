@@ -102,8 +102,8 @@ def logout():
 @app.route("/add_plant", methods=["GET", "POST"])
 def add_plant():
     if request.method =="POST":
-        toxic = "on" if request.form.get("toxic") else "off"
-        humidity = "on" if request.form.get("humidity") else "off"
+        toxic = "Yes" if request.form.get("toxic") else "off"
+        humidity = "Yes" if request.form.get("humidity") else "off"
         plant = {
             "plant_latin_name" : request.form.get("plant_latin_name"),
             "common_name" : request.form.get("common_name"),

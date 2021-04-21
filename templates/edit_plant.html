@@ -10,14 +10,14 @@
                 <div class="input-field col m6">
                     <i class="fas fa-book prefix"></i>
                     <input id="plant_latin_name" name="plant_latin_name" minlength="3" 
-                        maxlength="50" type="text" class="validate" required>
+                        value="{{ plant.plant_latin_name }}" maxlength="50" type="text" class="validate" required>
                     <label for="plant_latin_name">Latin Name</label>
                 </div>
                 <!-- common name input -->
                 <div class="input-field col m6">
                     <i class="fas fa-leaf prefix"></i>
                     <input id="plant_common_name" name="plant_common_name" minlength="3" 
-                        maxlength="50" type="text" class="validate" required>
+                        value="{{ plant.plant_common_name }}" maxlength="50" type="text" class="validate" required>
                     <label for="plant_common_name">Common Name</label>
                 </div>
             </div>
@@ -30,19 +30,31 @@
                         </div>
                         <div class="col m2">
                             <label for="Shade">
+                                {% if plant.lighting == "Shade" %}
+                                <input id="Shade" name="lighting" type="radio" class="validate" checked/>
+                                {% else %}
                                 <input id="Shade" name="lighting" type="radio" class="validate" required/>
+                                {% endif %}
                                 <span>Shade</span>
                             </label>
                         </div>
                         <div class="col m5">
                             <label for="Indirect Sunlight">
+                                {% if plant.lighting == "Indirect Sunlight" %}
+                                <input id="Indirect Sunlight" name="lighting" type="radio" checked/>
+                                {% else %}
                                 <input id="Indirect Sunlight" name="lighting" type="radio" />
+                                {% endif %}
                                 <span>Indirect Sunlight</span>
                             </label>
                             </div>
                         <div class="col m4">
                             <label for="Full-sun">
+                                {% if plant.lighting == "Full-sun" %}
+                                <input id="Full-sun" name="lighting" type="radio" checked/>
+                                {% else %}
                                 <input id="Full-sun" name="lighting" type="radio" />
+                                {% endif %}
                                 <span>Full-sun</span>
                             </label>
                         </div>
@@ -53,7 +65,8 @@
             <div class="row">
                 <div class="range-field col m2">
                     <i class="fas fa-shower prefix"></i>
-                    <input type="range" id="watering" name="watering" min="1" max="5" class="validate" Required/>
+                    <input type="range" id="watering" name="watering" value="{{ plant.watering }}" 
+                        min="1" max="5" class="validate" Required/>
                     <label for="watering">Watering</label>
                 </div>
             </div>
@@ -64,7 +77,11 @@
                         <i class="fas fa-skull-crossbones prefix"></i>
                         <label for="toxic">
                             Toxic
-                            <input type="checkbox" id="toxic" name="toxic" class="validate">
+                            {% if plant.toxic == "Yes" %}
+                                <input type="checkbox" id="toxic" name="toxic" checked>
+                            {% else %}
+                                <input type="checkbox" id="toxic" name="toxic">
+                            {% endif %}
                             <span class="lever"></span>
                             Yes
                         </label>
@@ -76,7 +93,11 @@
                         <i class="fas fa-tint prefix"></i>
                         <label for="humidity">
                             Humidity
-                            <input type="checkbox" id="humidity" name="humidity" class="validate">
+                            {% if plant.humidity == "Yes, please" %}
+                                <input type="checkbox" id="humidity" name="humidity" checked>
+                            {% else %}
+                                <input type="checkbox" id="humidity" name="humidity">
+                            {% endif %}
                             <span class="lever"></span>
                             Yes, Please
                         </label>
@@ -86,13 +107,17 @@
                 <div class="input-field col m4">
                     <i class="fas fa-seedling prefix"></i>
                     <input id="grow_speed" name="grow_speed" type="text" minlength="3" 
-                        maxlength="50" class="validate" required>
+                        value="{{ plant.grow_speed }}" maxlength="50" class="validate" required>
                     <label for="grow_speed">Grow Speed</label>
                 </div>
             </div>
-            <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
+                    <!-- cancel button -->
+                    <a href="{{ url_for('get_plants') }}" class="btn-large red">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <!-- submit button -->
                     <button type="submit" class="btn-large">
                         Edit Plant <i class="fas fa-edit right"></i>
                     </button>
