@@ -156,6 +156,12 @@ def delete_plant(plant_id):
     return redirect(url_for("get_plants"))
 
 
+@app.route("/plant_page/<plant_id>", methods=["GET", "POST"])
+def plant_page(plant_id):
+    plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
+    return render_template("plant_page.html", plant=plant)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

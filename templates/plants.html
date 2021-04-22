@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-6 text-center">
                     <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant">
-                    <h3 class="card-title">{{ plant.plant_latin_name }}</h3>
+                    <h3 class="card-title"><a href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a></h3>
                     <h5 class="card-title"> <em>{{ plant.plant_common_name }}</em></h5>
                 </div> 
                 <div class="col s6 text-center care-info">
