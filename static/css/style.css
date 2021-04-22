@@ -59,7 +59,7 @@ nav .nav-link {
     padding: 2%;
 }
 
-/* Plants page */
+/* Main plant page */
 .index-cards {
     margin-top: 4%;
 }
@@ -71,6 +71,10 @@ nav .nav-link {
     margin-top: 10px;
 }
 
+/* plant_page */
+.plant-page-container h2 {
+    margin-top: 20px;
+}
 /* footer */
 footer {
     margin-top: 4%;
