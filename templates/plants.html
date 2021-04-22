@@ -5,13 +5,13 @@
         <h3 class="text-center">Petiole Plants</h3>
         {% for plant in plants %}
         <div class="container index-cards light-grey-box">
-            <div class="row">
-                <div class="col-6 text-center">
+            <div class="row justify-content-center">
+                <div class="col-4 text-center">
                     <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant">
                     <h3 class="card-title"><a href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a></h3>
                     <h5 class="card-title"> <em>{{ plant.plant_common_name }}</em></h5>
                 </div> 
-                <div class="col s6 text-center care-info">
+                <div class="col-4 text-center care-info">
                     <h6 class="card-text"><strong> Care Information</strong></h6>
                     <p class="card-text">Lighting: {{ plant.lighting }}</p>
                     <p class="card-text">Watering: {{ plant.watering }}</p>

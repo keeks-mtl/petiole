@@ -4,6 +4,7 @@
   --third-color: #A3797D;
 }
 
+/* navigational bar */
 .navbar a {
     color: black;
 }
@@ -12,6 +13,7 @@ nav .nav-link {
     font-weight: 600;
     font-size: 1.25rem;
 }
+
 /* buttons */
 .green-btn {
     background-color: var(--main-color);
@@ -22,16 +24,22 @@ nav .nav-link {
 .edit-btn {
     background-color: var(--secondary-color);
 }
+/* images */
+img {
+  max-width: 300px;
+  height: auto;
+}
+/* flash messages */
 .flashes h4 {
     line-height: 2;
 }
 
+/* icons */
 .fab {
     color: black;
 }
 
-/* register form */
-
+/* containers */
 .register-form, .login-form, .profile-container, .main-plants-container {
     margin-top: 4%;
 }

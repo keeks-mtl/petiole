@@ -17,13 +17,13 @@
     {% for plant in plants%}
         {% if session.user|lower == plant.created_by|lower %}
         
-            <div class="row align-items-center plant-info">
-                <div class="col-6 text-center">
+            <div class="row align-items-center index-cards justify-content-center">
+                <div class="col-4 text-center">
                     <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant">
-                    <span class="card-title">{{ plant.plant_latin_name }}</span>
+                    <h3 class="card-title">{{ plant.plant_latin_name }}</h3>
                     <h5 class="card-title"> <em>{{ plant.plant_common_name }}</em></h5>
                 </div>            
-                <div class="col s6 text-center">
+                <div class="col-4 text-center">
                     <h6 class="card-text"><strong> Care Information</strong></h6>
                     <p class="card-text">Lighting: {{ plant.lighting }}</p>
                     <p class="card-text">Watering: {{ plant.watering }}</p>
