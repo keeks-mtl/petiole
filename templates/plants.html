@@ -1,35 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="center-align">All Plants</h3>
-
-    {% for plant in plants %}
-
-        <div class="container">
+    <div class="container main-plants-container">
+        <h3 class="text-center">Petiole Plants</h3>
+        {% for plant in plants %}
+        <div class="container index-cards light-grey-box">
             <div class="row">
-                <div class="card col s12 m4 center-align">
-                    <img src="{{ plant.plant_image }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><a href=""><strong>{{ plant.plant_latin_name }}</strong></a></h5>
-                        <p class="card-text">{{ plant.plant_common_name }}</p>
+                <div class="col-6 text-center">
+                    <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant">
+                    <h3 class="card-title">{{ plant.plant_latin_name }}</h3>
+                    <h5 class="card-title"> <em>{{ plant.plant_common_name }}</em></h5>
+                </div> 
+                <div class="col s6 text-center care-info">
+                    <h6 class="card-text"><strong> Care Information</strong></h6>
+                    <p class="card-text">Lighting: {{ plant.lighting }}</p>
+                    <p class="card-text">Watering: {{ plant.watering }}</p>
+                    <p class="card-text">Toxic: {{ plant.toxic }}</p>
+                    <p class="card-text">Humidity: {{ plant.humidity }}</p>
+                    <p class="card-text">Grow Speed: {{ plant.grow_speed }}</p>
+                    <p class="card-text"><em>Created by: {{ plant.created_by }}</em></p>
+                    {% if session.user|lower == plant.created_by|lower %}
+                        <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn edit-btn">Edit</a>
+                        <a href="{{ url_for('delete_plant', plant_id=plant._id) }}" class="btn del-btn" >Delete</a>
+                    {% endif %}
                     </div>
-                </div>
-                <div class="card col s12 m4 center-align">
-                    <div class="card-body">
-                        <h5 class="card-title"><strong> Care Information</strong></h5>
-                        <p class="card-text">Lighting: {{ plant.lighting }}</p>
-                        <p class="card-text">Watering: {{ plant.watering }}</p>
-                        <p class="card-text">Toxic: {{ plant.toxic }}</p>
-                        <p class="card-text">Humidity: {{ plant.humidity }}</p>
-                        <p class="card-text">Grow Speed: {{ plant.grow_speed }}</p>
-                        <p class="card-text"><em>Created by: {{ plant.created_by }}</em></p>
-                        {% if session.user|lower == plant.created_by|lower %}
-                            <a href="{{ url_for('delete_plant', plant_id=plant._id) }}" class="btn-small">Delete</a>
-                            <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn-small">Edit</a>
-                        {% endif %}
-                    </div>
-                </div>
+                </div>   
             </div>
         </div>
-    {% endfor %} 
+        {% endfor %} 
+    </div>
+
 {% endblock %}

@@ -32,7 +32,7 @@ nav .nav-link {
 
 /* register form */
 
-.register-form, .login-form, .profile-container {
+.register-form, .login-form, .profile-container, .main-plants-container {
     margin-top: 4%;
 }
 
@@ -57,6 +57,18 @@ nav .nav-link {
 .light-grey-box {
     background-color: rgba(240,252,242,0.2);
     padding: 2%;
+}
+
+/* Plants page */
+.index-cards {
+    margin-top: 4%;
+}
+.index-cards .care-info {
+    margin-top: 4%;
+}
+
+.index-cards h3 {
+    margin-top: 10px;
 }
 
 /* footer */
