@@ -105,6 +105,16 @@ def logout():
 
 @app.route("/add_plant", methods=["GET", "POST"])
 def add_plant():
+    """
+    Checks if user is logged in, if not redirects to ... page.
+    Converts data from form into dict and inserts that data 
+    into the database.
+    """
+    loggedIn = True if 'user' in session else False
+
+    if not loggedIn:
+        return redirect(url_for("login"))
+
     if request.method =="POST":
         toxic = "Yes" if request.form.get("toxic") else "No"
         humidity = "Yes, please" if request.form.get("humidity") else "No"
@@ -114,14 +124,16 @@ def add_plant():
             "plant_image" : request.form.get("plant_image"),
             "lighting" : request.form.get("lighting"),
             "watering" : request.form.get("watering"),
+            "grow_speed" : request.form.get("grow_speed"),
+            "care" : request.form.get("care"),
+            "suitable_for" : request.form.get("suitable_for"),
             "toxic" : toxic,
             "humidity" : humidity,
-            "grow_speed" : request.form.get("grow_speed"),
             "created_by": session["user"]
         }
         mongo.db.plants.insert_one(plant)
         flash("Plant Successfully Added!")
-        return redirect(url_for("get_plants"))
+        return redirect(url_for("profile", username=session["user"]))
 
     return render_template("add_plant.html")
 
