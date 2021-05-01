@@ -26,7 +26,7 @@
                 <div class="form-group row">
                     <!-- plant image url -->
                     <label class="col-sm-2 col-form-label" for="plant_image">
-                        Image URL <i class="fas fa-image prefix"></i>
+                        Image URL <i class="fas fa-image"></i>
                     </label>
                     <div class="col-sm-10">
                         <input class="form-control" type="text" name="plant_image" id="plant_image" maxlength="50"
@@ -36,7 +36,7 @@
                 <!-- lighting radios -->
                 <div class="form-group row">
                     <div class="col-2">
-                        <span>Lighting <i class="fas fa-sun prefix"></i></span>
+                        <span>Lighting <i class="fas fa-sun"></i></span>
                     </div>
                     <div class="col-10 text-justify">
                         <div class="form-check form-check-inline">
@@ -59,20 +59,139 @@
                         </div>
                     </div>
                 </div>
-                <!-- water range -->
+                <!-- watering radios -->
                 <div class="form-group row">
+                    <div class="col-2">
+                        <span>Watering <i class="fas fa-shower"></i></span>
+                    </div>
+                    <div class="col-10 text-justify">
+                        <div class="form-check form-check-inline">
+                            <input id="When Completely Dry" name="watering" value="When Completely Dry" type="radio" />
+                            <label for="When Completely Dry">
+                                When Completely Dry
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input id="Once a Week" name="watering" value="Once a Week" type="radio" required />
+                            <label for="Once a Week">
+                                Once a Week
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input id="Keep Moist" name="watering" value="Keep Moist" type="radio" />
+                            <label for="Keep Moist">
+                                Keep Moist
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- water range -->
+                <!-- <div class="form-group row">
                     <label class="col-sm-2 col-form-label" for="watering">
-                        Watering <i class="fas fa-shower prefix"></i>
+                        Watering <i class="fas fa-shower"></i>
                     </label>
                     <div class="col-sm-10">
                         <input type="range" class="custom-range" id="watering" name="watering" min="1" max="5" step="1"
                             Required />
                     </div>
-                </div>
+                </div> -->
+                <!-- grow speed -->
                 <div class="form-group row">
-                    <!-- toxic toggle -->
                     <div class="col-2">
-                        <span>Toxic <i class="fas fa-skull-crossbones prefix"></i></span>
+                        <span>Grow Speed <i class="fas fa-seedling"></i></span>
+                    </div>
+                    <div class="col-10 text-justify">
+                        <div class="form-check form-check-inline">
+                            <input id="Slow" name="grow_speed" value="Slow" type="radio" />
+                            <label for="Slow">
+                                Slow
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input id="Medium" name="grow_speed" value="Medium" type="radio" required />
+                            <label for="Medium">
+                                Medium
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input id="Fast" name="grow_speed" value="Fast" type="radio" />
+                            <label for="Fast">
+                                Fast
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="grow_speed">
+                        Grow Speed <i class="fas fa-seedling"></i>
+                    </label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="grow_speed" name="grow_speed" type="text" minlength="3"
+                            maxlength="50" class="validate" required>
+                    </div>
+                </div> -->
+                <!-- care -->
+                <div class="form-group row">
+                    <div class="col-2">
+                        <span>Care <i class="fas fa-hand-holding-heart"></i></span>
+                    </div>
+                    <div class="col-10 text-justify">
+                        <div class="form-check form-check-inline">
+                            <input id="Unkillable" name="care" value="Unkillable" type="radio" />
+                            <label for="Unkillable">
+                                Unkillable
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input id="Easy Going" name="care" value="Easy Going" type="radio" required />
+                            <label for="Easy Going">
+                                Easy Going
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input id="Fussy" name="care" value="Fussy" type="radio" />
+                            <label for="Fussy">
+                                Fussy
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- suitable for -->
+                <div class="form-group row">
+                    <div class="col-2">
+                        <span>Suitable For <i class="fas fa-home"></i></span>
+                    </div>
+                    <div class="col-10 text-justify">
+                        <div class="form-check form-check-inline">
+                            <input id="Bathroom" name="suitable_for" value="Bathroom" type="checkbox" />
+                            <label for="Bathroom">
+                                Bathroom
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input id="Bedroom" name="suitable_for" value="Bedroom" type="checkbox" required />
+                            <label for="Bedroom">
+                                Bedroom
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input id="Living Room" name="suitable_for" value="Living Room" type="checkbox" />
+                            <label for="Living Room">
+                                Living Room
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input id="Small Spaces" name="suitable_for" value="Small Spaces" type="checkbox" />
+                            <label for="Small Spaces">
+                                Small Spaces
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- toxic toggle -->
+                <div class="form-group row">
+                    <div class="col-2">
+                        <span>Toxic <i class="fas fa-skull-crossbones"></i></span>
                     </div>
                     <div class="col-4">
                         <div class="custom-control custom-switch custom-control-inline">
@@ -82,9 +201,11 @@
                             </label>
                         </div>
                     </div>
-                    <!-- humidity toggle -->
+                </div>
+                <!-- humidity toggle -->
+                <div class="form-group row">
                     <div class="col-2">
-                        <span>Humidity <i class="fas fa-tint prefix"></i></span>
+                        <span>Humidity <i class="fas fa-tint"></i></span>
                     </div>
                     <div class="col-4">
                         <div class="custom-control custom-switch">
@@ -93,16 +214,6 @@
                                 Yes, please
                             </label>
                         </div>
-                    </div>
-                </div>
-                <!-- grow speed -->
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="grow_speed">
-                        Grow Speed <i class="fas fa-seedling prefix"></i>
-                    </label>
-                    <div class="col-sm-10">
-                        <input class="form-control" id="grow_speed" name="grow_speed" type="text" minlength="3"
-                            maxlength="50" class="validate" required>
                     </div>
                 </div>
             <!-- submit -->
