@@ -2,7 +2,7 @@
 {% block content %}
 
     <div class="container add-plant-form">
-        <h3 class="text-center">Add Plant</h3>
+        <h3 class="text-center">Edit Plant</h3>
         <div class="row light-grey-box justify-content-center">
             <form class="col-md-11" method="POST" action="{{ url_for('edit_plant', plant_id=plant._id) }}">
                 <div class="form-group row">
@@ -71,19 +71,180 @@
                         </div>
                     </div>
                 </div>
-                <!-- water range -->
+                <!-- water radios -->
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="watering">
-                        Watering <i class="fas fa-shower prefix"></i>
-                    </label>
-                    <div class="col-sm-10">
-                        <input type="range" class="custom-range" id="watering" 
-                            value="{{ plant.watering }}" name="watering" 
-                            min="1" max="5" step="1" Required />
+                    <div class="col-2">
+                        <span>Watering <i class="fas fa-shower"></i></span>
+                    </div>
+                    <div class="col-10 text-justify">
+                        <div class="form-check form-check-inline">
+                            {% if plant.watering == "When Completely Dry" %}
+                                <input id="When Completely Dry" name="watering" value="When Completely Dry" type="radio" checked/>
+                            {% else %}
+                                <input id="When Completely Dry" name="watering" value="When Completely Dry" type="radio" />
+                            {% endif %}
+                            <label for="When Completely Dry">
+                                When Completely Dry
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            {% if plant.watering == "Once a Week" %}
+                                <input id="Once a Week" name="watering" value="Once a Week" type="radio" required checked/>
+                            {% else %}
+                                <input id="Once a Week" name="watering" value="Once a Week" type="radio" required />
+                            {% endif %}
+                            <label for="Once a Week">
+                                Once a Week
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            {% if plant.watering == "Keep Moist" %}
+                                <input id="Keep Moist" name="watering" value="Keep Moist" type="radio" checked/>
+                            {% else %}
+                                <input id="Keep Moist" name="watering" value="Keep Moist" type="radio" />
+                            {% endif %}
+                            <label for="Keep Moist">
+                                Keep Moist
+                            </label>
+                        </div>
                     </div>
                 </div>
+                <!-- grow speed -->
                 <div class="form-group row">
-                    <!-- toxic toggle -->
+                    <div class="col-2">
+                        <span>Grow Speed <i class="fas fa-seedling"></i></span>
+                    </div>
+                    <div class="col-10 text-justify">
+                        <div class="form-check form-check-inline">
+                            {% if plant.grow_speed == "Slow" %}
+                                <input id="Slow" name="grow_speed" value="Slow" type="radio" checked/>
+                            {% else %}
+                                <input id="Slow" name="grow_speed" value="Slow" type="radio" />
+                            {% endif %}
+                            <label for="Slow">
+                                Slow
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            {% if plant.grow_speed == "Medium" %}
+                                <input id="Medium" name="grow_speed" value="Medium" type="radio" required checked/>
+                            {% else %}
+                                <input id="Medium" name="grow_speed" value="Medium" type="radio" required />
+                            {% endif %}
+                            <label for="Medium">
+                                Medium
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            {% if plant.grow_speed == "Fast" %}
+                                <input id="Fast" name="grow_speed" value="Fast" type="radio" checked/>
+                            {% else %}
+                                <input id="Fast" name="grow_speed" value="Fast" type="radio" />
+                            {% endif %}
+                            <label for="Fast">
+                                Fast
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- care -->
+                <div class="form-group row">
+                    <div class="col-2">
+                        <span>Care <i class="fas fa-hand-holding-heart"></i></span>
+                    </div>
+                    <div class="col-10 text-justify">
+                        <div class="form-check form-check-inline">
+                            {% if plant.care == "Unkillable" %}
+                                <input id="Unkillable" name="care" value="Unkillable" type="radio" checked/>
+                            {% else %}
+                                <input id="Unkillable" name="care" value="Unkillable" type="radio" />
+                            {% endif %}
+                            <label for="Unkillable">
+                                Unkillable
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            {% if plant.care == "Easy Going" %}
+                                <input id="Easy Going" name="care" value="Easy Going" type="radio" required checked/>
+                            {% else %}
+                                <input id="Easy Going" name="care" value="Easy Going" type="radio" required />
+                            {% endif %}
+                            <label for="Easy Going">
+                                Easy Going
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            {% if plant.care == "Fussy" %}
+                                <input id="Fussy" name="care" value="Fussy" type="radio" checked/>
+                            {% else %}
+                                <input id="Fussy" name="care" value="Fussy" type="radio" />
+                            {% endif %}
+                            <label for="Fussy">
+                                Fussy
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- suitable for -->
+                <div class="form-group row">
+                    <div class="col-2">
+                        <span>Suitable For <i class="fas fa-home"></i></span>
+                    </div>
+                    <div class="col-10 text-justify">
+                        <div class="form-check form-check-inline">
+                            {% if plant.suitable_for == "Bathroom" %}
+                                <input id="Bathroom" name="suitable_for" value="Bathroom" type="checkbox" checked/>
+                            {% else %}
+                                <input id="Bathroom" name="suitable_for" value="Bathroom" type="checkbox" />
+                            {% endif %}
+                            <label for="Bathroom">
+                                Bathroom
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            {% if plant.suitable_for == "Bedroom" %}
+                                <input id="Bedroom" name="suitable_for" value="Bedroom" type="checkbox" required checked/>
+                            {% else %}
+                                <input id="Bedroom" name="suitable_for" value="Bedroom" type="checkbox" required />
+                            {% endif %}
+                            <label for="Bedroom">
+                                Bedroom
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            {% if plant.suitable_for == "Living Room" %}
+                                <input id="Living Room" name="suitable_for" value="Living Room" type="checkbox" checked/>
+                            {% else %}
+                                <input id="Living Room" name="suitable_for" value="Living Room" type="checkbox" />
+                            {% endif %}
+                            <label for="Living Room">
+                                Living Room
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            {% if plant.suitable_for == "Small Spaces" %}
+                                <input id="Small Spaces" name="suitable_for" value="Small Spaces" type="checkbox" checked/>
+                            {% else %}
+                                <input id="Small Spaces" name="suitable_for" value="Small Spaces" type="checkbox" />
+                            {% endif %}
+                            <label for="Small Spaces">
+                                Small Spaces
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            {% if plant.suitable_for == "Hanging Planters" %}
+                                <input id="Hanging Planters" name="suitable_for" value="Hanging Planters" type="checkbox" checked/>
+                            {% else %}
+                                <input id="Hanging Planters" name="suitable_for" value="Hanging Planters" type="checkbox" />
+                            {% endif %}
+                            <label for="Hanging Planters">
+                                Hanging Planters
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- toxic toggle -->
+                <div class="form-group row">
                     <div class="col-2">
                         <span>Toxic <i class="fas fa-skull-crossbones prefix"></i></span>
                     </div>
@@ -99,7 +260,9 @@
                             </label>
                         </div>
                     </div>
-                    <!-- humidity toggle -->
+                </div>
+                <!-- humidity toggle -->
+                <div class="form-group row">
                     <div class="col-2">
                         <span>Humidity <i class="fas fa-tint prefix"></i></span>
                     </div>
@@ -114,17 +277,6 @@
                                 Yes, please
                             </label>
                         </div>
-                    </div>
-                </div>
-                <!-- grow speed -->
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="grow_speed">
-                        Grow Speed <i class="fas fa-seedling prefix"></i>
-                    </label>
-                    <div class="col-sm-10">
-                        <input class="form-control" id="grow_speed" name="grow_speed" 
-                            value="{{ plant.grow_speed }}" type="text" minlength="3"
-                            maxlength="50" class="validate" required>
                     </div>
                 </div>
             <!-- submit -->

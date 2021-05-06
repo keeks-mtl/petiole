@@ -149,13 +149,16 @@ def edit_plant(plant_id):
             "plant_image" : request.form.get("plant_image"),
             "lighting" : request.form.get("lighting"),
             "watering" : request.form.get("watering"),
+            "grow_speed" : request.form.get("grow_speed"),
+            "care" : request.form.get("care"),
+            "suitable_for" : request.form.get("suitable_for"),
             "toxic" : toxic,
             "humidity" : humidity,
-            "grow_speed" : request.form.get("grow_speed"),
             "created_by": session["user"]
         }
         mongo.db.plants.update({"_id": ObjectId(plant_id)}, submit)
         flash("Plant Successfully Updated!")
+        return redirect(url_for("profile", username=session["user"]))
 
     plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
     return render_template("edit_plant.html", plant=plant)
