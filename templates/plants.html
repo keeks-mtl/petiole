@@ -12,12 +12,14 @@
                     <h5 class="card-title"> <em>{{ plant.plant_common_name }}</em></h5>
                 </div> 
                 <div class="col-4 text-center care-info">
-                    <h6 class="card-text"><strong> Care Information</strong></h6>
-                    <p class="card-text">Lighting: {{ plant.lighting }}</p>
-                    <p class="card-text">Watering: {{ plant.watering }}</p>
-                    <p class="card-text">Toxic: {{ plant.toxic }}</p>
-                    <p class="card-text">Humidity: {{ plant.humidity }}</p>
-                    <p class="card-text">Grow Speed: {{ plant.grow_speed }}</p>
+                    <h5 class="card-text"><strong> Care Information</strong></h5>
+                    <p class="card-text"><b>Lighting:</b> {{ plant.lighting }}</p>
+                    <p class="card-text"><b>Watering:</b> {{ plant.watering }}</p>
+                    <p class="card-text"><b>Grow Speed:</b> {{ plant.grow_speed }}</p>
+                    <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
+                    <p class="card-text"><b>Suitable For:</b> {{ plant.suitable_for }}</p>
+                    <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
+                    <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
                     <p class="card-text"><em>Created by: {{ plant.created_by }}</em></p>
                     {% if session.user|lower == plant.created_by|lower %}
                         <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn edit-btn">Edit</a>
