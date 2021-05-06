@@ -180,8 +180,11 @@ def plant_page(plant_id):
 
 @app.route("/search", methods=["GET", "POST"])
 def search():
-    query = request.form.get("query")
-    plants = list(mongo.db.plants.find({"$text": {"$search": query}}))
+    if request.method == "POST":
+        query = request.form.get("query")
+        plants = list(mongo.db.plants.find({"$text": {"$search": query}}))
+        return render_template("search.html", plants=plants)
+    plants = list(mongo.db.plants.find())
     return render_template("search.html", plants=plants)
 
 

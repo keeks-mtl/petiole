@@ -3,7 +3,7 @@
 
     <div class="container-fluid no-gutters search-plant-form">
         <div class="row">
-            <form class="col-md-4 light-grey-box" method="POST" action="{{ url_for('search') }}">
+            <form class="col-12 light-grey-box" method="POST" action="{{ url_for('search') }}">
                 <h3 class="text-center">Search Plants</h3>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label" for="query">
@@ -16,7 +16,7 @@
                 </div>
                 <div class="row">
                     <div class="col text-center">
-                        <a href="{{ url_for('get_plants') }}" class="btn del-btn">
+                        <a href="{{ url_for('search') }}" class="btn del-btn">
                             Reset
                         </a>
                         <button type="submit" class="btn green-btn">
