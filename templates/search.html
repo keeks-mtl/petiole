@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="container-fluid no-gutters search-plant-form">
+        <div class="row">
+            <form class="col-md-4 light-grey-box" method="POST" action="{{ url_for('search') }}">
+                <h3 class="text-center">Search Plants</h3>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label" for="query">
+                        Search for:
+                    </label>
+                    <div class="col-sm-8">
+                        <input id="query" name="query" minlength="3"
+                            maxlength="50" type="text" class="validate" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <a href="{{ url_for('get_plants') }}" class="btn del-btn">
+                            Reset
+                        </a>
+                        <button type="submit" class="btn green-btn">
+                            Search <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            {% for plant in plants %}
+                    <div class="col-md-4 text-center">
+                        <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant">
+                        <h3 class="card-title"><a href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a></h3>
+                        <h5 class="card-title"> <em>{{ plant.plant_common_name }}</em></h5>
+                    </div> 
+                    <div class="col-md-4 text-center care-info">
+                        <h5 class="card-text"><strong> Care Information</strong></h5>
+                        <p class="card-text"><b>Lighting:</b> {{ plant.lighting }}</p>
+                        <p class="card-text"><b>Watering:</b> {{ plant.watering }}</p>
+                        <p class="card-text"><b>Grow Speed:</b> {{ plant.grow_speed }}</p>
+                        <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
+                        <p class="card-text"><b>Suitable For:</b> {{ plant.suitable_for }}</p>
+                        <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
+                        <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
+                        <p class="card-text"><em>Created by: {{ plant.created_by }}</em></p>
+                        {% if session.user|lower == plant.created_by|lower %}
+                            <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn edit-btn">Edit</a>
+                            <a href="{{ url_for('delete_plant', plant_id=plant._id) }}" class="btn del-btn" >Delete</a>
+                        {% endif %}
+                        </div>
+                    </div>   
+            {% endfor %} 
+
+        
+        
+        </div>
+    </div>
+
+    
+
+{% endblock %}

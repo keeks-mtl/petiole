@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_plants")
 def get_plants():
-    plants = mongo.db.plants.find()
+    plants = list(mongo.db.plants.find())
     return render_template("plants.html", plants=plants)
 
 
@@ -37,9 +37,9 @@ def register():
             return redirect(url_for("register"))
 
         register = {
-            "first_name" : request.form.get("first_name").lower(),
-            "last_name" : request.form.get("last_name").lower(),
-            "email" : request.form.get("email"),
+            "first_name": request.form.get("first_name").lower(),
+            "last_name": request.form.get("last_name").lower(),
+            "email": request.form.get("email"),
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
@@ -62,12 +62,12 @@ def login():
         if existing_user:
             # ensure hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
+              existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                  "profile", username=session["user"]))
 
             else:
                 # invalid password match
@@ -90,7 +90,8 @@ def profile(username):
 
     if session["user"]:
         plants = list(mongo.db.plants.find().sort("plant_latin_name", 1))
-        return render_template("profile.html", username=username, plants=plants)
+        return render_template(
+            "profile.html", username=username, plants=plants)
 
     return redirect(url_for("login"))
 
@@ -107,7 +108,7 @@ def logout():
 def add_plant():
     """
     Checks if user is logged in, if not redirects to ... page.
-    Converts data from form into dict and inserts that data 
+    Converts data from form into dict and inserts that data
     into the database.
     """
     loggedIn = True if 'user' in session else False
@@ -115,20 +116,20 @@ def add_plant():
     if not loggedIn:
         return redirect(url_for("login"))
 
-    if request.method =="POST":
+    if request.method == "POST":
         toxic = "Yes" if request.form.get("toxic") else "No"
         humidity = "Yes, please" if request.form.get("humidity") else "No"
         plant = {
-            "plant_latin_name" : request.form.get("plant_latin_name"),
-            "plant_common_name" : request.form.get("plant_common_name"),
-            "plant_image" : request.form.get("plant_image"),
-            "lighting" : request.form.get("lighting"),
-            "watering" : request.form.get("watering"),
-            "grow_speed" : request.form.get("grow_speed"),
-            "care" : request.form.get("care"),
-            "suitable_for" : request.form.get("suitable_for"),
-            "toxic" : toxic,
-            "humidity" : humidity,
+            "plant_latin_name": request.form.get("plant_latin_name"),
+            "plant_common_name": request.form.get("plant_common_name"),
+            "plant_image": request.form.get("plant_image"),
+            "lighting": request.form.get("lighting"),
+            "watering": request.form.get("watering"),
+            "grow_speed": request.form.get("grow_speed"),
+            "care": request.form.get("care"),
+            "suitable_for": request.form.get("suitable_for"),
+            "toxic": toxic,
+            "humidity": humidity,
             "created_by": session["user"]
         }
         mongo.db.plants.insert_one(plant)
@@ -140,20 +141,20 @@ def add_plant():
 
 @app.route("/edit_plant/<plant_id>", methods=["GET", "POST"])
 def edit_plant(plant_id):
-    if request.method =="POST":
+    if request.method == "POST":
         toxic = "Yes" if request.form.get("toxic") else "No"
         humidity = "Yes, please" if request.form.get("humidity") else "No"
         submit = {
-            "plant_latin_name" : request.form.get("plant_latin_name"),
-            "plant_common_name" : request.form.get("plant_common_name"),
-            "plant_image" : request.form.get("plant_image"),
-            "lighting" : request.form.get("lighting"),
-            "watering" : request.form.get("watering"),
-            "grow_speed" : request.form.get("grow_speed"),
-            "care" : request.form.get("care"),
-            "suitable_for" : request.form.get("suitable_for"),
-            "toxic" : toxic,
-            "humidity" : humidity,
+            "plant_latin_name": request.form.get("plant_latin_name"),
+            "plant_common_name": request.form.get("plant_common_name"),
+            "plant_image": request.form.get("plant_image"),
+            "lighting": request.form.get("lighting"),
+            "watering": request.form.get("watering"),
+            "grow_speed": request.form.get("grow_speed"),
+            "care": request.form.get("care"),
+            "suitable_for": request.form.get("suitable_for"),
+            "toxic": toxic,
+            "humidity": humidity,
             "created_by": session["user"]
         }
         mongo.db.plants.update({"_id": ObjectId(plant_id)}, submit)
@@ -175,6 +176,13 @@ def delete_plant(plant_id):
 def plant_page(plant_id):
     plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
     return render_template("plant_page.html", plant=plant)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    plants = list(mongo.db.plants.find({"$text": {"$search": query}}))
+    return render_template("search.html", plants=plants)
 
 
 if __name__ == "__main__":
