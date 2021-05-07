@@ -181,10 +181,13 @@ def plant_page(plant_id):
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
-        query = request.form.get("query")
-        plants = list(mongo.db.plants.find({"$text": {"$search": query}}))
+        plant_latin_name = request.form.get('plant_latin_name')
+        filter = {}
+        if plant_latin_name != '':
+            filter['plant_latin_name'] = {'$text': {'$search': plant_latin_name}}
+        plants = list(mongo.db.plants.find(filter))
         return render_template("search.html", plants=plants)
-    plants = list(mongo.db.plants.find())
+    plants = mongo.db.plants.find()
     return render_template("search.html", plants=plants)
 
 
