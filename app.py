@@ -181,6 +181,23 @@ def plant_page(plant_id):
     return render_template("plant_page.html", plant=plant)
 
 
+@app.route("/liked/<plant_id>", methods=["GET", "POST"])
+def like_plant(plant_id):
+    plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
+    user = session["user"].lower()
+    username = mongo.db.users.find_one(
+        {"username": user})
+    if plant_id not in username["liked_plant"]:
+        mongo.db.plants.update({
+            "_id": ObjectId(plant_id)},
+            {"$set": {"plant_like": plant["plant_like"] + 1}})
+        mongo.db.users.update({
+            "username": user},
+            {"$push": {"liked_plant": plant_id}})
+    return render_template(
+        "plant_page.html", plant=plant,
+        is_liked=True)
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":

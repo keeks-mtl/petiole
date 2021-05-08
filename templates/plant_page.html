@@ -10,7 +10,15 @@
                     <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant">
                     <h3 class="card-title">{{ plant.plant_latin_name }}</h3>
                     <h5 class="card-title"> <em>{{ plant.plant_common_name }}</em></h5>
-                    <i id="likePlant" class="far fa-heart"></i>
+                    {% if session.user|lower %}
+                        {% if is_liked == true %}
+                            <a href=""><i id="likePlant" class="fas fa-heart"></i></a>
+                        {% else %}
+                        <a href="{{ url_for('like_plant', plant_id=plant_id) }}"><i id="likePlant" class="far fa-heart"></i></a>
+                        {% endif %}
+                    {% else %}
+                        <a href="{{ url_for('login') }}"><i id="likePlant" class="far fa-heart"></i></a>
+                    {% endif%}
                 </div> 
                 <div class="col-4 text-center care-info">
                     <h6 class="card-text"><strong> Care Information</strong></h6>
