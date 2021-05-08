@@ -119,6 +119,7 @@ def add_plant():
     if request.method == "POST":
         toxic = "Yes" if request.form.get("toxic") else "No"
         humidity = "Yes, please" if request.form.get("humidity") else "No"
+        suitable_for = request.form("suitable_for")
         plant = {
             "plant_latin_name": request.form.get("plant_latin_name"),
             "plant_common_name": request.form.get("plant_common_name"),
@@ -127,12 +128,13 @@ def add_plant():
             "watering": request.form.get("watering"),
             "grow_speed": request.form.get("grow_speed"),
             "care": request.form.get("care"),
-            "suitable_for": request.form.get("suitable_for"),
+            "suitable_for": suitable_for,
             "toxic": toxic,
             "humidity": humidity,
             "created_by": session["user"]
         }
         mongo.db.plants.insert_one(plant)
+        print(suitable_for)
         flash("Plant Successfully Added!")
         return redirect(url_for("profile", username=session["user"]))
 
@@ -144,6 +146,7 @@ def edit_plant(plant_id):
     if request.method == "POST":
         toxic = "Yes" if request.form.get("toxic") else "No"
         humidity = "Yes, please" if request.form.get("humidity") else "No"
+        suitable_for = request.form.getlist("suitable_for")
         submit = {
             "plant_latin_name": request.form.get("plant_latin_name"),
             "plant_common_name": request.form.get("plant_common_name"),
@@ -152,7 +155,7 @@ def edit_plant(plant_id):
             "watering": request.form.get("watering"),
             "grow_speed": request.form.get("grow_speed"),
             "care": request.form.get("care"),
-            "suitable_for": request.form.get("suitable_for"),
+            "suitable_for": suitable_for,
             "toxic": toxic,
             "humidity": humidity,
             "created_by": session["user"]
@@ -181,10 +184,28 @@ def plant_page(plant_id):
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
-        plant_latin_name = request.form.get('plant_latin_name')
+        plant_name = request.form.get('plant_name')
+        lighting = request.form.get('lighting')
+        care = request.form.get('care')
+        suitable_for = request.form.get('suitable_for')
+        toxic = request.form.get('toxic')
         filter = {}
-        if plant_latin_name != '':
-            filter['plant_latin_name'] = {'$text': {'$search': plant_latin_name}}
+        categories = []
+        if plant_name != '':
+            categories.append(plant_name) 
+        if lighting != '':
+            categories.append(lighting)
+        if care != '':
+            categories.append(care)
+        if suitable_for != '':
+            categories.append(suitable_for)
+            print(suitable_for)
+        if toxic != '':
+            categories.append(toxic)
+        print(categories)
+        if categories is not None:
+            filter = {'$text': {'$search': ', '.join(categories)}}
+        print(filter)
         plants = list(mongo.db.plants.find(filter))
         return render_template("search.html", plants=plants)
     plants = mongo.db.plants.find()

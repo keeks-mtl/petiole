@@ -2,34 +2,55 @@
 {% block content %}
 
     <div class="container-fluid no-gutters search-plant-form">
-        <div class="row">
+        <div class="row justify-content-center">
             <form class="col-12 light-grey-box" method="POST" action="{{ url_for('search') }}">
                 <h3 class="text-center">Search Plants</h3>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label" for="plant_latin_name">
-                        Plant latin name:
+                <div class="form-group row justify-content-center">
+                    <label class="col-sm-3 col-form-label" for="plant_name">
+                        Plant Name:
                     </label>
-                    <div class="col-sm-8">
-                        <input id="plant_latin_name" name="plant_latin_name" minlength="3"
+                    <div class="col-sm-3">
+                        <input id="plant_name" name="plant_name" minlength="3"
                             maxlength="50" type="text" class="validate">
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label" for="plant_common_name">
-                        Plant common name:
-                    </label>
-                    <div class="col-sm-8">
-                        <input id="plant_common_name" name="plant_common_name" minlength="3"
-                            maxlength="50" type="text" class="validate">
+                <div class="row justify-content-center">
+                    <div class="form-group">
+                        <label for="lighting">Lighting</label>
+                        <select id="lighting" name="lighting" class="form-control">
+                            <option></option>
+                            <option>Shade</option>
+                            <option>Indirect Sunlight</option>
+                            <option>Full-sun</option>
+                        </select>
                     </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label" for="lighting">
-                        lighting:
-                    </label>
-                    <div class="col-sm-8">
-                        <input id="lighting" name="lighting" minlength="3"
-                            maxlength="50" type="text" class="validate">
+                    <div class="form-group">
+                        <label for="care">Care</label>
+                        <select id="care" name="care" class="form-control">
+                            <option></option>
+                            <option>Unkillable</option>
+                            <option>Easy Going</option>
+                            <option>Fussy</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="suitable_for">Suitable For:</label>
+                        <select id="suitable_for" name="suitable_for" class="form-control">
+                            <option></option>
+                            <option>Bathroom</option>
+                            <option>Bedroom</option>
+                            <option>Living Room</option>
+                            <option>Small Spaces</option>
+                            <option>Hanging Planters</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="toxic">Toxic:</label>
+                        <select id="toxic" name="toxic" class="form-control">
+                            <option></option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row">
@@ -43,7 +64,10 @@
                     </div>
                 </div>
             </form>
+        </div>
+    </div>        
             {% for plant in plants %}
+                <div class="row align-items-center index-cards justify-content-center">
                     <div class="col-md-4 text-center">
                         <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant">
                         <h3 class="card-title"><a href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a></h3>
@@ -64,7 +88,8 @@
                             <a href="{{ url_for('delete_plant', plant_id=plant._id) }}" class="btn del-btn" >Delete</a>
                         {% endif %}
                         </div>
-                    </div>   
+                    </div>
+                </div>
             {% endfor %} 
 
         
