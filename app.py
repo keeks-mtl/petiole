@@ -119,7 +119,7 @@ def add_plant():
     if request.method == "POST":
         toxic = "Yes" if request.form.get("toxic") else "No"
         humidity = "Yes, please" if request.form.get("humidity") else "No"
-        suitable_for = request.form("suitable_for")
+        suitable_for = request.form.getlist("suitable_for")
         plant = {
             "plant_latin_name": request.form.get("plant_latin_name"),
             "plant_common_name": request.form.get("plant_common_name"),
@@ -131,7 +131,8 @@ def add_plant():
             "suitable_for": suitable_for,
             "toxic": toxic,
             "humidity": humidity,
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "plant_like": 0
         }
         mongo.db.plants.insert_one(plant)
         print(suitable_for)
@@ -143,6 +144,7 @@ def add_plant():
 
 @app.route("/edit_plant/<plant_id>", methods=["GET", "POST"])
 def edit_plant(plant_id):
+    plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
     if request.method == "POST":
         toxic = "Yes" if request.form.get("toxic") else "No"
         humidity = "Yes, please" if request.form.get("humidity") else "No"
@@ -158,7 +160,8 @@ def edit_plant(plant_id):
             "suitable_for": suitable_for,
             "toxic": toxic,
             "humidity": humidity,
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "plant_like": plant["plant_like"]
         }
         mongo.db.plants.update({"_id": ObjectId(plant_id)}, submit)
         flash("Plant Successfully Updated!")
@@ -198,6 +201,9 @@ def like_plant(plant_id):
     user_info = mongo.db.users.find_one(
         {"username": user})
     if plant_id not in user_info["liked_plant"]:
+        mongo.db.plants.update({
+            "_id": ObjectId(plant_id)},
+            {"$inc": {"plant_like": +1}})
         mongo.db.users.update({
             "username": user},
             {"$push": {"liked_plant": plant_id}})
