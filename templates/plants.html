@@ -17,7 +17,11 @@
                     <p class="card-text"><b>Watering:</b> {{ plant.watering }}</p>
                     <p class="card-text"><b>Grow Speed:</b> {{ plant.grow_speed }}</p>
                     <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
-                    <p class="card-text"><b>Suitable For:</b> {{ plant.suitable_for }}</p>
+                    <p class="card-text"> <b>Suitable For:</b>
+                    {% for room in plant.suitable_for %}
+                       <a href="" class="badge badge-pill badge-secondary"> {{ room }}</a> 
+                    {% endfor %} 
+                    </p>
                     <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
                     <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
                     <p class="card-text"><em>Created by: {{ plant.created_by }}</em></p>
