@@ -177,20 +177,27 @@ def delete_plant(plant_id):
 
 @app.route("/plant_page/<plant_id>", methods=["GET", "POST"])
 def plant_page(plant_id):
+    """
+    Displays information on plant to all users.
+    Checks if user logged in liked the plant.
+    """
     plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
-    return render_template("plant_page.html", plant=plant)
+    is_liked = False
+    if "user" in session:
+        user = session["user"].lower()
+        user_info = mongo.db.users.find_one({"username": user})
+        if plant_id in user_info["liked_plant"]:
+            is_liked = True
+    return render_template("plant_page.html", is_liked=is_liked, plant=plant)
 
 
 @app.route("/liked/<plant_id>", methods=["GET", "POST"])
 def like_plant(plant_id):
     plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
     user = session["user"].lower()
-    username = mongo.db.users.find_one(
+    user_info = mongo.db.users.find_one(
         {"username": user})
-    if plant_id not in username["liked_plant"]:
-        mongo.db.plants.update({
-            "_id": ObjectId(plant_id)},
-            {"$set": {"plant_like": plant["plant_like"] + 1}})
+    if plant_id not in user_info["liked_plant"]:
         mongo.db.users.update({
             "username": user},
             {"$push": {"liked_plant": plant_id}})
