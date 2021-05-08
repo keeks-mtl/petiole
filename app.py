@@ -187,7 +187,6 @@ def search():
         plant_name = request.form.get('plant_name')
         lighting = request.form.get('lighting')
         care = request.form.get('care')
-        suitable_for = request.form.get('suitable_for')
         toxic = request.form.get('toxic')
         filter = {}
         categories = []
@@ -197,14 +196,12 @@ def search():
             categories.append(lighting)
         if care != '':
             categories.append(care)
-        if suitable_for != '':
-            categories.append(suitable_for)
-            print(suitable_for)
         if toxic != '':
             categories.append(toxic)
         print(categories)
         if categories is not None:
             filter = {'$text': {'$search': ', '.join(categories)}}
+        print(toxic)
         print(filter)
         plants = list(mongo.db.plants.find(filter))
         return render_template("search.html", plants=plants)
