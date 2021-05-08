@@ -83,7 +83,33 @@ img {
 .plant-page-container h2 {
     margin-top: 20px;
 }
-/* footer */
+
+#likePlant {
+  color: #aab8c2;
+  cursor: pointer;
+  font-size: 3em;
+  align-self: center;  
+  transition: color 0.2s ease-in-out;
+}
+
+#likePlant:hover {
+  color: grey;
+}
+
+#likePlant::selection {
+  color: none;
+  background: transparent;
+}
+
+#likePlant::moz-selection {
+  color: none;
+  background: transparent;
+}
+
+#likePlant.fas {
+  color: #e2264d;
+}
+
 footer {
     margin-top: 4%;
 }

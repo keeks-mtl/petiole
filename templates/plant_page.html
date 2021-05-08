@@ -10,14 +10,21 @@
                     <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant">
                     <h3 class="card-title">{{ plant.plant_latin_name }}</h3>
                     <h5 class="card-title"> <em>{{ plant.plant_common_name }}</em></h5>
+                    <i id="likePlant" class="far fa-heart"></i>
                 </div> 
                 <div class="col-4 text-center care-info">
                     <h6 class="card-text"><strong> Care Information</strong></h6>
                     <p class="card-text">Lighting: {{ plant.lighting }}</p>
                     <p class="card-text">Watering: {{ plant.watering }}</p>
+                    <p class="card-text">Grow Speed: {{ plant.grow_speed }}</p>
+                    <p class="card-text">Care: {{ plant.care }}</p>
+                    <p class="card-text">Suitable For: 
+                    {% for room in plant.suitable_for %}
+                       <a href="" class="badge badge-pill badge-secondary"> {{ room }}</a> 
+                    {% endfor %} 
+                    </p>
                     <p class="card-text">Toxic: {{ plant.toxic }}</p>
                     <p class="card-text">Humidity: {{ plant.humidity }}</p>
-                    <p class="card-text">Grow Speed: {{ plant.grow_speed }}</p>
                     <p class="card-text"><em>Created by: {{ plant.created_by }}</em></p>
                     {% if session.user|lower == plant.created_by|lower %}
                         <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn edit-btn">Edit</a>
@@ -28,6 +35,5 @@
             </div>
         </div>
     </div>
-
     
 {% endblock %}
