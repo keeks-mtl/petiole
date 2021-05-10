@@ -18,6 +18,15 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# check if username matches current user
+def is_user(username):
+    if "user" in session.keys():
+        if session["user"] == username:
+            return True
+
+    return False
+
+
 @app.route("/")
 @app.route("/get_plants")
 def get_plants():
@@ -111,9 +120,6 @@ def add_plant():
     """
     loggedIn = True if 'user' in session else False
 
-    if not loggedIn:
-        return redirect(url_for("login"))
-
     if request.method == "POST":
         toxic = "Yes" if request.form.get("toxic") else "No"
         humidity = "Yes, please" if request.form.get("humidity") else "No"
@@ -142,11 +148,21 @@ def add_plant():
 
 @app.route("/edit_plant/<plant_id>", methods=["GET", "POST"])
 def edit_plant(plant_id):
+    """
+    Gathers information from database about plant from plant id. 
+    Checks if is created post, if not, redirect to login.
+    Compiles all inputs into a dictionary to send to database
+    Updates database
+    """
     plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
+    
+    if not is_user(plant["created_by"]):
+        return redirect(url_for("login"))
+
+
     if request.method == "POST":
         toxic = "Yes" if request.form.get("toxic") else "No"
         humidity = "Yes, please" if request.form.get("humidity") else "No"
-        suitable_for = request.form.getlist("suitable_for")
         submit = {
             "plant_latin_name": request.form.get("plant_latin_name"),
             "plant_common_name": request.form.get("plant_common_name"),
@@ -155,7 +171,7 @@ def edit_plant(plant_id):
             "watering": request.form.get("watering"),
             "grow_speed": request.form.get("grow_speed"),
             "care": request.form.get("care"),
-            "suitable_for": suitable_for,
+            "suitable_for": request.form.getlist("suitable_for"),
             "toxic": toxic,
             "humidity": humidity,
             "created_by": session["user"],
