@@ -2,53 +2,56 @@
 {% block content %}
     
     <div class="container register-form">
-        <h3 class="text-center">Register</h3>
+        <h2 class="text-center text-uppercase">Register</h2>
         <div class="row">
             <div class="col-12 justify-content-center">
                 <form method="POST" action="{{ url_for('register') }}">
-                    <!-- name -->
+                    <!-- first name -->
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="first_name">
+                        <label class="col-md-2 col-form-label" for="first_name">
                             First Name
                         </label>
-                        <div class="col-sm-4">
-                            <input class="form-control" id="first_name" name="first_name" type="text" minlength="3"
+                        <div class="col-md-10">
+                            <input class="form-control" id="first_name" name="first_name" type="text" minlength="2"
                                 max-length="15" pattern="^[a-zA-50-9]{5,15}$" class="validate" required>
                         </div>
-                        <label class="col-sm-2 col-form-label" for="last_name">
+                    </div>
+                    <!-- last name -->
+                    <div class="form-group row">
+                        <label class="col-md-2 col-form-label" for="last_name">
                             Last Name
                         </label>
-                        <div class="col-sm-4">
+                        <div class="col-md-10">
                             <input class="form-control" id="last_name" name="last_name" type="text" minlength="2"
                                 max-length="25" pattern="^[a-zA-50-9]{5,15}$" class="validate" required>
                         </div>
                     </div>
                     <!-- email -->
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="email">
+                        <label class="col-md-2 col-form-label" for="email">
                             Email
                         </label>
-                        <div class="col-sm-10">
-                            <input class="form-control" id="email" name="email" type="email" minlength="5"
+                        <div class="col-md-10">
+                            <input class="form-control" id="email" name="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" minlength="5"
                                 max-length="50" class="validate" required>
                         </div>
                     </div>
                     <!-- username -->
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="username">
+                        <label class="col-md-2 col-form-label" for="username">
                             Username
                         </label>
-                        <div class="col-sm-10">
+                        <div class="col-md-10">
                             <input class="form-control" id="username" name="username" type="text" minlength="5"
                                 max-length="15" pattern="^[a-zA-50-9]{5,15}$" class="validate" required>
                         </div>
                     </div>
                     <!-- password -->
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="password">
+                        <label class="col-md-2 col-form-label" for="password">
                             Password
                         </label>
-                        <div class="col-sm-10">
+                        <div class="col-md-10">
                             <input class="form-control" id="password" name="password" pattern="^[a-zA-50-9]{5,15}$" minlength="5"
                                 maxlength="15" type="password" class="validate" required>
                         </div>
@@ -65,7 +68,7 @@
         <div class="col s12">
             <p class="text-center">
                 Already Registered? 
-                <a href="{{ url_for('login') }}">Login</a>
+                <a class="link-blue text-uppercase" href="{{ url_for('login') }}">login</a>
             </p>
         </div>
     </div>

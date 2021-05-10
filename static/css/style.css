@@ -2,7 +2,8 @@
   --main-color: #A5CE8A;
   --secondary-color: #94A389;
   --third-color: #A3797D;
-  --fourth-color: #65A15A;
+  --fourth-color: #67b5a7;
+  --extra-color: #65a15a;
 }
 
 body {
@@ -55,6 +56,18 @@ img {
 }
 .container-footer {
     background-color: var(--main-color);
+}
+
+/* register page */
+.register-form button {
+    margin-top: 5%;
+}
+.register-form h2 {
+    margin-bottom: 5%;
+}
+.link-blue {
+    color: var(--fourth-color);
+    font-weight: 800;
 }
 
 /* profile page */
