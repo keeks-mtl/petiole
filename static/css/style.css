@@ -70,6 +70,14 @@ img {
     font-weight: 800;
 }
 
+/* login page */
+.login-form button{
+    margin-top: 5%;
+}
+.login-form h2 {
+    margin-bottom: 5%;
+}
+
 /* profile page */
 .profile-container a {
     margin: 2%;
