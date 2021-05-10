@@ -1,9 +1,19 @@
 :root {
-  --main-color: #65A15A;
+  --main-color: #A5CE8A;
   --secondary-color: #94A389;
   --third-color: #A3797D;
+  --fourth-color: #65A15A;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
 /* navigational bar */
 .navbar a {
     color: black;
@@ -42,6 +52,9 @@ img {
 /* containers */
 .register-form, .login-form, .profile-container, .main-plants-container {
     margin-top: 4%;
+}
+.container-footer {
+    background-color: var(--main-color);
 }
 
 /* profile page */
@@ -110,6 +123,14 @@ img {
   color: #e2264d;
 }
 
+/* footer */
 footer {
     margin-top: 4%;
+}
+.container-footer i {
+    font-size: 3em;
+    margin: 10% 4% 5%;
+}
+.container-footer p {
+    margin-bottom: 5%;
 }
