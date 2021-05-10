@@ -102,9 +102,8 @@ img {
 }
 
 /* add plant page */
-.form-group .form-check-inline {
-    margin-left: 10%;
-}
+
+
 
 .add-plant-form {
     margin-top: 4%;
@@ -168,4 +167,13 @@ footer {
 }
 .container-footer p {
     margin-bottom: 5%;
+}
+
+@media only screen and (max-width: 575px) {
+    .add-plant-form span{
+        font-weight: bold;
+    }
+    .add-plant-form .label-sm-bold{
+        font-weight: bold;
+    }
 }

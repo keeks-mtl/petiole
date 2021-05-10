@@ -5,40 +5,42 @@
         <h3 class="text-center">Add Plant</h3>
         <div class="row light-grey-box justify-content-center">
             <form class="col-md-11" method="POST" action="{{ url_for('add_plant') }}">
+                <!-- latin name input -->
                 <div class="form-group row">
-                    <!-- latin name input -->
-                    <label class="col-sm-2 col-form-label" for="plant_latin_name">
+                    <label class="col-md-3 col-form-label label-sm-bold" for="plant_latin_name">
                         Latin Name
                     </label>
-                    <div class="col-sm-4">
+                    <div class="col-md-9">
                         <input class="form-control" id="plant_latin_name" name="plant_latin_name" minlength="3"
                             maxlength="50" type="text" class="validate" required>
                     </div>
-                    <!-- common name input -->
-                    <label class="col-sm-2 col-form-label" for="plant_common_name">
+                </div>
+                <!-- common name input -->
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label label-sm-bold" for="plant_common_name">
                         Common Name
                     </label>
-                    <div class="col-sm-4">
+                    <div class="col-md-9">
                         <input class="form-control" id="plant_common_name" name="plant_common_name" minlength="3"
                             maxlength="50" type="text" required>
                     </div>
                 </div>
+                <!-- plant image url -->
                 <div class="form-group row">
-                    <!-- plant image url -->
-                    <label class="col-sm-2 col-form-label" for="plant_image">
-                        Image URL <i class="fas fa-image"></i>
+                    <label class="col-md-3 col-form-label label-sm-bold" for="plant_image">
+                        Image URL
                     </label>
-                    <div class="col-sm-10">
+                    <div class="col-md-9">
                         <input class="form-control" type="text" name="plant_image" id="plant_image"
                             required>
                     </div>
                 </div>
                 <!-- lighting radios -->
                 <div class="form-group row">
-                    <div class="col-2">
-                        <span>Lighting <i class="fas fa-sun"></i></span>
+                    <div class="col-sm-3">
+                        <span>Lighting:</span>
                     </div>
-                    <div class="col-10 text-justify">
+                    <div class="col-sm-9">
                         <div class="form-check form-check-inline">
                             <input id="Shade" name="lighting" value="Shade" type="radio" required />
                             <label for="Shade">
@@ -61,10 +63,10 @@
                 </div>
                 <!-- watering radios -->
                 <div class="form-group row">
-                    <div class="col-2">
-                        <span>Watering <i class="fas fa-shower"></i></span>
+                    <div class="col-sm-3">
+                        <span>Watering:</span>
                     </div>
-                    <div class="col-10 text-justify">
+                    <div class="col-sm-9">
                         <div class="form-check form-check-inline">
                             <input id="When Completely Dry" name="watering" value="When Completely Dry" type="radio" />
                             <label for="When Completely Dry">
@@ -85,22 +87,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- water range -->
-                <!-- <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="watering">
-                        Watering <i class="fas fa-shower"></i>
-                    </label>
-                    <div class="col-sm-10">
-                        <input type="range" class="custom-range" id="watering" name="watering" min="1" max="5" step="1"
-                            Required />
-                    </div>
-                </div> -->
                 <!-- grow speed -->
                 <div class="form-group row">
-                    <div class="col-2">
-                        <span>Grow Speed <i class="fas fa-seedling"></i></span>
+                    <div class="col-sm-3">
+                        <span>Grow Speed:</span>
                     </div>
-                    <div class="col-10 text-justify">
+                    <div class="col-sm-9">
                         <div class="form-check form-check-inline">
                             <input id="Slow" name="grow_speed" value="Slow" type="radio" />
                             <label for="Slow">
@@ -121,21 +113,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="grow_speed">
-                        Grow Speed <i class="fas fa-seedling"></i>
-                    </label>
-                    <div class="col-sm-10">
-                        <input class="form-control" id="grow_speed" name="grow_speed" type="text" minlength="3"
-                            maxlength="50" class="validate" required>
-                    </div>
-                </div> -->
                 <!-- care -->
                 <div class="form-group row">
-                    <div class="col-2">
-                        <span>Care <i class="fas fa-hand-holding-heart"></i></span>
+                    <div class="col-sm-3">
+                        <span>Care:</span>
                     </div>
-                    <div class="col-10 text-justify">
+                    <div class="col-sm-9">
                         <div class="form-check form-check-inline">
                             <input id="Unkillable" name="care" value="Unkillable" type="radio" />
                             <label for="Unkillable">
@@ -158,10 +141,10 @@
                 </div>
                 <!-- suitable for -->
                 <div class="form-group row">
-                    <div class="col-2">
-                        <span>Suitable For <i class="fas fa-home"></i></span>
+                    <div class="col-sm-3">
+                        <span>Suitable For:</span>
                     </div>
-                    <div class="col-10 text-justify">
+                    <div class="col-sm-9">
                         <div class="form-check form-check-inline">
                             <input id="Bathroom" name="suitable_for" value="Bathroom" type="checkbox" />
                             <label for="Bathroom">
@@ -196,10 +179,10 @@
                 </div>
                 <!-- toxic toggle -->
                 <div class="form-group row">
-                    <div class="col-2">
-                        <span>Toxic <i class="fas fa-skull-crossbones"></i></span>
+                    <div class="col-3">
+                        <span>Toxic:</span>
                     </div>
-                    <div class="col-4">
+                    <div class="col-8">
                         <div class="custom-control custom-switch custom-control-inline">
                             <input type="checkbox" class="custom-control-input" id="toxic" name="toxic">
                             <label class="custom-control-label" for="toxic">
@@ -210,10 +193,10 @@
                 </div>
                 <!-- humidity toggle -->
                 <div class="form-group row">
-                    <div class="col-2">
-                        <span>Humidity <i class="fas fa-tint"></i></span>
+                    <div class="col-3">
+                        <span>Humidity:</span>
                     </div>
-                    <div class="col-4">
+                    <div class="col-8">
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" id="humidity" name="humidity">
                             <label class="custom-control-label col-sm-6" for="humidity">

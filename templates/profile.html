@@ -22,8 +22,8 @@
                     <div class="card">
                             <img class="card-img-top plant-img img-fluid" src="{{ plant.plant_image }}" alt="Card image cap">
                         <div class="card-header">
-                            <h5 class="card-title"><a class="link-green" href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a></h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{ plant.plant_common_name }}</h6>
+                            <h5 class="card-title text-capitalize"><a class="link-green" href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a></h5>
+                            <h6 class="card-subtitle mb-2 text-muted text-capitalize">{{ plant.plant_common_name }}</h6>
                         </div>
                         <div class="card-body">
                             <h6 class="card-text"><strong>Care Information</strong></h6>
