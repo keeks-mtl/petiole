@@ -120,6 +120,13 @@ def add_plant():
     """
     loggedIn = True if 'user' in session else False
 
+    if loggedIn == True:
+        plants = list(mongo.db.plants.find())
+        return render_template(
+            "add_plant.html", plants=plants)
+    else:
+        return redirect(url_for("login"))
+
     if request.method == "POST":
         toxic = "Yes" if request.form.get("toxic") else "No"
         humidity = "Yes, please" if request.form.get("humidity") else "No"
