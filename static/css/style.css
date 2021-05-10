@@ -35,6 +35,9 @@ nav .nav-link {
 .edit-btn {
     background-color: var(--secondary-color);
 }
+.badge-pill {
+    background-color: var(--main-color);
+}
 /* images */
 img {
   max-width: 300px;
@@ -82,9 +85,20 @@ img {
 .profile-container a {
     margin: 2%;
 }
+.plant-img {
+    height: 16rem;
+    object-fit: cover
+}
+
 .plant-info {
     background-color: rgba(240,252,242,0.2);
     padding: 2%;
+}
+.link-green {
+    color: var(--extra-color);
+}
+.link-green:hover {
+    color: var(--main-color);
 }
 
 /* add plant page */

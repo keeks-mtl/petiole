@@ -2,9 +2,10 @@
 {% block content %}
 
     <div class="container profile-container">
-        <h3 class="text-center">
-            Welcome {{ username }}, here are your plants!
+        <h3 class="text-center text-capitalize">
+            Welcome {{ username }},
         </h3>
+        <h4 class="text-center">here are your plants!</h4>
         <div class="row">
             <div class="col-12 text-center">
                 <a href="{{ url_for('add_plant') }}" class="btn green-btn">
@@ -14,10 +15,38 @@
         </div>
     </div>
     
-    {% for plant in plants%}
-        {% if session.user|lower == plant.created_by|lower %}
-        
-            <div class="row align-items-center index-cards justify-content-center">
+    <div class="row">
+        {% for plant in plants%}
+            {% if session.user|lower == plant.created_by|lower %}
+                <div class="col-sm-6 col-md-4 col-lg-3 text-center">
+                    <div class="card">
+                            <img class="card-img-top plant-img img-fluid" src="{{ plant.plant_image }}" alt="Card image cap">
+                        <div class="card-header">
+                            <h5 class="card-title"><a class="link-green" href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a></h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ plant.plant_common_name }}</h6>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-text"><strong>Care Information</strong></h6>
+                            <p class="card-text"><b>Lighting:</b> {{ plant.lighting }}</p>
+                            <p class="card-text"><b>Watering:</b> {{ plant.watering }}</p>
+                            <p class="card-text"><b>Grow Speed:</b> {{ plant.grow_speed }}</p>
+                            <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
+                            <p class="card-text"> <b>Suitable For:</b>
+                            {% for room in plant.suitable_for %}
+                            <a href="" class="badge badge-pill badge-secondary"> {{ room }}</a> 
+                            {% endfor %}
+                            <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
+                            <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
+                            <div class="card-action">
+                                <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn edit-btn">Edit</a>
+                                <a href="{{ url_for('delete_plant', plant_id=plant._id) }}" class="btn del-btn" >Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            
+            <!-- <div class="row align-items-center index-cards justify-content-center">
                 <div class="col-4 text-center">
                     <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant">
                     <h3 class="card-title">{{ plant.plant_latin_name }}</h3>
@@ -41,10 +70,10 @@
                         <a href="{{ url_for('delete_plant', plant_id=plant._id) }}" class="btn del-btn" >Delete</a>
                     </div>
                 </div>
-            </div>
-
-        {% endif %}
-    {% endfor %}
+            </div> -->
+            {% endif %}
+        {% endfor %}
+    </div>
     
 
 {% endblock%}
