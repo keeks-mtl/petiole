@@ -269,15 +269,20 @@ def search():
             categories.append(care)
         if toxic != '':
             categories.append(toxic)
-        print(categories)
         if categories is not None:
             filter = {'$text': {'$search': ', '.join(categories)}}
-        print(toxic)
-        print(filter)
         plants = list(mongo.db.plants.find(filter))
         return render_template("search.html", plants=plants)
-    plants = mongo.db.plants.find()
-    return render_template("search.html", plants=plants)
+    
+    plants_collection = mongo.db.plants
+    page = int(request.args.get('page') or 1)
+    num = 12
+    count = ceil(float(plants_collection.count_documents({}) / num))
+    plants = list(plants_collection.find({}).sort(
+        "plant_latin_name", 1).skip((page - 1) * num).limit(num))
+    return render_template(
+        "search.html", plants=plants,
+        page=page, count=count, search=False)
 
 
 if __name__ == "__main__":

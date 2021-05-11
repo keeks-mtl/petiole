@@ -61,6 +61,7 @@
             </form>
         </div>
     </div>
+
     <div class="container light-grey-box">
         <h2 class="text-center">Results</h2>      
             <div class="row index-cards"> 
@@ -97,11 +98,23 @@
             </div>
     </div>
         
-        
-        
-        </div>
-    </div>
-
+    <!-- pagination -->
+        {% if search == False %}
+            <nav aria-label="page navigation">
+                <ul class="pagination justify-content-center">
+                    {% for i in range(0, count) %} 
+                        <li class="page-item">
+                            {% if i+1 == page %}
+                            <a class="page-link active">
+                            {% else %}
+                            <a class="page-link" href="{{ url_for('search', page=i+1) }}">
+                            {% endif %}
+                            {{ i + 1  }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        {% endif %}
     
-
 {% endblock %}
