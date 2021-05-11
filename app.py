@@ -46,8 +46,10 @@ def sort():
     if request.method == "POST":
         sorted_by = request.form.get('sorted_by')
         if sorted_by != '':
+            username = mongo.db.users.find_one(
+                {"username": session["user"]})["username"]
             plants = mongo.db.plants.find().sort(sorted_by, 1)
-            return render_template("profile.html", plants=plants)
+            return render_template("profile.html", plants=plants, username=username)
 
     plants = mongo.db.plants.find()
     return render_template("profile.html", plants=plants)
@@ -184,7 +186,6 @@ def edit_plant(plant_id):
 
     if not is_user(plant["created_by"]):
         return redirect(url_for("login"))
-
 
     if request.method == "POST":
         toxic = "Yes" if request.form.get("toxic") else "No"
