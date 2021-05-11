@@ -46,6 +46,17 @@ def plants():
         page=page, count=count, search=False)
 
 
+@app.route("/sort", methods=["GET", "POST"])
+def sort():
+    if request.method == "POST":
+        sorted_by = request.form.get('sorted_by')
+        if sorted_by != '':
+            plants = mongo.db.plants.find().sort(sorted_by, 1)
+            return render_template("profile.html", plants=plants)
+        plants = mongo.db.plants.find()
+        return render_template("profile.html", plants=plants)    
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
