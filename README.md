@@ -237,6 +237,8 @@ I have used the following websites to get info & images for my website.
   - Stock images for cards & headers
 - [Scalegrid](https://scalegrid.io/blog/fast-paging-with-mongodb/)
     - How to add pagination
+- [Code-Maven](https://code-maven.com/flask-return-404)
+    - 404 error handler
 
 ### Acknowledgements
 
