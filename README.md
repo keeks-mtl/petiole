@@ -235,6 +235,8 @@ I have used the following websites to get info & images for my website.
   - Stock images for cards & headers
 - [Pexels](https://www.pexels.com/)
   - Stock images for cards & headers
+- [Scalegrid](https://scalegrid.io/blog/fast-paging-with-mongodb/)
+    - How to add pagination
 
 ### Acknowledgements
 
