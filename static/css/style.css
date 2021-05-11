@@ -21,6 +21,14 @@ h2 {
     font-family: Pacifico;
 }
 
+.pagination a {
+    color: black;
+}
+.page-link:hover {
+    background-color: var(--main-color);
+    color: black;
+}
+
 /* navigational bar */
 .navbar a {
     color: black;
