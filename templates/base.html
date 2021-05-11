@@ -15,7 +15,7 @@
     <header>
         <!-- top navbar -->
         <nav class="navbar shadow-sm navbar-expand-md">
-            <a href="{{ url_for('get_plants') }}" class="navbar-brand">
+            <a href="{{ url_for('plants') }}" class="navbar-brand">
                 <img src="/static/image/pretiole_logo.jpg" alt=""> 
                 Petiole
             </a>
@@ -25,7 +25,7 @@
             <div class="navbar-collapse collapse justify-content-stretch" id="navbar6">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('get_plants') }}">Plants</a>
+                        <a class="nav-link" href="{{ url_for('plants') }}">Plants</a>
                     </li>
                     {% if session.user %}
                         <li class="nav-item">
