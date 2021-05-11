@@ -10,21 +10,33 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: 'Monserrat', sans-serif;
 }
 
 main {
   flex: 1;
 }
+
+h2 {
+    font-family: Pacifico;
+}
+
 /* navigational bar */
 .navbar a {
     color: black;
 }
 nav .nav-link {
     color: black;
-    font-weight: 600;
-    font-size: 1.25rem;
+    font-weight: 500;
 }
-
+.navbar-brand img {
+    max-width: 60px;
+    padding-bottom: 15px;
+}
+.navbar-brand {
+    font-family: Pacifico;
+    font-size: 3em;
+}
 /* buttons */
 .green-btn {
     background-color: var(--main-color);
@@ -60,7 +72,9 @@ img {
 .container-footer {
     background-color: var(--main-color);
 }
-
+.navbar {
+    background-color: var(--main-color);
+}
 /* register page */
 .register-form button {
     margin-top: 5%;
