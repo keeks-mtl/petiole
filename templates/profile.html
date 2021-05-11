@@ -20,7 +20,7 @@
             {% if session.user|lower == plant.created_by|lower %}
                 <div class="col-sm-6 col-md-4 col-lg-3 text-center">
                     <div class="card">
-                            <img class="card-img-top plant-img img-fluid" src="{{ plant.plant_image }}" alt="Card image cap">
+                            <img class="card-img-top plant-img img-fluid" src="{{ plant.plant_image }}" alt="User submitted plant image">
                         <div class="card-header">
                             <h5 class="card-title text-capitalize"><a class="link-green" href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a></h5>
                             <h6 class="card-subtitle mb-2 text-muted text-capitalize">{{ plant.plant_common_name }}</h6>
@@ -32,9 +32,9 @@
                             <p class="card-text"><b>Grow Speed:</b> {{ plant.grow_speed }}</p>
                             <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
                             <p class="card-text"> <b>Suitable For:</b>
-                            {% for room in plant.suitable_for %}
-                            <a href="" class="badge badge-pill badge-secondary"> {{ room }}</a> 
-                            {% endfor %}
+                                {% for room in plant.suitable_for %}
+                                <a href="" class="badge badge-pill badge-secondary"> {{ room }}</a> 
+                                {% endfor %}
                             <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
                             <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
                             <div class="card-action">
