@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from math import ceil
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -30,8 +31,19 @@ def is_user(username):
 @app.route("/")
 @app.route("/plants")
 def plants():
-    plants = list(mongo.db.plants.find())
-    return render_template("plants.html", plants=plants)
+    plants_collection = mongo.db.plants
+
+    page = int(request.args.get('page') or 1)
+    num = 12
+
+    count = ceil(float(plants_collection.count_documents({}) / num))
+
+    plants = list(
+        plants_collection.find({}).skip((page - 1) * num).limit(num))
+
+    return render_template(
+        "plants.html", plants=plants,
+        page=page, count=count, search=False)
 
 
 @app.route("/register", methods=["GET", "POST"])
