@@ -28,8 +28,8 @@ def is_user(username):
 
 
 @app.route("/")
-@app.route("/get_plants")
-def get_plants():
+@app.route("/plants")
+def plants():
     plants = list(mongo.db.plants.find())
     return render_template("plants.html", plants=plants)
 
@@ -196,7 +196,7 @@ def edit_plant(plant_id):
 def delete_plant(plant_id):
     mongo.db.plants.remove({"_id": ObjectId(plant_id)})
     flash("Plant Successfully Deleted")
-    return redirect(url_for("get_plants"))
+    return redirect(url_for("plants"))
 
 
 @app.route("/plant_page/<plant_id>", methods=["GET", "POST"])
