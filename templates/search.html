@@ -4,7 +4,7 @@
     <div class="container-fluid no-gutters search-plant-form">
         <div class="row justify-content-center">
             <form class="col-12 light-grey-box" method="POST" action="{{ url_for('search') }}">
-                <h3 class="text-center">Search Plants</h3>
+                <h2 class="text-center">Search Plants</h2>
                 <!-- Plant name search (both latin & common) -->
                 <div class="form-group row text-center justify-content-center">
                     <label class="col-sm-3 col-form-label" for="plant_name">
@@ -60,7 +60,9 @@
                 </div>
             </form>
         </div>
-    </div>      
+    </div>
+    <div class="container light-grey-box">
+        <h2 class="text-center">Results</h2>      
             <div class="row index-cards"> 
                 {% for plant in plants %}
                     <div class="col-sm-6 col-md-4 col-lg-3 text-center">
@@ -93,7 +95,8 @@
                     </div>
                 {% endfor %}
             </div>
-
+    </div>
+        
         
         
         </div>
