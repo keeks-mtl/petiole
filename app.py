@@ -32,15 +32,10 @@ def is_user(username):
 @app.route("/plants")
 def plants():
     plants_collection = mongo.db.plants
-
     page = int(request.args.get('page') or 1)
     num = 12
-
     count = ceil(float(plants_collection.count_documents({}) / num))
-
-    plants = list(
-        plants_collection.find({}).sort("plant_latin_name", 1).skip((page - 1) * num).limit(num))
-
+    plants = list(plants_collection.find({}).skip((page - 1) * num).limit(num))
     return render_template(
         "plants.html", plants=plants,
         page=page, count=count, search=False)
@@ -53,8 +48,9 @@ def sort():
         if sorted_by != '':
             plants = mongo.db.plants.find().sort(sorted_by, 1)
             return render_template("profile.html", plants=plants)
-        plants = mongo.db.plants.find()
-        return render_template("profile.html", plants=plants)    
+
+    plants = mongo.db.plants.find()
+    return render_template("profile.html", plants=plants)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -179,13 +175,13 @@ def add_plant():
 @app.route("/edit_plant/<plant_id>", methods=["GET", "POST"])
 def edit_plant(plant_id):
     """
-    Gathers information from database about plant from plant id. 
+    Gathers information from database about plant from plant id.
     Checks if is created post, if not, redirect to login.
     Compiles all inputs into a dictionary to send to database
     Updates database
     """
     plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
-    
+
     if not is_user(plant["created_by"]):
         return redirect(url_for("login"))
 
@@ -255,6 +251,7 @@ def like_plant(plant_id):
         "plant_page.html", plant=plant,
         is_liked=True)
 
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     if request.method == "POST":
@@ -265,7 +262,7 @@ def search():
         filter = {}
         categories = []
         if plant_name != '':
-            categories.append(plant_name) 
+            categories.append(plant_name)
         if lighting != '':
             categories.append(lighting)
         if care != '':
