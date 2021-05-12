@@ -58,6 +58,9 @@ nav .nav-link {
 .badge-pill {
     background-color: var(--main-color);
 }
+.close-btn {
+    background-color: #f7f7f7;
+}
 /* images */
 img {
   max-width: 300px;
