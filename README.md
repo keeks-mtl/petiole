@@ -188,8 +188,9 @@ find the complementary colour palettes that worked well.
 ## Bugs
 
 ### What Bug is
+-   add_plant suddenly stopped working
 #### Bug
-- ...
+- When you click to add plant it just redirects to an empty add_plant page
 #### Fix
 - ...
 
@@ -239,6 +240,8 @@ I have used the following websites to get info & images for my website.
     - How to add pagination
 - [Code-Maven](https://code-maven.com/flask-return-404)
     - 404 error handler
+- [Pythonise](https://pythonise.com/series/learning-flask/flask-session-object)
+    - fix check if logged in to access page (add_plant)
 
 ### Acknowledgements
 

@@ -139,14 +139,6 @@ def add_plant():
     Converts data from form into dict and inserts that data
     into the database.
     """
-    loggedIn = True if 'user' in session else False
-
-    if loggedIn == True:
-        plants = list(mongo.db.plants.find())
-        return render_template(
-            "add_plant.html", plants=plants)
-    else:
-        return redirect(url_for("login"))
 
     if request.method == "POST":
         toxic = "Yes" if request.form.get("toxic") else "No"
@@ -167,11 +159,19 @@ def add_plant():
             "plant_like": 0
         }
         mongo.db.plants.insert_one(plant)
-        print(suitable_for)
         flash("Plant Successfully Added!")
         return redirect(url_for("profile", username=session["user"]))
 
-    return render_template("add_plant.html")
+    # checks if user is logged in
+    if "user" in session:
+        user = session["user"].lower()
+
+        if user == session["user"].lower():
+            return render_template("add_plant.html")
+
+        # prevent other registered user access
+    else:
+        return redirect(url_for("plants"))
 
 
 @app.route("/edit_plant/<plant_id>", methods=["GET", "POST"])
