@@ -45,6 +45,15 @@ nav .nav-link {
     font-family: Pacifico;
     font-size: 3em;
 }
+
+/* flash messages */
+.flashes h4 {
+    line-height: 2;
+}
+.flash-container {
+    background-color: var(--extra-color);
+}
+
 /* buttons */
 .green-btn {
     background-color: var(--main-color);
