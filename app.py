@@ -49,7 +49,8 @@ def sort():
             username = mongo.db.users.find_one(
                 {"username": session["user"]})["username"]
             plants = mongo.db.plants.find().sort(sorted_by, 1)
-            return render_template("profile.html", plants=plants, username=username)
+            return render_template(
+                "profile.html", plants=plants, username=username)
 
     plants = mongo.db.plants.find()
     return render_template("profile.html", plants=plants)
@@ -71,7 +72,8 @@ def register():
             "last_name": request.form.get("last_name").lower(),
             "email": request.form.get("email"),
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "liked_plant": []
         }
         mongo.db.users.insert_one(register)
 

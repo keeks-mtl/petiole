@@ -187,12 +187,19 @@ find the complementary colour palettes that worked well.
 
 ## Bugs
 
-### What Bug is
--   add_plant suddenly stopped working
+### Add_plant Bug
+
 #### Bug
 - When you click to add plant it just redirects to an empty add_plant page
 #### Fix
-- ...
+- Change the code to check if user is logged in
+
+### New User Like BUg
+-   add_plant suddenly stopped working
+#### Bug
+- New users can't like plants
+#### Fix
+- Add liked_plant array to user when registering.
 
 ## Deployment
 
