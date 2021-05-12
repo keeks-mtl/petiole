@@ -30,39 +30,63 @@
             </div>
         </div>
     </form>
-    <div class="row">
-        {% for plant in plants%}
-            {% if session.user|lower == plant.created_by|lower %}
-                <div class="col-sm-6 col-md-4 col-lg-3 text-center">
-                    <div class="card">
-                            <img class="card-img-top plant-img img-fluid" src="{{ plant.plant_image }}" alt="User submitted plant image" onerror="this.onerror=null;this.src='/static/image/backup_image.jpg';>
-                        <div class="card-header">
-                            <h5 class="card-title text-capitalize"><a class="link-green" href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a></h5>
-                            <h6 class="card-subtitle mb-2 text-muted text-capitalize">{{ plant.plant_common_name }}</h6>
-                        </div>
-                        <div class="card-body">
-                            <h6 class="card-text"><strong>Care Information</strong></h6>
-                            <p class="card-text"><b>Lighting:</b> {{ plant.lighting }}</p>
-                            <p class="card-text"><b>Watering:</b> {{ plant.watering }}</p>
-                            <p class="card-text"><b>Grow Speed:</b> {{ plant.grow_speed }}</p>
-                            <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
-                            <p class="card-text"> <b>Suitable For:</b>
-                                {% for room in plant.suitable_for %}
-                                <a href="" class="badge badge-pill badge-secondary"> {{ room }}</a> 
-                                {% endfor %}
-                            <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
-                            <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
-                            <div class="card-action">
-                                <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn edit-btn">Edit</a>
-                                <a href="{{ url_for('delete_plant', plant_id=plant._id) }}" class="btn del-btn" >Delete</a>
+    
+    <div class="container index-cards light-grey-box">
+        <div class="row">
+            {% for plant in plants%}
+                {% if session.user|lower == plant.created_by|lower %}
+                    <div class="col-sm-6 col-md-4 col-lg-3 text-center">
+                        <div class="card">
+                                <img class="card-img-top plant-img img-fluid" src="{{ plant.plant_image }}" alt="User submitted plant image" onerror="this.onerror=null;this.src='/static/image/backup_image.jpg';">
+                            <div class="card-header">
+                                <h5 class="card-title text-capitalize"><a class="link-green" href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a></h5>
+                                <h6 class="card-subtitle mb-2 text-muted text-capitalize">{{ plant.plant_common_name }}</h6>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-text"><strong>Care Information</strong></h6>
+                                <p class="card-text"><b>Lighting:</b> {{ plant.lighting }}</p>
+                                <p class="card-text"><b>Watering:</b> {{ plant.watering }}</p>
+                                <p class="card-text"><b>Grow Speed:</b> {{ plant.grow_speed }}</p>
+                                <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
+                                <p class="card-text"> <b>Suitable For:</b>
+                                    {% for room in plant.suitable_for %}
+                                    <a href="" class="badge badge-pill badge-secondary"> {{ room }}</a> 
+                                    {% endfor %}
+                                <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
+                                <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
+                                <div class="card-action">
+                                    <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn edit-btn">Edit</a>
+                                    <button type="button" class="btn del-btn" data-toggle="modal" data-target="#profile-delete-modal" data-url="{{ url_for('delete_plant', plant_id=plant._id) }}">
+                                        Delete
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            
-            {% endif %}
-        {% endfor %}
+                    </div>        
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
     
+    <!-- delete plant modal -->
+        <div class="modal delete-modal" id="profile-delete-modal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete Plant</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you'd like to delete this plant?</p>
+                        <a id="profile-confirm-delete" class="confirm-delete btn del-btn">Delete Plant</a>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-secondary" data-dismiss="modal">Close</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 {% endblock%}
