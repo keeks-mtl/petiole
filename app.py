@@ -35,7 +35,7 @@ def plants():
     page = int(request.args.get('page') or 1)
     num = 12
     count = ceil(float(plants_collection.count_documents({}) / num))
-    plants = list(plants_collection.find({}).skip((page - 1) * num).limit(num))
+    plants = list(plants_collection.find({}).sort("plant_like", -1).skip((page - 1) * num).limit(num))
     return render_template(
         "plants.html", plants=plants,
         page=page, count=count, search=False)
