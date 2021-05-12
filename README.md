@@ -249,6 +249,8 @@ I have used the following websites to get info & images for my website.
     - 404 error handler
 - [Pythonise](https://pythonise.com/series/learning-flask/flask-session-object)
     - fix check if logged in to access page (add_plant)
+- [Themeisle](https://themeisle.com/blog/missing-images-on-website/)
+    - How to handle broken images
 
 ### Acknowledgements
 

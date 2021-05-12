@@ -35,7 +35,7 @@
             {% if session.user|lower == plant.created_by|lower %}
                 <div class="col-sm-6 col-md-4 col-lg-3 text-center">
                     <div class="card">
-                            <img class="card-img-top plant-img img-fluid" src="{{ plant.plant_image }}" alt="User submitted plant image">
+                            <img class="card-img-top plant-img img-fluid" src="{{ plant.plant_image }}" alt="User submitted plant image" onerror="this.onerror=null;this.src='/static/image/backup_image.jpg';>
                         <div class="card-header">
                             <h5 class="card-title text-capitalize"><a class="link-green" href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a></h5>
                             <h6 class="card-subtitle mb-2 text-muted text-capitalize">{{ plant.plant_common_name }}</h6>
@@ -60,32 +60,6 @@
                     </div>
                 </div>
             
-            
-            <!-- <div class="row align-items-center index-cards justify-content-center">
-                <div class="col-4 text-center">
-                    <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant">
-                    <h3 class="card-title">{{ plant.plant_latin_name }}</h3>
-                    <h5 class="card-title"> <em>{{ plant.plant_common_name }}</em></h5>
-                </div>            
-                <div class="col-4 text-center">
-                    <h5 class="card-text"><strong> Care Information</strong></h5>
-                    <p class="card-text"><b>Lighting:</b> {{ plant.lighting }}</p>
-                    <p class="card-text"><b>Watering:</b> {{ plant.watering }}</p>
-                    <p class="card-text"><b>Grow Speed:</b> {{ plant.grow_speed }}</p>
-                    <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
-                    <p class="card-text"> <b>Suitable For:</b>
-                    {% for room in plant.suitable_for %}
-                       <a href="" class="badge badge-pill badge-secondary"> {{ room }}</a> 
-                    {% endfor %}
-                    <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
-                    <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
-                    
-                    <div class="card-action">
-                        <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn edit-btn">Edit</a>
-                        <a href="{{ url_for('delete_plant', plant_id=plant._id) }}" class="btn del-btn" >Delete</a>
-                    </div>
-                </div>
-            </div> -->
             {% endif %}
         {% endfor %}
     </div>

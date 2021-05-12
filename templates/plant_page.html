@@ -7,7 +7,7 @@
         <div class="container index-cards light-grey-box">
             <div class="row justify-content-center">
                 <div class="col-sm-4 text-center">
-                    <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant">
+                    <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant" onerror="this.onerror=null;this.src='/static/image/backup_image.jpg';>
                     <h3 class="card-title text-capitalize">{{ plant.plant_latin_name }}</h3>
                     <h5 class="card-title text-capitalize"> <em>{{ plant.plant_common_name }}</em></h5>
                     {% if session.user|lower %}
