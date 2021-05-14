@@ -390,7 +390,8 @@ I have used the following websites to get info & images for my website.
     - How to handle broken images
 - [StackOverflow](https://stackoverflow.com/questions/61829373/passing-data-to-a-bootstrap-modal-in-jinja-template-one-of-them-from-inside-a-f)
     - Confirm delete modal
-
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/patterns/favicon/)
+    - How to add favicon
 ### Acknowledgements
 
 - A special thank you to my mentor Antonija Simic for her help in going through my project thoroughly and guiding me through what 
