@@ -62,44 +62,54 @@
         </div>
     </div>
 
+    {% if plants|length > 0 %}
     <div class="container light-grey-box">
-        <h2 class="text-center">Results</h2>      
-            <div class="row index-cards"> 
-                {% for plant in plants %}
-                    <div class="col-sm-6 col-md-4 col-lg-3 text-center">
-                        <div class="card">
-                            <img src="{{ plant.plant_image }}" class="card-img-top plant-img img-fluid" alt="user submited image of plant" onerror="this.onerror=null;this.src='/static/image/backup_image.jpg';">
-                            <div class="card-header">
-                                <h5 class="card-title text-capitalize"><a class="link-green" href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a></h5>
-                                <h6 class="card-subtitle mb-2 text-muted text-capitalize">{{ plant.plant_common_name }}</h6>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-text"><strong> Care Information</strong></h5>
-                                <p class="card-text"><b>Lighting:</b> {{ plant.lighting }}</p>
-                                <p class="card-text"><b>Watering:</b> {{ plant.watering }}</p>
-                                <p class="card-text"><b>Grow Speed:</b> {{ plant.grow_speed }}</p>
-                                <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
-                                <p class="card-text"><b>Suitable For:</b> 
-                                    {% for room in plant.suitable_for %}
-                                        <a href="" class="badge badge-pill badge-secondary"> {{ room }}</a> 
-                                    {% endfor %}
-                                </p>
-                                <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
-                                <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
-                                <p class="card-text text-capitalize"><em>Created by: {{ plant.created_by }}</em></p>
-                                {% if session.user|lower == plant.created_by|lower %}
-                                    <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn edit-btn">Edit</a>
-                                    <button type="button" class="btn del-btn" data-toggle="modal" data-target="#delete-modal" data-url="{{ url_for('delete_plant', plant_id=plant._id) }}">
-                                        Delete
-                                    </button>
-                                {% endif %}
-                            </div>    
-                        </div>
+        <h2 class="text-center">Results</h2>
+        <div class="row index-cards">
+            {% for plant in plants %}
+            <div class="col-sm-6 col-md-4 col-lg-3 text-center">
+                <div class="card">
+                    <img src="{{ plant.plant_image }}" class="card-img-top plant-img img-fluid"
+                        alt="user submited image of plant"
+                        onerror="this.onerror=null;this.src='/static/image/backup_image.jpg';">
+                    <div class="card-header">
+                        <h5 class="card-title text-capitalize"><a class="link-green"
+                                href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a>
+                        </h5>
+                        <h6 class="card-subtitle mb-2 text-muted text-capitalize">{{ plant.plant_common_name }}</h6>
                     </div>
-                {% endfor %}
+                    <div class="card-body">
+                        <h5 class="card-text"><strong> Care Information</strong></h5>
+                        <p class="card-text"><b>Lighting:</b> {{ plant.lighting }}</p>
+                        <p class="card-text"><b>Watering:</b> {{ plant.watering }}</p>
+                        <p class="card-text"><b>Grow Speed:</b> {{ plant.grow_speed }}</p>
+                        <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
+                        <p class="card-text"><b>Suitable For:</b>
+                            {% for room in plant.suitable_for %}
+                            <a href="" class="badge badge-pill badge-secondary"> {{ room }}</a>
+                            {% endfor %}
+                        </p>
+                        <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
+                        <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
+                        <p class="card-text text-capitalize"><em>Created by: {{ plant.created_by }}</em></p>
+                        {% if session.user|lower == plant.created_by|lower %}
+                        <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn edit-btn">Edit</a>
+                        <button type="button" class="btn del-btn" data-toggle="modal" data-target="#delete-modal"
+                            data-url="{{ url_for('delete_plant', plant_id=plant._id) }}">
+                            Delete
+                        </button>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
+            {% endfor %}
+        </div>
     </div>
-        
+    {% else %}
+        <h2 class="text-center mt-5">No Results Found</h2>
+    {% endif %}
+
+    
     <!-- pagination -->
         {% if search == False %}
             <nav aria-label="page navigation">
