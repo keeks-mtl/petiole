@@ -61,9 +61,16 @@
 #### Fix
 - Change the code to check if user is logged in
 
-### New User Like BUg
+### New User Like Bug
 -   add_plant suddenly stopped working
 #### Bug
 - New users can't like plants
 #### Fix
 - Add liked_plant array to user when registering.
+
+### Navbar Toggler Bug
+-   Navbar toggle wasn't appearing
+#### Bug
+- The toggler was functional just wasn't visible
+#### Fix
+- Added a missing booststrap class to the navbar

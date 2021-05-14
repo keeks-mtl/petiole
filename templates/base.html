@@ -15,15 +15,16 @@
 <body>
     <header>
         <!-- top navbar -->
-        <nav class="navbar shadow-sm navbar-expand-md">
+        <nav class="navbar shadow-sm navbar-light navbar-expand-sm">
             <a href="{{ url_for('plants') }}" class="navbar-brand">
                 <img src="/static/image/petiole-brand.png" alt="Petiole Logo"> 
                 Petiole
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar6">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse justify-content-stretch" id="navbar6">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#petnavbar" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+            <div class="navbar-collapse collapse justify-content-stretch" id="petnavbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('plants') }}">Plants</a>
