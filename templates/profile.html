@@ -26,7 +26,7 @@
                 </select>
             </div>
             <div class="col-auto">
-                <button type="submit" class="btn edit-btn">Sort</button>
+                <button type="submit" class="btn edit-btn">Sort <i class="fas fa-sort"></i></button>
             </div>
         </div>
     </form>
@@ -55,9 +55,9 @@
                                 <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
                                 <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
                                 <div class="card-action">
-                                    <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn edit-btn">Edit</a>
+                                    <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn edit-btn">Edit <i class="far fa-edit"></i></a>
                                     <button type="button" class="btn del-btn" data-toggle="modal" data-target="#delete-modal" data-url="{{ url_for('delete_plant', plant_id=plant._id) }}">
-                                        Delete
+                                        Delete <i class="far fa-trash-alt"></i>
                                     </button>
                                 </div>
                             </div>
