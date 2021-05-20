@@ -4,7 +4,7 @@
     <div class="container add-plant-form">
         <h2 class="text-center">Edit Plant</h2>
         <div class="row light-grey-box justify-content-center">
-            <form class="col-md-11" method="POST" action="{{ url_for('edit_plant', plant_id=plant._id) }}">
+            <form class="col-md-11 checkbox-validation" method="POST" action="{{ url_for('edit_plant', plant_id=plant._id) }}">
                 <div class="form-group row">
                     <!-- latin name input -->
                     <label class="col-md-3 col-form-label label-sm-bold" for="plant_latin_name">
@@ -190,7 +190,7 @@
                 <!-- suitable for -->
                 <div class="form-group row">
                     <div class="col-sm-3">
-                        <span>Suitable For:</span>
+                        <span class="suitable-for">Suitable For:</span>
                     </div>
                     <div class="col-sm-9">
                         <div class="form-check form-check-inline">

@@ -396,6 +396,8 @@ I have used the following websites to get info & images for my website.
 
 - [HTML.com](https://html.com/attributes/input-pattern/#:~:text=A%20regular%20expression%20is%20a,numerals%20(%200%2D9%20).)
     - pattern attribute for inputs
+-[](https://stackoverflow.com/questions/47329938/block-form-submit-if-no-one-checkbox-checked)
+    - jquery for checkboxes
 
 ### Acknowledgements
 

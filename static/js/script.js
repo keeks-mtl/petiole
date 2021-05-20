@@ -21,5 +21,11 @@ $(document).ready(function(){
         var url = button.data("url");
         $(this).find('#profile-confirm-delete').attr('href', url)
     });
+    $( '.checkbox-validation' ).on('submit', function(e) {
+        if($('input[name="suitable_for"]:checked').length === 0) {
+            e.preventDefault();
+            $('.suitable-for').text("Suitable For *");
+        }
+    });
 });
 
