@@ -136,7 +136,9 @@ img {
 
 /* add plant page */
 
-
+label {
+    margin-bottom: 0;
+}
 
 .add-plant-form {
     margin-top: 4%;
