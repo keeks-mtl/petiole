@@ -19,14 +19,14 @@
         <div class="form-row align-items-center align-self-end">
             <div class="col-auto">
                 <label class="sr-only" for="sorted_by">Sort by:</label>
-                <select id="sorted_by" name="sorted_by" class="form-control" placeholder="Sort By" aria-label="Sort by">
+                <select id="sorted_by" name="sorted_by" class="form-control form-control-sm" placeholder="Sort By" aria-label="Sort by">
                     <option></option>
                     <option value="plant_latin_name">Plant Latin Name</option>
                     <option value="plant_common_name">Plant Common Name</option>
                 </select>
             </div>
             <div class="col-auto">
-                <button type="submit" class="btn edit-btn">Sort <i class="fas fa-sort"></i></button>
+                <button type="submit" class="btn edit-btn btn-sm">Sort <i class="fas fa-sort"></i></button>
             </div>
         </div>
     </form>
@@ -55,8 +55,8 @@
                                 <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
                                 <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
                                 <div class="card-action">
-                                    <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn edit-btn">Edit <i class="far fa-edit"></i></a>
-                                    <button type="button" class="btn del-btn" data-toggle="modal" data-target="#delete-modal" data-url="{{ url_for('delete_plant', plant_id=plant._id) }}">
+                                    <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn edit-btn btn-sm">Edit <i class="far fa-edit"></i></a>
+                                    <button type="button" class="btn del-btn btn-sm" data-toggle="modal" data-target="#delete-modal" data-url="{{ url_for('delete_plant', plant_id=plant._id) }}">
                                         Delete <i class="far fa-trash-alt"></i>
                                     </button>
                                 </div>
