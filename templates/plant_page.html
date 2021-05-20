@@ -6,7 +6,7 @@
         <h2 class="text-center">Petiole Plant</h2>
         <div class="container index-cards light-grey-box">
             <div class="row justify-content-center">
-                <div class="col-sm-4 text-center">
+                <div class="col-sm-5 text-center">
                     <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant" onerror="this.onerror=null;this.src='/static/image/backup_image.jpg';">
                     <h3 class="card-title text-capitalize">{{ plant.plant_latin_name }}</h3>
                     <h5 class="card-title text-capitalize"> <em>{{ plant.plant_common_name }}</em></h5>
@@ -20,7 +20,7 @@
                         <a href="{{ url_for('login') }}"><i id="likePlant" class="far fa-heart"></i></a>
                     {% endif%}
                 </div> 
-                <div class="col-sm-4 text-center care-info">
+                <div class="col-sm-5 text-center care-info">
                     <h6 class="card-text"><strong>Care Information</strong></h6>
                     <p class="card-text"><b>Lighting:</b> {{ plant.lighting }}</p>
                     <p class="card-text"><b>Watering:</b> {{ plant.watering }}</p>
