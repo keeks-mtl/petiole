@@ -35,7 +35,8 @@ def plants():
     page = int(request.args.get('page') or 1)
     num = 12
     count = ceil(float(plants_collection.count_documents({}) / num))
-    plants = list(plants_collection.find({}).sort("plant_like", -1).skip((page - 1) * num).limit(num))
+    plants = list(plants_collection.find({}).sort("plant_like", -1).skip(
+        (page - 1) * num).limit(num))
     return render_template(
         "plants.html", plants=plants,
         page=page, count=count, search=False)
@@ -114,9 +115,8 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # grab the session user's username from db
-    user = mongo.db.users.find_one({"username": username.lower()})
 
+    # grab the session user's username from db
     if not is_user(username.lower()):
         return redirect(url_for("login"))
 
@@ -171,7 +171,7 @@ def add_plant():
         if user == session["user"].lower():
             return render_template("add_plant.html")
 
-      # pevents users who are not logged in from accessing
+    # pevents users who are not logged in from accessing
     else:
         return redirect(url_for("plants"))
 
@@ -252,7 +252,7 @@ def like_plant(plant_id):
     user = session["user"].lower()
     user_info = mongo.db.users.find_one(
         {"username": user})
-    
+
     if plant_id not in user_info["liked_plant"]:
         mongo.db.plants.update({
             "_id": ObjectId(plant_id)},
@@ -300,7 +300,7 @@ def search():
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return render_template('404.html', title = '404'), 404
+    return render_template('404.html', title='404'), 404
 
 
 if __name__ == "__main__":
