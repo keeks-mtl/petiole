@@ -268,6 +268,11 @@
 ##### Responsiveness Testing
 -   Make sure sort box and options are readable and in proportion on all screen sizes.  
 
+#### Pagination Feature
+##### General Testing
+- Make sure on pages with more than 12 plant cards that the pagination is visible. 
+- Check that the page that the user is on is the main shade of green.   
+
 ## Bugs
 
 ### Add_plant Bug
