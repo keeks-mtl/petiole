@@ -171,7 +171,7 @@ def add_plant():
         if user == session["user"].lower():
             return render_template("add_plant.html")
 
-        # prevent other registered user access
+      # pevents users who are not logged in from accessing
     else:
         return redirect(url_for("plants"))
 
@@ -216,9 +216,18 @@ def edit_plant(plant_id):
 
 @app.route('/delete_plant/<plant_id>')
 def delete_plant(plant_id):
-    mongo.db.plants.remove({"_id": ObjectId(plant_id)})
-    flash("Plant Successfully Deleted")
-    return redirect(url_for("plants"))
+
+    if "user" in session:
+        user = session["user"].lower()
+
+        if user == session["user"].lower():
+            mongo.db.plants.remove({"_id": ObjectId(plant_id)})
+            flash("Plant Successfully Deleted")
+            return redirect(url_for("plants"))
+
+    # pevents users who are not logged in from accessing
+    else:
+        return redirect(url_for("plants"))
 
 
 @app.route("/plant_page/<plant_id>", methods=["GET", "POST"])
@@ -243,6 +252,7 @@ def like_plant(plant_id):
     user = session["user"].lower()
     user_info = mongo.db.users.find_one(
         {"username": user})
+    
     if plant_id not in user_info["liked_plant"]:
         mongo.db.plants.update({
             "_id": ObjectId(plant_id)},
