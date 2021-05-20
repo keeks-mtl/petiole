@@ -7,21 +7,21 @@
             <form class="col-md-8" method="POST" action="{{ url_for('login') }}">
                 <!-- username -->
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="username">
+                        <label class="col-sm-3 col-form-label" for="username">
                             Username
                         </label>
-                        <div class="col-md-10">
+                        <div class="col-sm-9">
                             <input class="form-control" id="username" name="username" type="text" minlength="5"
-                                max-length="15" pattern="^[a-zA-50-9]{5,15}$" class="validate" required>
+                                max-length="15" class="validate" required>
                         </div>
                     </div>
                     <!-- password -->
                     <div class="form-group row">
-                        <label class="col-md-2 col-form-label" for="password">
+                        <label class="col-sm-3 col-form-label" for="password">
                             Password
                         </label>
-                        <div class="col-md-10">
-                            <input class="form-control" id="password" name="password" pattern="^[a-zA-50-9]{5,15}$" minlength="5"
+                        <div class="col-sm-9">
+                            <input class="form-control" id="password" name="password" minlength="5"
                                 maxlength="15" type="password" class="validate" required>
                         </div>
                     </div>
