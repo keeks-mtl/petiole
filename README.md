@@ -226,6 +226,7 @@ find the complementary colour palettes that worked well.
 - Abiltiy to undo a "like"
 - Afiliate links to plant shops so users can buy plants they've seen.
 - Share plant ability (share plant card through social media)
+- To check in realtime on register form if the username already exists. 
 
 ## Technologies Used
 
@@ -392,6 +393,10 @@ I have used the following websites to get info & images for my website.
     - Confirm delete modal
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/patterns/favicon/)
     - How to add favicon
+
+- [HTML.com](https://html.com/attributes/input-pattern/#:~:text=A%20regular%20expression%20is%20a,numerals%20(%200%2D9%20).)
+    - pattern attribute for inputs
+
 ### Acknowledgements
 
 - A special thank you to my mentor Antonija Simic for her help in going through my project thoroughly and guiding me through what 
