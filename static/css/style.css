@@ -36,12 +36,13 @@ h2 {
     font-weight: 500;
 }
 .navbar-brand img {
-    max-width: 60px;
+    max-width: 50px;
     padding-bottom: 15px;
 }
 .navbar-brand {
     font-family: Pacifico;
-    font-size: 3em;
+    font-size: 2.5em;
+    margin-right: 0;
 }
 
 /* flash messages */
@@ -212,5 +213,11 @@ footer {
     }
     .add-plant-form .label-sm-bold{
         font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 303px) {
+    .footer-icons {
+        font-size: 10px;
     }
 }
