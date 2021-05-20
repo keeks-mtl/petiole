@@ -17,47 +17,46 @@
 ### Elements on Every page
 
 1. Navbar
-..* Click on the **Logo** and confirm it takes you to the all plants page.
-..* Click on the **Brand Name** and confirm it takes you to the all plants page.
-..* Click on **Plants** and confirm it takes you to all plants page.
-..* Click on **Search** and confirm it takes you to the search page.
-..* Click on **Login** and confirm it takes you to the log in page.
-..* Click on **Register** and confirm it takes you to the register page.
-..* Log in to Petiole and confirm that the right links appear (Profile, Plants, Add Plant, Search, Logout).
-..* Click on **Profile** and confirm it takes you to the profile page.
-..* Click on **Add Plant** and confirm it takes you to the add plant page.
-..* Click on **Logout** and confirm it takes you to the log out page and you are no longer logged in.
-..* Check that hamburger icon appears on small devices and fits inline on all small device sizes.
-..* Make sure hamburger icon works and shows all proper links and that they work on all pages. 
+- Click on the **Logo** and confirm it takes you to the all plants page.
+- Click on the **Brand Name** and confirm it takes you to the all plants page.
+- Click on **Plants** and confirm it takes you to all plants page.
+- Click on **Search** and confirm it takes you to the search page.
+- Click on **Login** and confirm it takes you to the log in page.
+- Click on **Register** and confirm it takes you to the register page.
+- Log in to Petiole and confirm that the right links appear (Profile, Plants, Add Plant, Search, Logout).
+- Click on **Profile** and confirm it takes you to the profile page.
+- Click on **Add Plant** and confirm it takes you to the add plant page.
+- Click on **Logout** and confirm it takes you to the log out page and you are no longer logged in.
+- Check that hamburger icon appears on small devices and fits inline on all small device sizes.
+- Make sure hamburger icon works and shows all proper links and that they work on all pages. 
 
 2. Footer
-..* Click on the **Facebook Logo** and confirm that a link to Facebook pops up in another tab. 
-..* Click on the **Instagram Logo** and confirm that a link to Instagram pops up in another tab. 
-..* Click on the **Youtube Logo** and confirm that a link to Youtube pops up in another tab. 
-..* Click on the **Pinterest Logo** and confirm that a link to Pinterest pops up in another tab.
-..* Make sure footer icons are inline on all screen sizes.
-..* Check that the footer remains at the bottom of the pages that there is significantly less on. 
+- Click on the **Facebook Logo** and confirm that a link to Facebook pops up in another tab. 
+- Click on the **Instagram Logo** and confirm that a link to Instagram pops up in another tab. 
+- Click on the **Youtube Logo** and confirm that a link to Youtube pops up in another tab. 
+- Click on the **Pinterest Logo** and confirm that a link to Pinterest pops up in another tab.
+- Make sure footer icons are inline on all screen sizes.
+- Check that the footer remains at the bottom of the pages that there is significantly less on. 
 
-### Feature Testing
 
-#### All Plants page
+### All Plants page
 
-##### General Testing
+#### General Testing
 - Check if the plant cards are rendered?
 - Check if there are twelve plant cards showing on the page?
 - Make sure the plant cards show in proper rows and columns.
 - Make sure the cards are ordered by most 'likes' and they change order if the 'likes' change.
  
-##### Responsiveness Testing
+#### Responsiveness Testing
 - Check that there are twelve cards on iPad/medium sized screens.
     - Make sure they are rendered in 3 columns.
 - Check that there are twelve3 cards on mobile/small sized screens.
     - Make sure they are rendered in single columns.
 - Make sure there is a seamless change in card placements while manually changing screen size by width. 
 
-#### Search Page
+### Search Page
 
-##### General Testing
+#### General Testing
 - Check that search form is rendered with all options.
 - Make sure cards are ordered by latin name when page is initially opened.
 - Try testing by multiple plant names
@@ -78,12 +77,12 @@
 - Test the **Reset Button** and make sure the plant cards on the search page go back to their initial 
     setup. 
 
-##### Responsiveness Testing
+#### Responsiveness Testing
 - Make sure search form is correctly sized and placed in all size screens.
 
-#### Login
+### Login
 
-##### General Testing
+#### General Testing
 - Make sure login form is rendered.
 - Click on **Register Account** and make sure it takes you to register page.
 - Make sure the validations work
@@ -102,13 +101,13 @@
 - Log in with correct information and make sure it redirects user to their profile
     page. 
     
-##### Responsiveness Testing
+#### Responsiveness Testing
 - Make sure log in form is rendered on all screen sizes with appropriate spacing. 
 - Make sure everything is readable and clear on all screen sizes.
 
-#### Register
+### Register
 
-##### General Testing
+#### General Testing
 - Make sure register form is correctly rendered.
 - Click on **Login** link and check that it redirects to login page.
 - Check that form validations work.
@@ -121,25 +120,25 @@
 - Once registered the user is redirected to the user's profile page with a flash message
     informing them they are registered. 
 
-##### Responsiveness Testing
+#### Responsiveness Testing
 - On screen sizes small and bigger the form labels & inputs are inline.
 - Everything is spaced out and easily readable on all screen sizes. 
 
-#### Profile
+### Profile
 
-##### General Testing
+#### General Testing
 - Title on profile page shows user's username and introduction.
 - Add plant button takes you to add plant page
 - Plant cards are rendered on profile page in order of plant added to database.
 - Edit and delete buttons are visible on plant cards on profile page.
 
-##### Responsiveness Testing
+#### Responsiveness Testing
 - Everything is clearly readable and spaced out properly on each screen size. 
 - On mobile devices all plant cards are ordered in a single column. 
 
-#### Add Plant
+### Add Plant
 
-##### General Testing
+#### General Testing
 - Add plant page is only available to those logged in.
     - if user is not logged in they are redirected to plant page. 
 - Make sure add plant form is rendered on page.
@@ -154,12 +153,12 @@
     redirects to the profile page with a flash message that informs the user
     that they have successfully added the plant. 
 
-##### Responsiveness Testing
+#### Responsiveness Testing
 - On every screen size the form remains readable and properly spaced.
 
-#### Edit Plant
+### Edit Plant
 
-##### General Testing
+#### General Testing
 - The edit plant form is rendered on the page.
 - See if the form is prefiled with the information already in the database. 
 - Check to see if the form validations work. 
@@ -170,12 +169,12 @@
 - Check that the edit plant button redirects the user to the profile page with a flash message that
     informs them that the plant has been edited successfully.
 
-##### Responsiveness Testing
+#### Responsiveness Testing
 - Checked that every screen size the form remains readable and spaced out correctly. 
 
-#### Delete Plant
+### Delete Plant
 
-##### General Testing
+#### General Testing
 - The delete button is only visible to those that are logged and and if they created the plant card.
 - The delete button on every page that it is visible (the plants page, the profile page, the search page and 
     the specific page for that plant) once clicked makes the delete plant modal pop up. 
@@ -188,23 +187,23 @@
 - Log out and try to access the delete_plant url for a specific plant and make sure the plant can 
     not be deleted. 
 
-##### Responsiveness Testing
+#### Responsiveness Testing
 - The delete button is clearly visible on all screen sizes. 
 - Check that the delete plant modal is clearly readable on all screen sizes and is fully reponsive. 
 
-#### Logout
+### Logout
 
-##### General Testing
+#### General Testing
 - Click on the logout navigational link and check that it logs out the user.
 - Make sure the user is redirected to the log in page once they have been logged out. 
 
-##### Responsiveness Testing
+#### Responsiveness Testing
 - Make sure the log out button is accessible on all screen sizes.
 - Make sure the log out buttton works on all screen sizes. 
 
-#### Plant Page for Specific Plant
+### Plant Page for Specific Plant
 
-##### General Testing
+#### General Testing
 - Make sure all the following information about the plant is clearly visible:
     - Image of plant
     - Latin name
@@ -219,13 +218,13 @@
 - Make sure there is a like button on the plant. 
 - Check that once logged in the edit / delete buttons are visible if the user created the plant card.
 
-##### Responsiveness Testing
+#### Responsiveness Testing
 - Check that everything is clear and organized on all screen sizes. 
 - Make sure the two columns change to one column on mobile devices. 
 
-#### Plant cards
+### Plant cards
 
-##### General Testing
+#### General Testing
 - Check that on pages with multiple cards that the plant cards are general uniform in size (okay with slight
     change of size on cards with more information)
 - Ensure the images on the cards are clear and the same size no matter the size of the image chosen. 
@@ -237,14 +236,14 @@
     - That when the user is logged in and created the plant card the card shows the edit and delete 
         buttons. 
 
-##### Responsiveness Testing
+#### Responsiveness Testing
 - Check that the plant cards are easily read on all screen sizes dependent on their size (the plant cards size)
     - On big screens when they are in columns of four they are easily read.
     - On extra small screens when they are in single columns they are easily read. 
 
-#### Like Plant
+### Like Plant
 
-##### General Testing
+#### General Testing
 - Check that you can not like a plant unless logged in and that it redirects the user to the log in page.
 - Visit the plant page of a plant that was liked by a user and check that the like button is red(or liked).
 - Visit a plant page of a plant that was not liked by the user and check that the like button is grey(or not liked).
@@ -252,12 +251,12 @@
     - the plant id isn't added to their liked_plant array on the database
     - The plant_like number isn't incremented on the database. 
  
-##### Responsiveness Testing
+#### Responsiveness Testing
 - Check the size of the heart on all screen sizes to make sure it doesn't overpower the text around it.
 
-#### Sort Feature
+### Sort Feature
 
-##### General Testing
+#### General Testing
 - Select plant latin name from the dropdown list and click the sort button.
     - Check that the plants are in order of their latin names.
 - Select plant common name from the drowpdown list and click the sort button.
@@ -265,11 +264,11 @@
 - click the sort button when nothing is chosen from the drowndown list.
     - check that the plants are in order of when they were added. 
 
-##### Responsiveness Testing
+#### Responsiveness Testing
 -   Make sure sort box and options are readable and in proportion on all screen sizes.  
 
-#### Pagination Feature
-##### General Testing
+### Pagination Feature
+#### General Testing
 - Make sure on pages with more than 12 plant cards that the pagination is visible. 
 - Check that the page that the user is on is the main shade of green.   
 
