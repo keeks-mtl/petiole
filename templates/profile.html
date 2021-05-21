@@ -2,11 +2,13 @@
 {% block content %}
 
     <div class="container profile-container">
+        <!-- header -->
         <h2 class="text-center text-capitalize">
             Welcome {{ username }},
         </h2>
         <h3 class="text-center">here are your plants!</h3>
         <div class="row">
+            <!-- add plant button -->
             <div class="col-12 text-center">
                 <a href="{{ url_for('add_plant') }}" class="btn btn-green">
                     Add Plant <i class="fas fa-plus-square right"></i>
@@ -15,6 +17,7 @@
         </div>
     </div>
 
+    <!-- sort plants dropdown -->
     <form class="box-light-grey" method="POST" action="{{ url_for('sort') }}">
         <div class="form-row align-items-center align-self-end">
             <div class="col-auto">
@@ -33,8 +36,10 @@
     
     <div class="container index-cards box-light-grey">
         <div class="row">
+            <!-- loop to through plants -->
             {% for plant in plants%}
                 {% if session.user|lower == plant.created_by|lower %}
+                    <!-- individual plant card -->
                     <div class="col-sm-6 col-md-4 col-lg-3 text-center">
                         <div class="card">
                                 <img class="card-img-top plant-img img-fluid" src="{{ plant.plant_image }}" alt="User submitted plant image" onerror="this.onerror=null;this.src='/static/image/backup_image.jpg';">
@@ -49,8 +54,9 @@
                                 <p class="card-text"><b>Grow Speed:</b> {{ plant.grow_speed }}</p>
                                 <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
                                 <p class="card-text"> <b>Suitable For:</b>
+                                    <!-- loop to loop through suitable_for options -->
                                     {% for room in plant.suitable_for %}
-                                    <p class="badge badge-pill badge-secondary"> {{ room }}</p> 
+                                        <p class="badge badge-pill badge-secondary"> {{ room }}</p> 
                                     {% endfor %}
                                 <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
                                 <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
@@ -67,7 +73,4 @@
             {% endfor %}
         </div>
     </div>
-    
-    
-
 {% endblock%}

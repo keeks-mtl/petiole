@@ -38,7 +38,7 @@
                 <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
                 <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
                 <p class="card-text text-capitalize"><em>Created by: {{ plant.created_by }}</em></p>
-                <!-- edit/delete buttons for logged in users -->
+                <!-- edit/delete buttons for logged in user who created plant -->
                 {% if session.user|lower == plant.created_by|lower %}
                     <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn btn-edit">Edit <i
                             class="far fa-edit"></i></a>
