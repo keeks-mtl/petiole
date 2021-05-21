@@ -24,7 +24,7 @@
                                 <!-- loop to get suitable for options -->
                                 <p class="card-text"><b>Suitable For:</b> 
                                     {% for room in plant.suitable_for %}
-                                        <a href="" class="badge badge-pill badge-secondary"> {{ room }}</a> 
+                                        <p class="badge badge-pill badge-secondary"> {{ room }}</p> 
                                     {% endfor %}
                                 </p>
                                 <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
