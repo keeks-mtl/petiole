@@ -49,11 +49,11 @@
                 <div class="row">
                     <!-- reset search -->
                     <div class="col text-center">
-                        <a href="{{ url_for('search') }}" class="btn btn-delete">
+                        <a href="{{ url_for('search') }}" class="btn btn-red">
                             Reset <i class="fas fa-undo"></i>
                         </a>
                     <!-- submit button -->
-                        <button type="submit" class="btn btn-green">
+                        <button type="submit" class="btn btn-main-color">
                             Search <i class="fas fa-search"></i>
                         </button>
                     </div>
@@ -97,8 +97,8 @@
                         <p class="card-text text-capitalize"><em>Created by: {{ plant.created_by }}</em></p>
                         <!-- edit and delete buttons for logged in user who created plant -->
                         {% if session.user|lower == plant.created_by|lower %}
-                        <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn btn-edit btn-sm">Edit <i class="far fa-edit"></i></a>
-                        <button type="button" class="btn btn-delete btn-sm" data-toggle="modal" data-target="#delete-modal"
+                        <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn btn-dark-green btn-sm">Edit <i class="far fa-edit"></i></a>
+                        <button type="button" class="btn btn-red btn-sm" data-toggle="modal" data-target="#delete-modal"
                             data-url="{{ url_for('delete_plant', plant_id=plant._id) }}">
                             Delete <i class="far fa-trash-alt"></i>
                         </button>

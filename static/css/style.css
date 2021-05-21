@@ -68,15 +68,15 @@ h2 {
 }
 
 /* buttons */
-.btn-green{
+.btn-main-color {
     background-color: var(--main-color);
 }
 
-.btn-delete{
+.btn-red{
     background-color: var(--third-color);
 }
 
-.btn-edit {
+.btn-dark-green {
     background-color: var(--secondary-color);
 }
 
