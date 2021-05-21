@@ -177,30 +177,20 @@ label {
 
 /* like plant */
 
-#likePlant {
+.icon-like.far {
   color: #aab8c2;
   cursor: pointer;
   font-size: 3em;
-  align-self: center;  
-  transition: color 0.2s ease-in-out;
 }
 
-#likePlant:hover {
-  color: grey;
-}
-
-#likePlant::selection {
-  background: transparent;
-}
-
-/* check.... */
-#likePlant::moz-selection {
-  color: none;
-  background: transparent;
-}
-
-#likePlant.fas {
+.icon-like:hover {
   color: #e2264d;
+}
+
+
+.icon-like.fas {
+  color: #e2264d;
+  font-size: 3em;
 }
 
 /* footer */
@@ -237,7 +227,7 @@ footer {
     .add-plant-form .label-sm-bold{
         font-weight: bold;
     }
-    #likePlant {
+    .icon-like.far .icon-like.fas {
         font-size: 2em;
     }
 }
