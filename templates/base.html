@@ -67,7 +67,7 @@
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                <div class="container-fluid flash-container">
+                <div class="container-fluid container-flash">
                     <div class="row flashes">
                         <div class="col-12">
                             <h4 class="text-center">{{ message }}</h4> 
@@ -95,10 +95,10 @@
                     </div>
                     <div class="text-center modal-body">
                         <p>Are you sure you'd like to delete this plant?</p>
-                        <a id="confirm-delete" class="confirm-delete btn del-btn">Delete Plant <i class="far fa-trash-alt"></i></a>
+                        <a id="confirm-delete" class="confirm-delete btn btn-delete">Delete Plant <i class="far fa-trash-alt"></i></a>
                     </div>
                     <div class="modal-footer">
-                        <a class="btn green-btn" data-dismiss="modal">Cancel</a>
+                        <a class="btn btn-green" data-dismiss="modal">Cancel</a>
                     </div>
                 </div>
             </div>
