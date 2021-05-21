@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 
 
 # check if username matches current user
-def is_user(username):
+def created_by_is_user(username):
     if "user" in session.keys():
         if session["user"] == username:
             return True
@@ -130,7 +130,7 @@ def profile(username):
     """
 
     # checks if session user is profile page's username
-    if not is_user(username.lower()):
+    if not created_by_is_user(username.lower()):
         return redirect(url_for("login"))
 
     # connects the user to their plants and renders page
@@ -154,7 +154,8 @@ def sort():
         sorted_by = request.form.get('sorted_by')
         if sorted_by != '':
             # sort plants by input option
-            plants = list(mongo.db.plants.find({"created_by": username}).sort(sorted_by, 1))
+            plants = list(mongo.db.plants.find(
+                {"created_by": username}).sort(sorted_by, 1))
             return render_template(
                 "profile.html", plants=plants, username=username)
 
@@ -229,7 +230,7 @@ def edit_plant(plant_id):
     plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
 
     # checks if user is the user who created post
-    if not is_user(plant["created_by"]):
+    if not created_by_is_user(plant["created_by"]):
         return redirect(url_for("login"))
 
     if request.method == "POST":
@@ -266,16 +267,16 @@ def delete_plant(plant_id):
     Only allows users logged in to access.
     Checks if user logged in is user who created the plant card.
     """
+    plant = mongo.db.plants.find_one({"_id": ObjectId(plant_id)})
+
+    # checks if user is the user who created post
+    if not created_by_is_user(plant["created_by"]):
+        # pevents users who are not logged in from accessing
+        return redirect(url_for("login"))
+
     if "user" in session:
-        user = session["user"].lower()
-
-        if user == session["user"].lower():
-            mongo.db.plants.remove({"_id": ObjectId(plant_id)})
-            flash("Plant Successfully Deleted")
-            return redirect(url_for("plants"))
-
-    # pevents users who are not logged in from accessing
-    else:
+        mongo.db.plants.remove({"_id": ObjectId(plant_id)})
+        flash("Plant Successfully Deleted")
         return redirect(url_for("plants"))
 
 
