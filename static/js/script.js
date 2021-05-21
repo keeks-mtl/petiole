@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    // delete plant modal function
     $("#delete-modal").on("show.bs.modal", function(event){
         //Get the button that triggered the modal
         var button = $(event.relatedTarget);
@@ -7,6 +8,8 @@ $(document).ready(function(){
         var url = button.data("url");
         $(this).find('#confirm-delete').attr('href', url);
     });
+    
+    // checkbox validation function
     $( '.checkbox-validation' ).on('submit', function(e) {
         // checks if any inputs for suitable_for are checked 
         if($('input[name="suitable_for"]:checked').length === 0) {
