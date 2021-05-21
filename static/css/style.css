@@ -21,9 +21,11 @@ h2 {
     font-family: Pacifico;
 }
 
+/* pagination */
 .pagination a {
     color: black;
 }
+
 .page-link:hover {
     background-color: var(--extra-color);
     color: black;
@@ -34,7 +36,6 @@ h2 {
 }
 
 /* navigational bar */
-
 #petnavbar .nav-link {
     color: black;
     font-weight: 500;
@@ -49,38 +50,45 @@ h2 {
     margin-right: 0;
 }
 
+.navbar {
+    background-color: var(--main-color);
+}
+
 /* flash messages */
 .flashes h4 {
     line-height: 2;
 }
-.flash-container {
+
+.container-flash {
     background-color: var(--extra-color);
 }
 
 /* buttons */
-.green-btn {
+.btn-green{
     background-color: var(--main-color);
 }
-.del-btn {
+
+.btn-delete{
     background-color: var(--third-color);
 }
-.edit-btn {
+
+.btn-edit {
     background-color: var(--secondary-color);
 }
+
 .badge-pill {
     background-color: var(--main-color);
 }
-.close-btn {
+
+/* check */
+.close-btn .btn-close{
     background-color: #f7f7f7;
 }
+
 /* images */
-img {
-  max-width: 300px;
-  height: auto;
-}
-/* flash messages */
-.flashes h4 {
-    line-height: 2;
+.plant-img {
+    height: 16rem;
+    object-fit: cover
 }
 
 /* icons */
@@ -92,12 +100,12 @@ img {
 .register-form, .login-form, .profile-container, .main-plants-container {
     margin-top: 4%;
 }
-.container-footer {
-    background-color: var(--main-color);
+
+.box-light-grey {
+    background-color: rgba(240,252,242,0.2);
+    padding: 2%;
 }
-.navbar {
-    background-color: var(--main-color);
-}
+
 /* register page */
 .register-form button {
     margin-top: 5%;
@@ -119,21 +127,20 @@ img {
 }
 
 /* profile page */
+
 .profile-container a {
     margin: 2%;
-}
-.plant-img {
-    height: 16rem;
-    object-fit: cover
 }
 
 .plant-info {
     background-color: rgba(240,252,242,0.2);
     padding: 2%;
 }
+
 .link-green {
     color: var(--extra-color);
 }
+
 .link-green:hover {
     color: var(--main-color);
 }
@@ -148,15 +155,12 @@ label {
     margin-top: 4%;
 }
 
-.light-grey-box {
-    background-color: rgba(240,252,242,0.2);
-    padding: 2%;
-}
-
 /* Main plant page */
+
 .index-cards {
     margin-top: 2%;
 }
+
 .index-cards .care-info {
     margin-top: 4%;
 }
@@ -166,9 +170,12 @@ label {
 }
 
 /* plant_page */
+
 .plant-page-container h2 {
     margin-top: 20px;
 }
+
+/* like plant */
 
 #likePlant {
   color: #aab8c2;
@@ -183,10 +190,10 @@ label {
 }
 
 #likePlant::selection {
-  color: none;
   background: transparent;
 }
 
+/* check.... */
 #likePlant::moz-selection {
   color: none;
   background: transparent;
@@ -197,23 +204,33 @@ label {
 }
 
 /* footer */
+
 footer {
     margin-top: 4%;
 }
+
 .container-footer i {
     font-size: 3em;
     margin: 10% 4% 5%;
 }
+
 .container-footer p {
     margin-bottom: 5%;
 }
 
+.container-footer {
+    background-color: var(--main-color);
+}
+
 /* error */
+
 .container-error {
     margin-top: 150px;
 }
 
+/* media queries for extra-small devices */
 @media only screen and (max-width: 575px) {
+
     .add-plant-form span{
         font-weight: bold;
     }
@@ -222,10 +239,11 @@ footer {
     }
     #likePlant {
         font-size: 2em;
-}
+    }
 }
 
 @media only screen and (max-width: 303px) {
+
     .footer-icons {
         font-size: 10px;
     }
