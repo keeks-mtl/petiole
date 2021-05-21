@@ -167,8 +167,8 @@ def sort():
 @app.route("/logout")
 def logout():
     # remove user from session cookies
-    flash("You have been logged out")
     session.pop("user")
+    flash("You have been logged out")
     return redirect(url_for("login"))
 
 
@@ -280,7 +280,7 @@ def delete_plant(plant_id):
 
 
 # Plant Page of Specific Plant
-@app.route("/plant_page/<plant_id>", methods=["GET", "POST"])
+@app.route("/plant_page/<plant_id>", methods=["GET"])
 def plant_page(plant_id):
     """
     Displays information on plant to all users.
