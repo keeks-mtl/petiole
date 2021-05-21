@@ -15,18 +15,21 @@
 </head>
 <body>
     <header>
-        <!-- top navbar -->
+        <!-- navigation bar -->
         <nav class="navbar shadow-sm navbar-light navbar-expand-sm">
+            <!-- petiole brand -->
             <a href="{{ url_for('plants') }}" class="navbar-brand">
                 <img src="/static/image/petiole-brand.png" alt="Petiole Logo"> 
                 Petiole
             </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#petnavbar" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#petnavbar"
+                aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
             <div class="navbar-collapse collapse justify-content-stretch" id="petnavbar">
                 <ul class="navbar-nav ml-auto">
+                    <!-- links for logged in users -->
                     {% if session.user %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
@@ -43,6 +46,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
                         </li>
+                    <!-- links for users not logged in -->
                     {% else %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url_for('plants') }}">Plants</a>
@@ -93,10 +97,12 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    <!-- delete plant confirmation -->
                     <div class="text-center modal-body">
                         <p>Are you sure you'd like to delete this plant?</p>
                         <a id="confirm-delete" class="confirm-delete btn btn-delete">Delete Plant <i class="far fa-trash-alt"></i></a>
                     </div>
+                    <!-- cancel button -->
                     <div class="modal-footer">
                         <a class="btn btn-green" data-dismiss="modal">Cancel</a>
                     </div>
@@ -123,8 +129,9 @@
             </div>
         </div>
     </footer>
-    
-<!-- /footer -->
+    <!-- /footer -->
+
+    <!-- scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
