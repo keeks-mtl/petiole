@@ -2,47 +2,55 @@
 {% block content %}
 
 
-    <div class="container plant-page-container">
-        <h2 class="text-center">Petiole Plant</h2>
-        <div class="container index-cards box-light-grey">
-            <div class="row justify-content-center">
-                <div class="col-sm-5 text-center">
-                    <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant" onerror="this.onerror=null;this.src='/static/image/backup_image.jpg';">
-                    <h3 class="card-title text-capitalize">{{ plant.plant_latin_name }}</h3>
-                    <h5 class="card-title text-capitalize"> <em>{{ plant.plant_common_name }}</em></h5>
-                    {% if session.user|lower %}
-                        {% if is_liked == true %}
-                            <a href=""><i id="likePlant" class="fas fa-heart"></i></a>
-                        {% else %}
-                        <a href="{{ url_for('like_plant', plant_id=plant._id) }}"><i id="likePlant" class="far fa-heart"></i></a>
-                        {% endif %}
+<div class="container plant-page-container">
+    <h2 class="text-center">Petiole Plant</h2>
+    <!-- plant information -->
+    <div class="container index-cards box-light-grey">
+        <div class="row justify-content-center">
+            <div class="col-sm-5 text-center">
+                <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant"
+                    onerror="this.onerror=null;this.src='/static/image/backup_image.jpg';">
+                <h3 class="card-title text-capitalize">{{ plant.plant_latin_name }}</h3>
+                <h5 class="card-title text-capitalize"> <em>{{ plant.plant_common_name }}</em></h5>
+                <!-- like plant heart -->
+                {% if session.user|lower %}
+                    {% if is_liked == true %}
+                        <a href=""><i id="likePlant" class="fas fa-heart"></i></a>
                     {% else %}
-                        <a href="{{ url_for('login') }}"><i id="likePlant" class="far fa-heart"></i></a>
-                    {% endif%}
-                </div> 
-                <div class="col-sm-5 text-center care-info">
-                    <h6 class="card-text"><strong>Care Information</strong></h6>
-                    <p class="card-text"><b>Lighting:</b> {{ plant.lighting }}</p>
-                    <p class="card-text"><b>Watering:</b> {{ plant.watering }}</p>
-                    <p class="card-text"><b>Grow Speed:</b> {{ plant.grow_speed }}</p>
-                    <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
-                    <p class="card-text"> <b>Suitable For:</b>
-                    {% for room in plant.suitable_for %}
-                        <p class="badge badge-pill badge-secondary"> {{ room }}</p> 
-                    {% endfor %}
-                    <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
-                    <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
-                    <p class="card-text text-capitalize"><em>Created by: {{ plant.created_by }}</em></p>
-                    {% if session.user|lower == plant.created_by|lower %}
-                        <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn btn-edit">Edit <i class="far fa-edit"></i></a>
-                        <button type="button" class="btn btn-delete" data-toggle="modal" data-target="#delete-modal" data-url="{{ url_for('delete_plant', plant_id=plant._id) }}">
-                            Delete <i class="far fa-trash-alt"></i>
-                        </button>
+                        <a href="{{ url_for('like_plant', plant_id=plant._id) }}"><i id="likePlant"
+                                class="far fa-heart"></i></a>
                     {% endif %}
-                    </div>
-                </div>   
+                {% else %}
+                    <a href="{{ url_for('login') }}"><i id="likePlant" class="far fa-heart"></i></a>
+                {% endif%}
+            </div>
+            <!--  care information on plant -->
+            <div class="col-sm-5 text-center care-info">
+                <h6 class="card-text"><strong>Care Information</strong></h6>
+                <p class="card-text"><b>Lighting:</b> {{ plant.lighting }}</p>
+                <p class="card-text"><b>Watering:</b> {{ plant.watering }}</p>
+                <p class="card-text"><b>Grow Speed:</b> {{ plant.grow_speed }}</p>
+                <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
+                <p class="card-text"> <b>Suitable For:</b>
+                {% for room in plant.suitable_for %}
+                    <p class="badge badge-pill badge-secondary"> {{ room }}</p>
+                {% endfor %}
+                <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
+                <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
+                <p class="card-text text-capitalize"><em>Created by: {{ plant.created_by }}</em></p>
+                <!-- edit/delete buttons for logged in users -->
+                {% if session.user|lower == plant.created_by|lower %}
+                    <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn btn-edit">Edit <i
+                            class="far fa-edit"></i></a>
+                    <button type="button" class="btn btn-delete" data-toggle="modal" data-target="#delete-modal"
+                        data-url="{{ url_for('delete_plant', plant_id=plant._id) }}">
+                        Delete <i class="far fa-trash-alt"></i>
+                    </button>
+                {% endif %}
             </div>
         </div>
     </div>
-    
+</div>
+
+
 {% endblock %}
