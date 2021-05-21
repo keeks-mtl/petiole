@@ -15,13 +15,13 @@
                 <!-- like plant heart -->
                 {% if session.user|lower %}
                     {% if is_liked == true %}
-                        <a href=""><i id="likePlant" class="fas fa-heart"></i></a>
+                        <a href=""><i class="fas fa-heart icon-like"></i></a>
                     {% else %}
-                        <a href="{{ url_for('like_plant', plant_id=plant._id) }}"><i id="likePlant"
-                                class="far fa-heart"></i></a>
+                        <a href="{{ url_for('like_plant', plant_id=plant._id) }}"><i
+                                class="far fa-heart icon-like"></i></a>
                     {% endif %}
                 {% else %}
-                    <a href="{{ url_for('login') }}"><i id="likePlant" class="far fa-heart"></i></a>
+                    <a href="{{ url_for('login') }}"><i class="far fa-heart icon-like"></i></a>
                 {% endif%}
             </div>
             <!--  care information on plant -->
