@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    {% if plants.created_by|length > 0 %}
+    {% if plants|length > 0 %}
     <!-- sort plants dropdown -->
     <form class="box-light-grey" method="POST" action="{{ url_for('sort') }}">
         <div class="form-row align-items-center align-self-end">
@@ -34,12 +34,10 @@
             </div>
         </div>
     </form>
-    
     <div class="container index-cards box-light-grey">
         <div class="row">
             <!-- loop to through plants -->
             {% for plant in plants%}
-                {% if session.user|lower == plant.created_by|lower %}
                     <!-- individual plant card -->
                     <div class="col-sm-6 col-md-4 col-lg-3 text-center">
                         <div class="card">
@@ -70,7 +68,6 @@
                             </div>
                         </div>
                     </div>        
-                {% endif %}
             {% endfor %}
         </div>
     </div>
