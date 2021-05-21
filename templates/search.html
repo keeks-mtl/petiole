@@ -3,6 +3,7 @@
 
     <div class="container-fluid no-gutters search-plant-form">
         <div class="row justify-content-center">
+            <!-- search box -->
             <form class="col-12 box-light-grey" method="POST" action="{{ url_for('search') }}">
                 <h2 class="text-center">Search Plants</h2>
                 <!-- Plant name search (both latin & common) -->
@@ -60,11 +61,12 @@
             </form>
         </div>
     </div>
-
+    <!-- search results -->
     {% if plants|length > 0 %}
     <div class="container box-light-grey">
         <h2 class="text-center">Results</h2>
         <div class="row index-cards">
+            <!-- loop to loop through plants -->
             {% for plant in plants %}
             <div class="col-sm-6 col-md-4 col-lg-3 text-center">
                 <div class="card">
@@ -77,6 +79,7 @@
                         </h5>
                         <h6 class="card-subtitle mb-2 text-muted text-capitalize">{{ plant.plant_common_name }}</h6>
                     </div>
+                    <!-- plant care information -->
                     <div class="card-body">
                         <h5 class="card-text"><strong> Care Information</strong></h5>
                         <p class="card-text"><b>Lighting:</b> {{ plant.lighting }}</p>
@@ -84,6 +87,7 @@
                         <p class="card-text"><b>Grow Speed:</b> {{ plant.grow_speed }}</p>
                         <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
                         <p class="card-text"><b>Suitable For:</b>
+                            <!-- loop for suitable_for options -->
                             {% for room in plant.suitable_for %}
                             <p class="badge badge-pill badge-secondary"> {{ room }}</p>
                             {% endfor %}
@@ -91,6 +95,7 @@
                         <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
                         <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
                         <p class="card-text text-capitalize"><em>Created by: {{ plant.created_by }}</em></p>
+                        <!-- edit and delete buttons for logged in user who created plant -->
                         {% if session.user|lower == plant.created_by|lower %}
                         <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn btn-edit btn-sm">Edit <i class="far fa-edit"></i></a>
                         <button type="button" class="btn btn-delete btn-sm" data-toggle="modal" data-target="#delete-modal"
@@ -104,28 +109,28 @@
             {% endfor %}
         </div>
     </div>
+    <!-- no results to search statement -->
     {% else %}
         <h2 class="text-center mt-5">No Results Found</h2>
     {% endif %}
 
-    
+
     <!-- pagination -->
-        {% if search == False %}
-            <nav aria-label="page navigation">
-                <ul class="pagination justify-content-center">
-                    {% for i in range(0, count) %} 
-                        <li class="page-item">
-                            {% if i+1 == page %}
-                            <a class="page-link active">
-                            {% else %}
-                            <a class="page-link" href="{{ url_for('search', page=i+1) }}">
-                            {% endif %}
-                            {{ i + 1  }}
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </nav>
-        {% endif %}
-    
+    {% if search == False %}
+        <nav aria-label="page navigation">
+            <ul class="pagination justify-content-center">
+                {% for i in range(0, count) %}
+                <li class="page-item">
+                    {% if i+1 == page %}
+                        <a class="page-link active">
+                    {% else %}
+                        <a class="page-link" href="{{ url_for('search', page=i+1) }}">
+                    {% endif %}
+                    {{ i + 1  }}
+                        </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    {% endif %}
 {% endblock %}
