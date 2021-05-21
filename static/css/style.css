@@ -21,6 +21,10 @@ h2 {
     font-family: Pacifico;
 }
 
+.col-sm-6.col-md-4 {
+    margin-bottom: 20px;
+}
+
 /* pagination */
 .pagination a {
     color: black;
