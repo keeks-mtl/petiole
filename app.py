@@ -135,7 +135,7 @@ def profile(username):
 
     # connects the user to their plants and renders page
     if session["user"]:
-        plants = list(mongo.db.plants.find())
+        plants = list(mongo.db.plants.find({"created_by": username}))
         return render_template(
             "profile.html", username=username, plants=plants)
 
@@ -147,20 +147,20 @@ def sort():
     Get's information from sort form.
     Sort's plants on page by inputs
     """
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
     if request.method == "POST":
         # get input from form
         sorted_by = request.form.get('sorted_by')
         if sorted_by != '':
-            username = mongo.db.users.find_one(
-                {"username": session["user"]})["username"]
             # sort plants by input option
-            plants = mongo.db.plants.find().sort(sorted_by, 1)
+            plants = list(mongo.db.plants.find({"created_by": username}).sort(sorted_by, 1))
             return render_template(
                 "profile.html", plants=plants, username=username)
 
     # when sort option not chosen plants ordered by entry
-    plants = mongo.db.plants.find()
-    return render_template("profile.html", plants=plants)
+    plants = list(mongo.db.plants.find({"created_by": username}))
+    return render_template("profile.html", username=username, plants=plants)
 
 
 # Log Out
