@@ -185,7 +185,8 @@
 - The delete plant button on the delete plant modal redirects the user to the user's profile page
     and there is a flash message that informs the user they have successfully deleted the plant. 
 - Log out and try to access the delete_plant url for a specific plant and make sure the plant can 
-    not be deleted. 
+    not be deleted.
+- Log in and try to access the delete_plant url for a specific plant that wasn't created by that user.
 
 #### Responsiveness Testing
 - The delete button is clearly visible on all screen sizes. 
@@ -298,5 +299,12 @@
 ### Toxic Search Bug
 #### Bug
 - When you try searching for plants that aren't toxic then you get no results.
+#### Fix
+- 
+
+### Delete Plant Bug
+#### Bug
+- When you are logged in as a user you can access the delete_plant url of a specific plant that 
+    you did not create and delete a plant. 
 #### Fix
 - 

@@ -31,7 +31,8 @@ plant collection.
 - As a user, I want to be able to add my plants to the website.
 - As a user, I want to be able to "like" a specific plant.
 - As a user, I want to be able to edit a plant post.
-- As a user, I want to be able to delete plants i've posted. 
+- As a user, I want to be able to delete plants i've posted.
+ 
 ** admin **
 
 
