@@ -533,6 +533,8 @@ I have used the following websites to get info & images for my website.
     - Pattern attribute for inputs.
 -[StackOverflow](https://stackoverflow.com/questions/47329938/block-form-submit-if-no-one-checkbox-checked)
     - Jquery validations for checkboxes
+- [StackOverflow](https://stackoverflow.com/questions/8605516/default-select-option-as-blank)
+    - Valid empty option formatting
 
 ### Acknowledgements
 

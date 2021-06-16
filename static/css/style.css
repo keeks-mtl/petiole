@@ -44,10 +44,12 @@ h2 {
     color: black;
     font-weight: 500;
 }
+
 .navbar-brand img {
     max-width: 50px;
     padding-bottom: 15px;
 }
+
 .navbar-brand {
     font-family: Pacifico;
     font-size: 2.5em;
@@ -84,11 +86,6 @@ h2 {
     background-color: var(--main-color);
 }
 
-/* check */
-.close-btn .btn-close{
-    background-color: #f7f7f7;
-}
-
 /* images */
 .plant-img {
     height: 16rem;
@@ -114,9 +111,11 @@ h2 {
 .register-form button {
     margin-top: 5%;
 }
+
 .register-form h2 {
     margin-bottom: 5%;
 }
+
 .link-blue {
     color: var(--fourth-color);
     font-weight: 800;
@@ -126,6 +125,7 @@ h2 {
 .login-form button{
     margin-top: 5%;
 }
+
 .login-form h2 {
     margin-bottom: 5%;
 }
