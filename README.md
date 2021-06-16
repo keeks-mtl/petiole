@@ -99,6 +99,14 @@ Plant page - desktop
 - The navigation bar shows Plants, Search, Login, and Register when a user is not logged in and when a user
     is logged in it shows Plants, Add Plant, Profile, Search, and Logout. 
 
+Visitor Navigational Bar
+
+<img src="./static/images/readme/visitor-nav.png"/>
+
+Logged In User Navigational Bar
+
+<img src="./static/images/readme/registereduser-nav.png"/>
+
 ### Plant Cards
 
 - There are multiple cards across the site to include information about the plants themselves.
@@ -109,16 +117,30 @@ Plant page - desktop
 - The plant name is also a link to the plant page where you can see the information clearly and like the plant 
     as well. 
 
+1. Plant Card Created By User Logged In
+<img src="./static/images/readme/plantcard.png"/>
+
+2. Plant Card On Plants Page
+<img src="./static/images/readme/plantcard-plantspage.png"/>
+
+3. Plant Card On Search Page
+<img src="./static/images/readme/plantcard-searchpage.png"/>
+
 ### Pagination
+
+<img src="./static/images/readme/pagination.png"/>
 
 - The feature is used to make sure pages aren't filled with plant cards slowing down users viewing. 
 - The main plant page and the search page displays 12 plant cards and displays the other cards on serveral pages. 
 
 ### Home/Plants Page
 
+<img src="./static/images/readme/plants-page.png"/>
 - Displays plants sorted by their popularity or "Likes"
 
 ### Register
+
+<img src="./static/images/readme/register.png"/>
 
 - The registration page allows users to register to use all of Pretiole's features.
 - The registration form requires all of the following information to create an account:
@@ -134,6 +156,8 @@ Plant page - desktop
 
 ### Log In
 
+<img src="./static/images/readme/login.png"/>
+
 - Returning users who have already registered can use the log in form to 
     access Pretiole and their account. 
 - The form requires a username and password which is then checked against their
@@ -144,13 +168,25 @@ Plant page - desktop
 
 ### Profile Page
 
+<img src="./static/images/readme/profile.png"/>
+
 - The profile page allows users to see the plants that user has created. 
 - On the page the user has the ability to sort their plants by either the plant's latin name
     or the plant's common name. 
 - The Profile page shows the user's username and users also have the ability to click on the 
     "Add Plant" button to add to their collection. 
 
+### Sort Plant Features
+
+<img src="./static/images/readme/sort.png"/>
+
+- On the profile page there is the ability to sort plants by these two options:
+    - Plant Latin Name
+    - Plant Common Name
+
 ### Add Plant Page
+
+<img src="./static/images/readme/addplant.png"/>
 
 - The add plant page allows a user to submit a form to create a plant card with the following inputs:
     - Latin Name (text field)
@@ -173,6 +209,8 @@ Plant page - desktop
 
 ### Edit Plant 
 
+<img src="./static/images/readme/editplant.png"/>
+
 - The edit plant feature allows user's to edit the information on the plant card and update the card with 
     the new information.
 - Only the logged in user who created the plant can use the edit plant form to update the information. 
@@ -189,6 +227,8 @@ Plant page - desktop
 
 ### Delete Plant
 
+<img src="./static/images/readme/deleteplantmodal.png"/>
+
 - A user can only use the delete plant function when they are logged in and they
     created the plant card. 
 - When the "Delete" button is clicked a modal pops up asking for confirmation that the 
@@ -204,6 +244,8 @@ Plant page - desktop
 
 ### Plant Page
 
+<img src="./static/images/readme/plantpage.png"/>
+
 - Each specific plant has a page where users can see the information on the plant. 
 - Everyone has access to this page through any page that has the specific plant's 
     plant card and is easily navigatable. 
@@ -217,6 +259,8 @@ Plant page - desktop
 
 ### Search
 
+<img src="./static/images/readme/searchplants.png"/>
+
 - Ability to search for specific plants by either their latin or common name. 
 - Also have the ability to search for popular plant characterizations such as:
     - What lighting it requires
@@ -224,6 +268,8 @@ Plant page - desktop
     - Whether it is toxic/animal safe
 
 ### Log out
+
+<img src="./static/images/readme/logout.png"/>
 
 - The log out functionaly is located on the navigational bar and allows users 
     the ability to log out when clicked.
@@ -235,6 +281,7 @@ Plant page - desktop
 - Comment section for registered users to discuss the plants and share tips.
 - Private messaging abilities for members to message other members to share information
     privately.
+- Pagination on search page. 
 - Abiltiy to undo a "like".
 - Afiliate links to plant shops so users can buy plants they've seen.
 - Share plant ability (share plant card through social media).
