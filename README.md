@@ -1,11 +1,13 @@
 # Petiole
+<img src="./static/images/readme/petiole-responsive.png"/>
+
+<a href="https://restruction.herokuapp.com/">Petiole Deployed on Heroku</a>
+
+<a href="https://github.com/keeks-mtl/petiole">Petiole Github Repository</a>
 
 ## Goal For This Project
 
-Petiole is a place for plant lovers to unite. Creating a safe haven to share their plant 
-babies and see other beautiful and rare plants that others have collected. An opportunity
-to see how other people feel about different plants and get inspiration to expand your 
-plant collection. 
+"Petiole" is a place for plant lovers to unite. Creating a safe haven to share their plant babies and see other beautiful and rare plants that others have collected. An opportunity to see how other people feel about different plants and get inspiration to expand your plant collection. 
 
 ## Table of Contents
 
@@ -65,13 +67,28 @@ plant collection.
 - The colour theme included five main colours that complimented one another.
 - The colours were chosen because of their contrast and the way they can be associated with plants.
 - Buttons were also color coded in a way that intrinsically implied what they accomplished. A soft red/pink
-    to cancel or delete and a green to add/go forward. 
+    to cancel or delete and a green to add/go forward.
+
+<img src="./static/images/readme/petiole-colors.png" height="150px"/>
 
 ### Wireframes
 
-- The wireframes that were used to initially design each page are below:
-    - link
+- The wireframes that were used to initially design Petiole are below:
 
+Plants page - desktop
+
+<img src="./static/images/readme/homepage-wireframe.png"/>
+
+Plants page - mobile
+
+<img src="./static/images/readme/mobile-wireframe.png"/>
+
+Plant page - desktop
+
+<img src="./static/images/readme/plantpage-wireframe.png"/>
+
+#### Changes to Wireframes
+- The final site differs quite a bit from the original wireframes in many ways. 
 
 ## Features Implemented
 
@@ -271,6 +288,7 @@ Like count | plant_like | None | Decimal128
 - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
   - Used for the styling of the site.
 - [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+  - JavaScript was used to add logic and functionality to my site.
 - [JQuery](https://jquery.com/)
     - Used to activate the delete modal and delete funtionality. 
 - [Python](https://www.python.org/)
@@ -338,13 +356,25 @@ Testing information can be found in this file : [testing.md](testing.md)
 - Open your IDE and in your terminal and clone the git repository with the following command.
     - git clone https://github.com/keeks-mtl/petiole
 - Create environment file called "env.py" and add :
-    - MONGO_URI= mongodb+srv:// (and link to your database)
-    - SECRET_KEY= <your secret key>
+    ```
+    import os
+
+    os.environ.setdefault("IP", "0.0.0.0")
+    os.environ.setdefault("PORT", "5000")
+    os.environ.setdefault("SECRET_KEY", "<your secret key>")
+    os.environ.setdefault("MONGO_URI", "<your mongo uri>")
+    os.environ.setdefault("MONGO_DBNAME", "petiole")
+    ```
+
 - Add your env.py to your .gitignore. so it's not uploaded to github at any point.
 - Upgrade pip locally with the command:
-    - "pip install -U pip"
+    ```
+    pip install -U pip
+    ```
 - Install the modules used to run the application using in your terminal:
-    - "pip freeze > requirements.txt"
+    ```
+    pip freeze > requirements.txt
+    ```
 - In app.py, switch debug=False to debug=True
 - Create a MongoDB account and create a database called "petiole"
 - Create the following collections:
@@ -393,7 +423,7 @@ git clone https://github.com/keeks-mtl/petiole
 ```
 - create a requirements.txt file using the terminal command
 ```
-pip freeze > requirements.txt
+pip3 freeze > requirements.txt
 ```
 - Create a Procfile with the terminal command 
 ```
@@ -405,15 +435,18 @@ echo web: python app.py > Procfile
 - Create a new app on Heroku by clicking the "New" button in your dashboard and then 'Create New App'.
 - Give the app an unique name and set the region.
 - In the dashboard for your new app, click on "Deploy" > "Deployment method" and select GitHub
+- A prompt will ask you to choose a GitHub repository to connect to. 
+- Enter the repository name for the project and click search.
+- Once you've found the repository, click the connect button.
 - Confirm the linking of the Heroku app to the correct GitHub repository.
 - In the heroku dashboard for the app, click on 'Settings' > 'Reveal Config Vars'
 - Set the following config vars:
 ```
 IP = 0.0.0.0
 MONGO_DBNAME = petiole
-MONGO_URI = `mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority`
+MONGO_URI = 'mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority'
 PORT = 5000 
-SECRET_KEY = `<your_secret_key>`
+SECRET_KEY = '<your_secret_key>'
 ```
 - in the Heroku dashboard, click "Deploy"
 - Make sure master branch is selected and then click "Deploy Branch"
