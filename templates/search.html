@@ -49,11 +49,11 @@
                 <div class="row">
                     <!-- reset search -->
                     <div class="col text-center">
-                        <a href="{{ url_for('search') }}" class="btn btn-delete">
+                        <a href="{{ url_for('search') }}" class="btn btn-red">
                             Reset <i class="fas fa-undo"></i>
                         </a>
                     <!-- submit button -->
-                        <button type="submit" class="btn btn-green">
+                        <button type="submit" class="btn btn-main-color">
                             Search <i class="fas fa-search"></i>
                         </button>
                     </div>
@@ -68,11 +68,11 @@
         <div class="row index-cards">
             <!-- loop to loop through plants -->
             {% for plant in plants %}
-            <div class="col-sm-6 col-md-4 col-lg-3 text-center">
+            <div class="col-sm-6 col-md-4 text-center">
                 <div class="card">
                     <img src="{{ plant.plant_image }}" class="card-img-top plant-img img-fluid"
                         alt="user submited image of plant"
-                        onerror="this.onerror=null;this.src='/static/image/backup_image.jpg';">
+                        onerror="this.onerror=null;this.src='/static/images/backup_image.jpg';">
                     <div class="card-header">
                         <h5 class="card-title text-capitalize"><a class="link-green"
                                 href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a>
@@ -97,8 +97,8 @@
                         <p class="card-text text-capitalize"><em>Created by: {{ plant.created_by }}</em></p>
                         <!-- edit and delete buttons for logged in user who created plant -->
                         {% if session.user|lower == plant.created_by|lower %}
-                        <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn btn-edit btn-sm">Edit <i class="far fa-edit"></i></a>
-                        <button type="button" class="btn btn-delete btn-sm" data-toggle="modal" data-target="#delete-modal"
+                        <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn btn-dark-green btn-sm">Edit <i class="far fa-edit"></i></a>
+                        <button type="button" class="btn btn-red btn-sm" data-toggle="modal" data-target="#delete-modal"
                             data-url="{{ url_for('delete_plant', plant_id=plant._id) }}">
                             Delete <i class="far fa-trash-alt"></i>
                         </button>
