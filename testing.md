@@ -6,12 +6,24 @@
 
 ## Table of Contents
 
-## Automated Testing
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) & [W3C HTML Validator](https://validator.w3.org/)
-  - Were used to validate the CSS & HTML code respectively.
-- [W3C HTML Validator](https://validator.w3.org/)
-- [JSHint](https://jshint.com/)
+## Code Validators
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
+  - No errors, the results are below:
+  <img src="./static/images/readme/cssvalidator.png"/>
 
+- [W3C HTML Validator](https://validator.w3.org/)
+- [Pep8Online](http://pep8online.com/)
+    - No errors, the results are below:
+    <img src="./static/images/readme/pep8.png"/>
+- [JSHint](https://jshint.com/)
+    - No issues reported on script.js, results are below:
+    ```
+    Metrics
+    There are 3 functions in this file.
+    Function with the largest signature take 1 arguments, while the median is 1.
+    Largest function has 3 statements in it, while the median is 3.
+    The most complex function has a cyclomatic complexity value of 2 while the median is 1.
+    ```
 ## Manual Testing
 
 ### Elements on Every page
