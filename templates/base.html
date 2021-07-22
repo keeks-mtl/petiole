@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Description" content="Plant community for sharing plant information"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+    <meta name="Description" content="Plant community for sharing plant information" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Pacifico&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     {% block styles %}
     {% endblock %}
     <title>Petiole</title>
 </head>
+
 <body>
     <header>
         <!-- navigation bar -->
         <nav class="navbar shadow-sm navbar-light navbar-expand-sm">
             <!-- petiole brand -->
             <a href="{{ url_for('plants') }}" class="navbar-brand">
-                <img src="/static/images/petiole-brand.png" alt="Petiole Logo"> 
+                <img src="/static/images/petiole-brand.png" alt="Petiole Logo">
                 Petiole
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#petnavbar"
@@ -32,54 +36,56 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- links for logged in users -->
                     {% if session.user %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('plants') }}">Plants</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('add_plant') }}">Add Plant</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('search') }}">Search</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">
+                            Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('plants') }}">Plants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('add_plant') }}">Add Plant</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('search') }}">Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
+                    </li>
                     <!-- links for users not logged in -->
                     {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('plants') }}">Plants</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('search') }}">Search</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('register') }}">Register</a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('plants') }}">Plants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('search') }}">Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+                    </li>
                     {% endif %}
                 </ul>
             </div>
         </nav>
     </header>
-    
+
     <section>
         <!-- flash messages -->
         <h2 class="d-none">Flash Message Section</h2>
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                <div class="container-fluid container-flash">
-                    <div class="row flashes">
-                        <div class="col-12">
-                            <h4 class="text-center">{{ message }}</h4> 
-                        </div>  
+                    <div class="container-fluid container-flash">
+                        <div class="row flashes">
+                            <div class="col-12">
+                                <h4 class="text-center">{{ message }}</h4>
+                            </div>
+                        </div>
                     </div>
-                </div>
                 {% endfor %}
             {% endif %}
         {% endwith %}
@@ -88,7 +94,7 @@
     <main class="container">
         {% block content %}
         {% endblock %}
-        
+
         <!-- delete plant modal -->
         <div class="modal" id="delete-modal" tabindex="-1">
             <div class="modal-dialog">
@@ -102,7 +108,9 @@
                     <!-- delete plant confirmation -->
                     <div class="text-center modal-body">
                         <p>Are you sure you'd like to delete this plant?</p>
-                        <a id="confirm-delete" class="confirm-delete btn btn-red">Delete Plant <i class="far fa-trash-alt"></i></a>
+                        <a id="confirm-delete" class="confirm-delete btn btn-red">
+                            Delete Plant <i class="far fa-trash-alt"></i>
+                        </a>
                     </div>
                     <!-- cancel button -->
                     <div class="modal-footer">
@@ -117,27 +125,42 @@
     <footer class="container-fluid container-footer">
         <div class="row text-center justify-content-center">
             <div class="col-md-6 footer-icons">
-                <a href="https://www.facebook.com" aria-label="Facebook" target="_blank" rel="noreferrer"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com" aria-label="Instagram" target="_blank" rel="noreferrer"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com" aria-label="Youtube" target="_blank" rel="noreferrer"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.pinterest.com" aria-label="Pinterest" target="_blank" rel="noreferrer"><i class="fab fa-pinterest"></i></a>
+                <a href="https://www.facebook.com" aria-label="Facebook" target="_blank" 
+                    rel="noreferrer"><i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com" aria-label="Instagram" target="_blank" 
+                    rel="noreferrer"><i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com" aria-label="Youtube" target="_blank" 
+                    rel="noreferrer"><i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.pinterest.com" aria-label="Pinterest" target="_blank" 
+                    rel="noreferrer"><i class="fab fa-pinterest"></i>
+                </a>
             </div>
         </div>
         <div class="row text-center">
             <div class="col">
-                 <p>
-                    Copyright &#169; <script>document.write(new Date().getFullYear());</script> Petiole
-                 </p> 
+                <p>
+                    Copyright &#169; <script>
+                        document.write(new Date().getFullYear());
+                    </script> Petiole
+                </p>
             </div>
         </div>
     </footer>
     <!-- /footer -->
 
     <!-- scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %}
     {% endblock %}
 </body>
+
 </html>
