@@ -8,7 +8,7 @@
     <div class="container index-cards box-light-grey">
         <div class="row justify-content-center">
             <div class="col-sm-5 text-center">
-                <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of plant"
+                <img src="{{ plant.plant_image }}" class="card-img-top" alt="user submited image of {{ plant.plant_latin_name }}"
                     onerror="this.onerror=null;this.src='/static/images/backup_image.jpg';">
                 <h3 class="card-title text-capitalize">{{ plant.plant_latin_name }}</h3>
                 <h5 class="card-title text-capitalize"> <em>{{ plant.plant_common_name }}</em></h5>
@@ -33,7 +33,7 @@
                 <p class="card-text"><b>Care:</b> {{ plant.care }}</p>
                 <p class="card-text"> <b>Suitable For:</b>
                 {% for room in plant.suitable_for %}
-                    <p class="badge badge-pill badge-secondary"> {{ room }}</p>
+                    <p class="badge badge-pill badge-light-green"> {{ room }}</p>
                 {% endfor %}
                 <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
                 <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
