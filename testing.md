@@ -6,12 +6,73 @@
 
 ## Table of Contents
 
+- [Petiole - Testing](#petiole---testing)
+  * [Table of Contents](#table-of-contents)
+  * [Code Validators](#code-validators)
+  * [Manual Testing](#manual-testing)
+    + [Elements on Every page](#elements-on-every-page)
+    + [All Plants page](#all-plants-page)
+      - [General Testing](#general-testing)
+      - [Responsiveness Testing](#responsiveness-testing)
+    + [Search Page](#search-page)
+      - [General Testing](#general-testing-1)
+      - [Responsiveness Testing](#responsiveness-testing-1)
+    + [Login](#login)
+      - [General Testing](#general-testing-2)
+      - [Responsiveness Testing](#responsiveness-testing-2)
+    + [Register](#register)
+      - [General Testing](#general-testing-3)
+      - [Responsiveness Testing](#responsiveness-testing-3)
+    + [Profile](#profile)
+      - [General Testing](#general-testing-4)
+      - [Responsiveness Testing](#responsiveness-testing-4)
+    + [Add Plant](#add-plant)
+      - [General Testing](#general-testing-5)
+      - [Responsiveness Testing](#responsiveness-testing-5)
+    + [Edit Plant](#edit-plant)
+      - [General Testing](#general-testing-6)
+      - [Responsiveness Testing](#responsiveness-testing-6)
+    + [Delete Plant](#delete-plant)
+      - [General Testing](#general-testing-7)
+      - [Responsiveness Testing](#responsiveness-testing-7)
+    + [Logout](#logout)
+      - [General Testing](#general-testing-8)
+      - [Responsiveness Testing](#responsiveness-testing-8)
+    + [Plant Page for Specific Plant](#plant-page-for-specific-plant)
+      - [General Testing](#general-testing-9)
+      - [Responsiveness Testing](#responsiveness-testing-9)
+    + [Plant cards](#plant-cards)
+      - [General Testing](#general-testing-10)
+      - [Responsiveness Testing](#responsiveness-testing-10)
+    + [Like Plant](#like-plant)
+      - [General Testing](#general-testing-11)
+      - [Responsiveness Testing](#responsiveness-testing-11)
+    + [Sort Feature](#sort-feature)
+      - [General Testing](#general-testing-12)
+      - [Responsiveness Testing](#responsiveness-testing-12)
+    + [Pagination Feature](#pagination-feature)
+      - [General Testing](#general-testing-13)
+  * [Bugs](#bugs)
+    + [Add_plant Bug](#add-plant-bug)
+      - [Bug](#bug)
+      - [Fix](#fix)
+    + [New User Like Bug](#new-user-like-bug)
+      - [Bug](#bug-1)
+      - [Fix](#fix-1)
+    + [Navbar Toggler Bug](#navbar-toggler-bug)
+      - [Bug](#bug-2)
+      - [Fix](#fix-2)
+    + [Delete Plant Bug](#delete-plant-bug)
+      - [Bug](#bug-3)
+      - [Fix](#fix-3)
+
 ## Code Validators
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
   - No errors, the results are below:
   <img src="./static/images/readme/cssvalidator.png"/>
 
 - [W3C HTML Validator](https://validator.w3.org/)
+    - No errors
 - [Pep8Online](http://pep8online.com/)
     - No errors, the results are below:
     <img src="./static/images/readme/pep8.png"/>
@@ -54,8 +115,8 @@
 ### All Plants page
 
 #### General Testing
-- Check if the plant cards are rendered?
-- Check if there are twelve plant cards showing on the page?
+- Check if the plant cards are rendered.
+- Check if there are twelve plant cards showing on the page.
 - Make sure the plant cards show in proper rows and columns.
 - Make sure the cards are ordered by most 'likes' and they change order if the 'likes' change.
  
@@ -75,19 +136,14 @@
     - By a word in the plant name & by whole plant name.
     - Search by multiple keywords in plant names.
     - Make sure plant name is searching through both latin names and common names of plants.
-    - Make sure when searching by name that isn't in database that the result section 
-        shows "No Results Found"
-- Try testing the **Lighting** dropdown option search
-    - Choose every option in lighting and make sure only plants with those lighting requirements
-        are displayed.
-- Try testing the **Care** dropdown option search
-    - Choose every option in care and make sure only plants with those care requirements
-        are displayed.
-- Try testing the **Toxic** dropdown option search
-    - Choose every option in toxic and make sure only plants with those toxic requirements
-        are displayed.
-- Test the **Reset Button** and make sure the plant cards on the search page go back to their initial 
-    setup. 
+    - Make sure when searching by name that isn't in database that the result section shows "No Results Found".
+- Try testing the **Lighting** dropdown option search.
+    - Choose every option in lighting and make sure only plants with those lighting requirements are displayed.
+- Try testing the **Care** dropdown option search.
+    - Choose every option in care and make sure only plants with those care requirements are displayed.
+- Try testing the **Toxic** dropdown option search.
+    - Choose every option in toxic and make sure only plants with those toxic requirements are displayed.
+- Test the **Reset Button** and make sure the plant cards on the search page go back to their initial setup. 
 
 #### Responsiveness Testing
 - Make sure search form is correctly sized and placed in all size screens.
@@ -102,16 +158,12 @@
     - You can't submit form with just username filled in.
     - You can't submit form with just password filled in.
 - Fill form with correct username and incorrect password.
-    - Make sure flash message appears informing user that password and/or
-        username is incorrect.
+    - Make sure flash message appears informing user that password and/or username is incorrect.
 - Fill form with correct password but incorrect username.
-    - Make sure flash message appears informing user that password and/or
-        username is incorrect.
+    - Make sure flash message appears informing user that password and/or username is incorrect.
 - Fill form with all incorrect information.
-    - Make sure flash message appears informing user that password and/or
-        username is incorrect.
-- Log in with correct information and make sure it redirects user to their profile
-    page. 
+    - Make sure flash message appears informing user that password and/or username is incorrect.
+- Log in with correct information and make sure it redirects user to their profile page. 
     
 #### Responsiveness Testing
 - Make sure log in form is rendered on all screen sizes with appropriate spacing. 
@@ -127,10 +179,9 @@
     - Inputs for first & last name has to be filled with just letters and hyphens.
     - Email has to follow correct email pattern.
     - Username & password can only have letters (lowercase & uppercase) and numbers.
-- If user chooses a username that already exists when they submit the form they are flashed
+- If user chooses a username that already exists when they submit the form they are flashed.
     a message that informs them that the username already exists. 
-- Once registered the user is redirected to the user's profile page with a flash message
-    informing them they are registered. 
+- Once registered the user is redirected to the user's profile page with a flash message informing them they are registered. 
 
 #### Responsiveness Testing
 - On screen sizes small and bigger the form labels & inputs are inline.
@@ -158,12 +209,10 @@
 - Add plant form validations work.
     - Latin & common name input validations work.
     - Plant url input requires an url.
-    - All radios require an option chosen
+    - All radios require an option chosen.
     - Suitable for checkboxes require at least one option picked.
 - Cancel button redirects to profile page. 
-- Add plant button only works when the required fields are filled and then 
-    redirects to the profile page with a flash message that informs the user
-    that they have successfully added the plant. 
+- Add plant button only works when the required fields are filled and then redirects to the profile page with a flash message that informs the user that they have successfully added the plant. 
 
 #### Responsiveness Testing
 - On every screen size the form remains readable and properly spaced.
@@ -178,8 +227,7 @@
     - The plant image url has to be an url.
 - Check that the cancel button redirects the user to their profile page.
 - Can only press the edit plant button when the form is filled with the required information.
-- Check that the edit plant button redirects the user to the profile page with a flash message that
-    informs them that the plant has been edited successfully.
+- Check that the edit plant button redirects the user to the profile page with a flash message that informs them that the plant has been edited successfully.
 
 #### Responsiveness Testing
 - Checked that every screen size the form remains readable and spaced out correctly. 
@@ -188,16 +236,13 @@
 
 #### General Testing
 - The delete button is only visible to those that are logged and and if they created the plant card.
-- The delete button on every page that it is visible (the plants page, the profile page, the search page and 
-    the specific page for that plant) once clicked makes the delete plant modal pop up. 
-- The modal is clearly titled to reflect what it does ("Delete Plant")
+- The delete button on every page that it is visible (the plants page, the profile page, the search page and the specific page for that plant) once clicked makes the delete plant modal pop up. 
+- The modal is clearly titled to reflect what it does ("Delete Plant").
 - Make sure there is is a clearly visible X (close button) to close the modal.
 - Make sure the cancel button closes the modal as well.
 - Check that there is a clearly readable confirmation message and a delete plant button.
-- The delete plant button on the delete plant modal redirects the user to the user's profile page
-    and there is a flash message that informs the user they have successfully deleted the plant. 
-- Log out and try to access the delete_plant url for a specific plant and make sure the plant can 
-    not be deleted.
+- The delete plant button on the delete plant modal redirects the user to the user's profile page and there is a flash message that informs the user they have successfully deleted the plant. 
+- Log out and try to access the delete_plant url for a specific plant and make sure the plant can not be deleted.
 - Log in and try to access the delete_plant url for a specific plant that wasn't created by that user.
 
 #### Responsiveness Testing
@@ -238,19 +283,17 @@
 ### Plant cards
 
 #### General Testing
-- Check that on pages with multiple cards that the plant cards are general uniform in size (okay with slight
-    change of size on cards with more information)
+- Check that on pages with multiple cards that the plant cards are general uniform in size (okay with slight change of size on cards with more information).
 - Ensure the images on the cards are clear and the same size no matter the size of the image chosen. 
 - Check that the Latin Name on the cards are links that take the user to the specific plant's plant page. 
 - The information on the cards is correctly listed.
     - Especially on the suitable_for array output on the card.
 - Check the differences on the plant cards that are dependent on the page in which they are viewed. 
     - On all pages except the profile page the plant card shows who the card was created by. 
-    - That when the user is logged in and created the plant card the card shows the edit and delete 
-        buttons. 
+    - That when the user is logged in and created the plant card the card shows the edit and delete buttons. 
 
 #### Responsiveness Testing
-- Check that the plant cards are easily read on all screen sizes dependent on their size (the plant cards size)
+- Check that the plant cards are easily read on all screen sizes dependent on their size (the plant cards size).
     - On big screens when they are in columns of four they are easily read.
     - On extra small screens when they are in single columns they are easily read. 
 
@@ -260,8 +303,8 @@
 - Check that you can not like a plant unless logged in and that it redirects the user to the log in page.
 - Visit the plant page of a plant that was liked by a user and check that the like button is red(or liked).
 - Visit a plant page of a plant that was not liked by the user and check that the like button is grey(or not liked).
-- Check that a user can't like a plant multiple times 
-    - the plant id isn't added to their liked_plant array on the database
+- Check that a user can't like a plant multiple times .
+    - the plant id isn't added to their liked_plant array on the database.
     - The plant_like number isn't incremented on the database. 
  
 #### Responsiveness Testing
@@ -290,33 +333,29 @@
 ### Add_plant Bug
 
 #### Bug
-- When you click to add plant it just redirects to an empty add_plant page
+- When you click to add plant it just redirects to an empty add_plant page.
 #### Fix
-- Change the code to check if user is logged in
+- Change the code to check if user is logged in.
 
 ### New User Like Bug
--   add_plant suddenly stopped working
+- add_plant suddenly stopped working
 #### Bug
 - New users can't like plants
 #### Fix
 - Add liked_plant array to user when registering.
 
 ### Navbar Toggler Bug
--   Navbar toggle wasn't appearing
+- Navbar toggle wasn't appearing
 #### Bug
-- The toggler was functional just wasn't visible
+- The toggler was functional just wasn't visible.
 #### Fix
-- Added a missing booststrap class to the navbar
-
-### Toxic Search Bug
-#### Bug
-- When you try searching for plants that aren't toxic then you get no results.
-#### Fix
-- 
+- Added a missing booststrap class to the navbar.
 
 ### Delete Plant Bug
 #### Bug
-- When you are logged in as a user you can access the delete_plant url of a specific plant that 
-    you did not create and delete a plant. 
+- When you are logged in as a user you can access the delete_plant url of a specific plant that you did not create and delete a plant. 
 #### Fix
-- 
+- Change the the delete_plant route from a check if a user is logged in to if the user is the user who created the plant.
+```
+if not created_by_is_user(plant["created_by"])
+```
