@@ -69,7 +69,7 @@
     
     <section>
         <!-- flash messages -->
-        <h2 class="visually-hidden">Flash Message Section</h2>
+        <h2 class="d-none">Flash Message Section</h2>
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
@@ -106,7 +106,7 @@
                     </div>
                     <!-- cancel button -->
                     <div class="modal-footer">
-                        <a class="btn btn-main-color" data-dismiss="modal">Cancel</a>
+                        <a class="btn btn-light-green" data-dismiss="modal">Cancel</a>
                     </div>
                 </div>
             </div>
