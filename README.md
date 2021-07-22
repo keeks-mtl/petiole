@@ -32,9 +32,7 @@
 
 ### Design Choices
 
-- The site is based around a love of plants.
-- The site itself needed to be easy to navigate, provide information users would find beneficial, and displays
-    said information in a way that is visually appealing. 
+- The site itself needed to be easy to navigate, provide information users would find beneficial, and displays said information in a way that is visually appealing. 
 - The overall design choice created a space that was malleable and gave space for a growing plant community. 
 - The colour choices were centered around [colorspace](https://mycolor.space/) to find the complementary colour 
     palette that worked well and felt connected to plants (and the colour green) and evoked a sense of harmony. 
@@ -140,6 +138,7 @@ Plant page - desktop
 
 <img src="./static/images/readme/plants-page.png"/>
 - Displays plants sorted by their popularity or "Likes"
+- The plants page displays 12 plants with the remaining plants distributed across as many pages as necessary. 
 
 ### Register
 
@@ -154,8 +153,7 @@ Plant page - desktop
     - User's password
 - All the data is then stored in a "users" collection on MongoDB database.
 - The passwords are hashed.
-- Once the register form is completed and the data is stored the user is redirected to their
-    profile page and a flash message appears letting the users know their registration is succesful. 
+- Once the register form is completed, the data is stored and the user is redirected to their profile page and a flash message appears letting the users know their registration was succesful. 
 
 ### Log In
 
@@ -173,11 +171,9 @@ Plant page - desktop
 
 <img src="./static/images/readme/profile.png"/>
 
-- The profile page allows users to see the plants that user has created. 
-- On the page the user has the ability to sort their plants by either the plant's latin name
-    or the plant's common name. 
-- The Profile page shows the user's username and users also have the ability to click on the 
-    "Add Plant" button to add to their collection. 
+- The profile page allows a user to see the plants that that user has created. 
+- On the page, the user has the ability to sort their plants by either the plant's latin name or the plant's common name. 
+- The Profile page shows the user's username and users also have the ability to click on the "Add Plant" button to add to their collection. 
 
 ### Sort Plant Features
 
@@ -202,11 +198,9 @@ Plant page - desktop
     - Suitable for (checkboxes)
     - Toxic (toggle option)
     - Humidity (toggle option)
-- if the image url is broken or invalid a default image will be added the card.
-- The form makes sure all fields are valid and before users can click "Add Plant" 
-    button and the form sent. Once the button is clicked (and the form is valid) the 
-    users are redirected to their profile page and a flash message appears telling them 
-    they've added their plant.
+- If the image url is broken or invalid a default image will be added the card.
+- The form makes sure all fields are valid before users can click the "Add Plant" button and the form sent. 
+- Once the button is clicked (and the form is valid) the users are redirected to their profile page and a flash message appears telling them they've added their plant.
 - User's can access the page through the navigation bar or their profile page.
 - The add plant route is protected so user's not logged in can not access the feature. 
 
@@ -214,15 +208,11 @@ Plant page - desktop
 
 <img src="./static/images/readme/editplant.png"/>
 
-- The edit plant feature allows user's to edit the information on the plant card and update the card with 
-    the new information.
+- The edit plant feature allows user's to edit the information on the plant card and update the card with the new information.
 - Only the logged in user who created the plant can use the edit plant form to update the information. 
-- The form has all the information that was submitted when creating the form prepopulated allowing the user 
-    to see what was submitted and change anything they'd like.
-- Once the user has clicked the "Edit Plant" button they are redirected to their profile page and are shown 
-    a flash message letting them know the plant was editted. 
-- The edit plant feature can be accessed through the plant card to only the user who created it on the following 
-    pages:
+- The form has all the information that was submitted when creating the form prepopulated allowing the user to see what was submitted and change anything they'd like.
+- Once the user has clicked the "Edit Plant" button they are redirected to their profile page and are shown a flash message letting them know the plant was edited. 
+- The edit plant feature can be accessed through the plant card to only the user who created it on the following pages:
     - plants.HTML
     - profile.HTML
     - search.HTML
@@ -232,12 +222,9 @@ Plant page - desktop
 
 <img src="./static/images/readme/deleteplantmodal.png"/>
 
-- A user can only use the delete plant function when they are logged in and they
-    created the plant card. 
-- When the "Delete" button is clicked a modal pops up asking for confirmation that the 
-    user would like to delete the plant to prevent plants from accidentally being deleted.
-- If the user clicks delete on the modal then the plant is deleted forever from Pretiole and the
-    database.
+- A user can only use the delete plant function when they are logged in and they created the plant card. 
+- When the "Delete" button is clicked a modal pops up asking for confirmation that the user would like to delete the plant to prevent plants from accidentally being deleted.
+- If the user clicks delete on the modal then the plant is deleted forever from Pretiole and the database.
 - The delete plant modal can also be closed by either clicking the X icon or the cancel button.  
 - The delete functionality can be accessed through the plant cards on the following pages:
     - Plants.html
@@ -250,22 +237,21 @@ Plant page - desktop
 <img src="./static/images/readme/plantpage.png"/>
 
 - Each specific plant has a page where users can see the information on the plant. 
-- Everyone has access to this page through any page that has the specific plant's 
-    plant card and is easily navigatable. 
+- Everyone has access to this page through any page that has the specific plant's plant card and is easily navigatable. 
 
 ### Like Plant
 
 - A user has the ability to use the like feature only when logged in.
 - A user can only like a plant once. 
 - When clicked, the plant page reloads and adds a like to the count in the database. 
-- The "likes" are used to order the plants on the main plant page. 
+- The "likes" are used to order the plants on the main plants page. 
 
 ### Search
 
 <img src="./static/images/readme/searchplants.png"/>
 
-- Ability to search for specific plants by either their latin or common name. 
-- Also have the ability to search for popular plant characterizations such as:
+- There is the ability to search for specific plants by either their latin or common name. 
+- Also there is the ability to search for popular plant characterizations such as:
     - What lighting it requires
     - How much care it requires
     - Whether it is toxic/animal safe
@@ -274,16 +260,13 @@ Plant page - desktop
 
 <img src="./static/images/readme/logout.png"/>
 
-- The log out functionaly is located on the navigational bar and allows users 
-    the ability to log out when clicked.
-- The user when logged out is redirected to the log in page with a flash message
-    that informs them they have been logged out. 
+- The log out functionaly is located on the navigational bar and allows users the ability to log out when clicked.
+- The user when logged out is redirected to the log in page with a flash message that informs them they have been logged out. 
 
 ### Features Left to Implement
 
 - Comment section for registered users to discuss the plants and share tips.
-- Private messaging abilities for members to message other members to share information
-    privately.
+- Private messaging abilities for members to message other members to share information privately.
 - Pagination on search page after search results. 
 - Abiltiy to undo a "like".
 - Afiliate links to plant shops so users can buy plants they've seen.
@@ -305,19 +288,19 @@ Plant page - desktop
 | Title | Key In DB | Form Validation Type | Data Type |
 --- | --- | --- | --- 
 User ID | _id | None | ObjectId 
-First Name | first_name | `maxlength="15"` | String
-Last Name | last_name | text, `maxlength="25"` | String
-Email Address | email | email, `maxlength="50"` | String
-Username | username | `maxlength="15"` | String
-Password | password | text, `maxlength="15"` | String
+First Name | first_name | maxlength=15 | String
+Last Name | last_name | text, maxlength=25 | String
+Email Address | email | email, maxlength=50 | String
+Username | username | maxlength=15 | String
+Password | password | text, maxlength=15 | String
 Plants They've Liked | liked_plant | None | Array
 
 #### Plants Collection
 | Title | Key In DB | Form Validation Type | Data Type |
 --- | --- | --- | --- 
 Plant ID | _id | None | ObjectId 
-Latin Name | plant_latin_name |text, `maxlength="50"` | String
-Common Name | plant_common_name | text, `maxlength="50"` | String
+Latin Name | plant_latin_name |text, maxlength=50 | String
+Common Name | plant_common_name | text, maxlength=50 | String
 Plant url | plant_image | url | String
 Lighting | lighting | radio | String
 Watering | watering | radio | String
@@ -342,7 +325,7 @@ Like count | plant_like | None | Decimal128
 - [JQuery](https://jquery.com/)
     - Used to activate the delete modal and delete funtionality. 
 - [Python](https://www.python.org/)
-    - used to write the logic that operates the site.
+    - Used to write the logic that operates the site.
 - [Font Awesome](https://fontawesome.com/)
   - For the icons used throughout the site.
 - [Bootstrap](https://getbootstrap.com/)
@@ -404,7 +387,9 @@ Testing information can be found in this file : [testing.md](testing.md)
 #### Instructions
 
 - Open your IDE and in your terminal and clone the git repository with the following command.
-    - git clone https://github.com/keeks-mtl/petiole
+```
+git clone https://github.com/keeks-mtl/petiole
+```
 - Create environment file called "env.py" and add :
     ```
     import os
@@ -423,7 +408,7 @@ Testing information can be found in this file : [testing.md](testing.md)
     ```
 - Install the modules used to run the application using in your terminal:
     ```
-    pip freeze > requirements.txt
+    pip3 install -r requirements.txt
     ```
 - In app.py, switch debug=False to debug=True
 - Create a MongoDB account and create a database called "petiole"
@@ -515,7 +500,7 @@ I have used the following websites to get info & images for my website.
 - [Pexels](https://www.pexels.com/)
   - Stock images for cards
 
-#### Information
+#### Information on Plants
 - [Patch Plants](https://www.patchplants.com/gb/en/)
 - [The Sill](https://www.thesill.com/)
 
@@ -525,16 +510,16 @@ I have used the following websites to get info & images for my website.
 - [Code-Maven](https://code-maven.com/flask-return-404)
     - 404 error handler.
 - [Pythonise](https://pythonise.com/series/learning-flask/flask-session-object)
-    - Fix check to see if logged in to access page (add_plant).
+    - Fix check to see if logged in can access page (add_plant).
 - [Themeisle](https://themeisle.com/blog/missing-images-on-website/)
     - How to handle broken images.
 - [StackOverflow](https://stackoverflow.com/questions/61829373/passing-data-to-a-bootstrap-modal-in-jinja-template-one-of-them-from-inside-a-f)
     - Confirm delete modal.
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/patterns/favicon/)
     - How to add favicon.
-- [HTML.com](https://html.com/attributes/input-pattern/#:~:text=A%20regular%20expression%20is%20a,numerals%20(%200%2D9%20).)
+- [HTML.com](https://html.com/attributes/input-pattern/#:~:text=A%20regular%20expression%20is%20a,numerals%20(%200%2D9%20))
     - Pattern attribute for inputs.
--[StackOverflow](https://stackoverflow.com/questions/47329938/block-form-submit-if-no-one-checkbox-checked)
+- [StackOverflow](https://stackoverflow.com/questions/47329938/block-form-submit-if-no-one-checkbox-checked)
     - Jquery validations for checkboxes
 - [StackOverflow](https://stackoverflow.com/questions/8605516/default-select-option-as-blank)
     - Valid empty option formatting
