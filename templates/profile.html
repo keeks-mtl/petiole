@@ -67,7 +67,7 @@
                                 <p class="card-text"> <b>Suitable For:</b>
                                     <!-- loop to loop through suitable_for options -->
                                     {% for room in plant.suitable_for %}
-                                        <p class="badge badge-pill badge-light-green"> {{ room }}</p> 
+                                        <span class="badge badge-pill badge-light-green"> {{ room }}</span> 
                                     {% endfor %}
                                 <p class="card-text"><b>Toxic:</b> {{ plant.toxic }}</p>
                                 <p class="card-text"><b>Humidity:</b> {{ plant.humidity }}</p>
