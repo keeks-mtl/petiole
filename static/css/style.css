@@ -1,9 +1,9 @@
 :root {
-  --main-color: #A5CE8A;
-  --secondary-color: #94A389;
-  --third-color: #A3797D;
-  --fourth-color: #67b5a7;
-  --extra-color: #65a15a;
+  --light-green: #A5CE8A;
+  --dark-green: #94A389;
+  --pink-purple: #A3797D;
+  --teal-blue: #67b5a7;
+  --forrest-green: #65a15a;
 }
 
 body {
@@ -25,21 +25,21 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* pagination */
+/* ---------------------------- pagination */
 .pagination a {
     color: black;
 }
 
 .page-link:hover {
-    background-color: var(--extra-color);
+    background-color: var(--forrest-green);
     color: black;
 }
 
 .page-link.active {
-    background-color: var(--main-color);
+    background-color: var(--light-green);
 }
 
-/* navigational bar */
+/* ---------------------------- navigational bar */
 #petnavbar .nav-link {
     color: black;
     font-weight: 500;
@@ -57,47 +57,48 @@ h2 {
 }
 
 .navbar {
-    background-color: var(--main-color);
+    background-color: var(--light-green);
 }
 
-/* flash messages */
+/* ---------------------------- flash messages */
 .flashes h4 {
     line-height: 2;
 }
 
 .container-flash {
-    background-color: var(--extra-color);
+    background-color: var(--forrest-green);
 }
 
-/* buttons */
-.btn-main-color {
-    background-color: var(--main-color);
+/* ---------------------------- buttons */
+
+.btn-light-green {
+    background-color: var(--light-green);
 }
 
 .btn-red{
-    background-color: var(--third-color);
+    background-color: var(--pink-purple);
 }
 
 .btn-dark-green {
-    background-color: var(--secondary-color);
+    background-color: var(--dark-green);
 }
 
-.badge-pill {
-    background-color: var(--main-color);
+.badge-light-green {
+    background-color: var(--light-green);
 }
 
-/* images */
+/* ---------------------------- images */
 .plant-img {
     height: 16rem;
     object-fit: cover
 }
 
-/* icons */
+/* ---------------------------- icons */
 .fab {
     color: black;
 }
 
-/* containers */
+/* ---------------------------- containers */
 .register-form, .login-form, .profile-container, .main-plants-container {
     margin-top: 4%;
 }
@@ -107,7 +108,7 @@ h2 {
     padding: 2%;
 }
 
-/* register page */
+/* ---------------------------- register page */
 .register-form button {
     margin-top: 5%;
 }
@@ -117,11 +118,11 @@ h2 {
 }
 
 .link-blue {
-    color: var(--fourth-color);
+    color: var(--teal-blue);
     font-weight: 800;
 }
 
-/* login page */
+/* ---------------------------- login page */
 .login-form button{
     margin-top: 5%;
 }
@@ -130,7 +131,7 @@ h2 {
     margin-bottom: 5%;
 }
 
-/* profile page */
+/* ---------------------------- profile page */
 
 .profile-container a {
     margin: 2%;
@@ -142,14 +143,14 @@ h2 {
 }
 
 .link-green {
-    color: var(--extra-color);
+    color: var(--forrest-green);
 }
 
 .link-green:hover {
-    color: var(--main-color);
+    color: var(--light-green);
 }
 
-/* add plant page */
+/* ---------------------------- add plant page */
 
 label {
     margin-bottom: 0;
@@ -159,7 +160,7 @@ label {
     margin-top: 4%;
 }
 
-/* Main plant page */
+/* ---------------------------- main plant page */
 
 .index-cards {
     margin-top: 2%;
@@ -173,13 +174,13 @@ label {
     margin-top: 10px;
 }
 
-/* plant_page */
+/* ---------------------------- plant_page */
 
 .plant-page-container h2 {
     margin-top: 20px;
 }
 
-/* like plant */
+/* ---------------------------- like plant */
 
 .icon-like.far {
   color: #aab8c2;
@@ -197,7 +198,7 @@ label {
   font-size: 3em;
 }
 
-/* footer */
+/* ---------------------------- footer */
 
 footer {
     margin-top: 4%;
@@ -213,10 +214,10 @@ footer {
 }
 
 .container-footer {
-    background-color: var(--main-color);
+    background-color: var(--light-green);
 }
 
-/* error */
+/* ---------------------------- error */
 
 .container-error {
     margin-top: 150px;
