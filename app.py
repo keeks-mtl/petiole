@@ -272,7 +272,8 @@ def delete_plant(plant_id):
     # checks if user is the user who created post
     if not created_by_is_user(plant["created_by"]):
         # pevents users who are not logged in from accessing
-        return redirect(url_for("login"))
+        flash("You Can Not Delete That Plant")
+        return redirect(url_for("plants"))
 
     if "user" in session:
         mongo.db.plants.remove({"_id": ObjectId(plant_id)})
