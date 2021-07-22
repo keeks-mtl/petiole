@@ -8,17 +8,32 @@
                 <!-- loop for plant cards -->
                 {% for plant in plants %}
                     <!-- format of individual plant card -->
-                    <div class="col-sm-6 col-md-4 text-center">
+                    <div class="col-sm-6 col-lg-4 text-center">
                         <div class="card">
-                                <img class="card-img-top plant-img img-fluid" src="{{ plant.plant_image }}" alt="User submitted image of {{ plant.plant_latin_name }}" onerror="this.onerror=null;this.src='/static/images/backup_image.jpg';">
+                                <img class="card-img-top plant-img img-fluid" 
+                                src="{{ plant.plant_image }}" 
+                                alt="User submitted image of {{ plant.plant_latin_name }}" 
+                                onerror="this.onerror=null;this.src='/static/images/backup_image.jpg';">
                             <div class="card-header">
-                                <h5 class="card-title text-capitalize"><a class="link-green" href="{{ url_for('plant_page', plant_id=plant._id) }}">{{ plant.plant_latin_name }}</a></h5>
-                                <h6 class="card-subtitle mb-2 text-muted text-capitalize">{{ plant.plant_common_name }}</h6>
+                                <h5 class="card-title text-capitalize">
+                                    <a class="link-green" 
+                                        href="{{ url_for('plant_page', plant_id=plant._id) }}">
+                                        {{ plant.plant_latin_name }}
+                                    </a>
+                                </h5>
+                                <h6 class="card-subtitle mb-2 text-muted text-capitalize">
+                                    {{ plant.plant_common_name }}
+                                </h6>
                             <!-- check if user created post is user looking at card -->
                             {% if session.user|lower == plant.created_by|lower %}
-                                    <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" class="btn btn-dark-green btn-sm">Edit <i class="far fa-edit"></i></a>
-                                    <button type="button" class="btn btn-red btn-sm" data-toggle="modal" data-target="#delete-modal" data-url="{{ url_for('delete_plant', plant_id=plant._id) }}">
-                                        Delete <i class="far fa-trash-alt"></i>
+                                    <a href="{{ url_for('edit_plant', plant_id=plant._id) }}" 
+                                        class="btn btn-dark-green btn-sm">
+                                            Edit <i class="far fa-edit"></i>
+                                    </a>
+                                    <button type="button" class="btn btn-red btn-sm" 
+                                        data-toggle="modal" data-target="#delete-modal" 
+                                        data-url="{{ url_for('delete_plant', plant_id=plant._id) }}">
+                                            Delete <i class="far fa-trash-alt"></i>
                                     </button>
                             {% endif %}
                             </div>
