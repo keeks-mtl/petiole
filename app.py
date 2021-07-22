@@ -344,7 +344,7 @@ def search():
         Lighting options
         Care options
         Whether plant is toxic
-    Shows results with pagination.
+    Shows plants with pagination.
     """
     if request.method == "POST":
         # link variables to form
