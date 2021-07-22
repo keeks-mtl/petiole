@@ -1,7 +1,7 @@
 # Petiole
-<img src="./static/images/readme/petiole-responsive.png"/>
+<img src="./static/images/readme/petiol-responsive.png"/>
 
-<a href="https://restruction.herokuapp.com/">Petiole Deployed on Heroku</a>
+<a href="http://petiole-plants.herokuapp.com/plants">Petiole Deployed on Heroku</a>
 
 <a href="https://github.com/keeks-mtl/petiole">Petiole Github Repository</a>
 
@@ -32,7 +32,7 @@
 
 ### Design Choices
 
-- The site is based around my love of plants.
+- The site is based around a love of plants.
 - The site itself needed to be easy to navigate, provide information users would find beneficial, and displays
     said information in a way that is visually appealing. 
 - The overall design choice created a space that was malleable and gave space for a growing plant community. 
@@ -88,7 +88,10 @@ Plant page - desktop
 <img src="./static/images/readme/plantpage-wireframe.png"/>
 
 #### Changes to Wireframes
-- The final site differs quite a bit from the original wireframes in many ways. 
+- The final site differs quite a bit from the original wireframes in many ways.
+- The original name of the site was changed to Petiole which is a name of a plant part.
+- The links on the navigational bar were changed to create a better flow.
+- Initially a specific plant page was going to have a rating system and linked to other pictures of the same plant which was changed to a liking system with information on the plant only. 
 
 ## Features Implemented
 
@@ -97,22 +100,22 @@ Plant page - desktop
 - The navigation bar was created using Bootstrap to ensure that it was fully responsive.
 - An example of a responsiveness change includes a hamburger menu when viewed on smaller viewports.
 - The navigation bar shows Plants, Search, Login, and Register when a user is not logged in and when a user
-    is logged in it shows Plants, Add Plant, Profile, Search, and Logout. 
+    is logged in it shows Profile, Plants, Add Plant, Search, and Logout. 
 
-Visitor Navigational Bar
+1. Visitor Navigational Bar
 
 <img src="./static/images/readme/visitor-nav.png"/>
 
-Logged In User Navigational Bar
+2. Logged In User Navigational Bar
 
 <img src="./static/images/readme/registereduser-nav.png"/>
 
 ### Plant Cards
 
 - There are multiple cards across the site to include information about the plants themselves.
-- They are clear organised to be easily read and understood.
+- They are clearly organised to be easily read and understood.
 - On the main plants page the plant cards only have the plants names and image (and possibly 
-    edit & delete button) on the other pages the plant cards have information on the plants.
+    edit & delete button), and on the other pages the plant cards have information on the plants.
 - If a user is logged in and they created the plant card, they have the ability to edit or delete the card.
 - The plant name is also a link to the plant page where you can see the information clearly and like the plant 
     as well. 
@@ -254,7 +257,7 @@ Logged In User Navigational Bar
 
 - A user has the ability to use the like feature only when logged in.
 - A user can only like a plant once. 
-- When clicked, the plant page reloads and adds a like to the count. 
+- When clicked, the plant page reloads and adds a like to the count in the database. 
 - The "likes" are used to order the plants on the main plant page. 
 
 ### Search
@@ -281,7 +284,7 @@ Logged In User Navigational Bar
 - Comment section for registered users to discuss the plants and share tips.
 - Private messaging abilities for members to message other members to share information
     privately.
-- Pagination on search page. 
+- Pagination on search page after search results. 
 - Abiltiy to undo a "like".
 - Afiliate links to plant shops so users can buy plants they've seen.
 - Share plant ability (share plant card through social media).
@@ -294,36 +297,36 @@ Logged In User Navigational Bar
 ### Collections Data structure
 
 - The collections are associated with one another through the following ways.
-    - liked_plant on users collection with _id of plant
-    - created_by on plants collection with username of user
+    - liked_plant on users collection with _id of plant from plants collection.
+    - created_by on plants collection with username of user from users collection.
 
 #### Users Collection
 
-| Title | Key in db | form validation type | Data type |
+| Title | Key In DB | Form Validation Type | Data Type |
 --- | --- | --- | --- 
 User ID | _id | None | ObjectId 
-First Name | first_name | `maxlength="15"` | string
-Last Name | last_name | text, `maxlength="25"` | string
-Email Address | email | email, `maxlength="50"` | string
-Username | username | `maxlength="15"` | string
-Password | password | text, `maxlength="15"` | string
-Plants They've Liked | liked_plant | None | array
+First Name | first_name | `maxlength="15"` | String
+Last Name | last_name | text, `maxlength="25"` | String
+Email Address | email | email, `maxlength="50"` | String
+Username | username | `maxlength="15"` | String
+Password | password | text, `maxlength="15"` | String
+Plants They've Liked | liked_plant | None | Array
 
 #### Plants Collection
-| Title | Key in db | form validation type | Data type |
+| Title | Key In DB | Form Validation Type | Data Type |
 --- | --- | --- | --- 
 Plant ID | _id | None | ObjectId 
-Latin Name | plant_latin_name |text, `maxlength="50"` | string
-Common Name | plant_common_name | text, `maxlength="50"` | string
-Plant url | plant_image | url | string
-Lighting | lighting | radio | string
-Watering | watering | radio | string
-Growing Speed | grow_speed | radio | string
-Care | care | radio | string
-Suitable For | suitable_for | checkbox | array
-Toxic | toxic | toggle | string
-Humidity | humidity | toggle | string
-Created By | created_by | None | string
+Latin Name | plant_latin_name |text, `maxlength="50"` | String
+Common Name | plant_common_name | text, `maxlength="50"` | String
+Plant url | plant_image | url | String
+Lighting | lighting | radio | String
+Watering | watering | radio | String
+Growing Speed | grow_speed | radio | String
+Care | care | radio | String
+Suitable For | suitable_for | checkbox | Array
+Toxic | toxic | toggle | String
+Humidity | humidity | toggle | String
+Created By | created_by | None | String
 Like count | plant_like | None | Decimal128
 
 ## Technologies Used
