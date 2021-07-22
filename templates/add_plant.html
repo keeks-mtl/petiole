@@ -12,8 +12,9 @@
                         Latin Name:
                     </label>
                     <div class="col-md-9">
-                        <input class="form-control validate" id="plant_latin_name" name="plant_latin_name" minlength="3"
-                            maxlength="50" type="text" required>
+                        <input class="form-control validate" id="plant_latin_name" 
+                            name="plant_latin_name" minlength="3" maxlength="50" 
+                            type="text" required>
                     </div>
                 </div>
                 <!-- common name input -->
@@ -22,8 +23,8 @@
                         Common Name:
                     </label>
                     <div class="col-md-9">
-                        <input class="form-control" id="plant_common_name" name="plant_common_name" minlength="3"
-                            maxlength="50" type="text" required>
+                        <input class="form-control" id="plant_common_name" name="plant_common_name" 
+                            minlength="3" maxlength="50" type="text" required>
                     </div>
                 </div>
                 <!-- plant image url -->
@@ -49,7 +50,8 @@
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input id="Indirect Sunlight" name="lighting" value="Indirect Sunlight" type="radio" />
+                            <input id="Indirect Sunlight" name="lighting" value="Indirect Sunlight" 
+                                type="radio" />
                             <label for="Indirect Sunlight">
                                 Indirect Sunlight
                             </label>
@@ -69,13 +71,15 @@
                     </div>
                     <div class="col-sm-9">
                         <div class="form-check form-check-inline">
-                            <input id="When Completely Dry" name="watering" value="When Completely Dry" type="radio" />
+                            <input id="When Completely Dry" name="watering" value="When Completely Dry" 
+                                type="radio" />
                             <label for="When Completely Dry">
                                 When Completely Dry
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input id="Once a Week" name="watering" value="Once a Week" type="radio" required />
+                            <input id="Once a Week" name="watering" value="Once a Week" type="radio" 
+                                required />
                             <label for="Once a Week">
                                 Once a Week
                             </label>
@@ -159,19 +163,22 @@
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input id="Living Room" name="suitable_for" value="Living Room" type="checkbox" />
+                            <input id="Living Room" name="suitable_for" value="Living Room" 
+                                type="checkbox" />
                             <label for="Living Room">
                                 Living Room
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input id="Small Spaces" name="suitable_for" value="Small Spaces" type="checkbox" />
+                            <input id="Small Spaces" name="suitable_for" value="Small Spaces" 
+                                type="checkbox" />
                             <label for="Small Spaces">
                                 Small Spaces
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input id="Hanging Planters" name="suitable_for" value="Hanging Planters" type="checkbox" />
+                            <input id="Hanging Planters" name="suitable_for" value="Hanging Planters" 
+                                type="checkbox" />
                             <label for="Hanging Planters">
                                 Hanging Planters
                             </label>
@@ -199,7 +206,8 @@
                     </div>
                     <div class="col-8">
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="humidity" name="humidity">
+                            <input type="checkbox" class="custom-control-input" id="humidity" 
+                                name="humidity">
                             <label class="custom-control-label col-sm-6" for="humidity">
                                 Yes, please
                             </label>
@@ -209,7 +217,9 @@
             <!-- submit -->
                 <div class="row">
                     <div class="col-12 text-center">
-                        <a class="btn btn-red" href="{{ url_for('profile', username=session['user']) }}">Cancel</a>
+                        <a class="btn btn-red" href="{{ url_for('profile', username=session['user']) }}">
+                            Cancel
+                        </a>
                         <button type="submit" class="btn btn-light-green">
                             Add Plant <i class="fas fa-plus-square right"></i>
                         </button>
