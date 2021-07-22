@@ -5,15 +5,17 @@
         <h2 class="text-center">Edit Plant</h2>
         <div class="row box-light-grey justify-content-center">
             <!-- edit plant form -->
-            <form class="col-md-11 checkbox-validation" method="POST" action="{{ url_for('edit_plant', plant_id=plant._id) }}">
+            <form class="col-md-11 checkbox-validation" method="POST"
+                action="{{ url_for('edit_plant', plant_id=plant._id) }}">
                 <div class="form-group row">
                     <!-- latin name input -->
                     <label class="col-md-3 col-form-label label-sm-bold" for="plant_latin_name">
                         Latin Name:
                     </label>
                     <div class="col-md-9">
-                        <input class="form-control validate" id="plant_latin_name" name="plant_latin_name" minlength="3"
-                            value="{{ plant.plant_latin_name }}" maxlength="50" type="text" required>
+                        <input class="form-control validate" id="plant_latin_name" name="plant_latin_name" 
+                            minlength="3" value="{{ plant.plant_latin_name }}" maxlength="50" type="text" 
+                            required>
                     </div>
                 </div>
                 <!-- common name input -->
@@ -22,8 +24,9 @@
                         Common Name:
                     </label>
                     <div class="col-md-9">
-                        <input class="form-control" id="plant_common_name" name="plant_common_name" minlength="3"
-                            value="{{ plant.plant_common_name }}" maxlength="50" type="text" required>
+                        <input class="form-control" id="plant_common_name" name="plant_common_name" 
+                            minlength="3" value="{{ plant.plant_common_name }}" maxlength="50" 
+                            type="text" required>
                     </div>
                 </div>
                 <!-- plant image url -->
@@ -82,9 +85,11 @@
                     <div class="col-sm-9">
                         <div class="form-check form-check-inline">
                             {% if plant.watering == "When Completely Dry" %}
-                                <input id="When Completely Dry" name="watering" value="When Completely Dry" type="radio" checked/>
+                                <input id="When Completely Dry" name="watering" 
+                                    value="When Completely Dry" type="radio" checked/>
                             {% else %}
-                                <input id="When Completely Dry" name="watering" value="When Completely Dry" type="radio" />
+                                <input id="When Completely Dry" name="watering" 
+                                    value="When Completely Dry" type="radio" />
                             {% endif %}
                             <label for="When Completely Dry">
                                 When Completely Dry
@@ -92,9 +97,11 @@
                         </div>
                         <div class="form-check form-check-inline">
                             {% if plant.watering == "Once a Week" %}
-                                <input id="Once a Week" name="watering" value="Once a Week" type="radio" required checked/>
+                                <input id="Once a Week" name="watering" value="Once a Week" 
+                                    type="radio" required checked/>
                             {% else %}
-                                <input id="Once a Week" name="watering" value="Once a Week" type="radio" required />
+                                <input id="Once a Week" name="watering" value="Once a Week" 
+                                    type="radio" required />
                             {% endif %}
                             <label for="Once a Week">
                                 Once a Week
@@ -102,7 +109,8 @@
                         </div>
                         <div class="form-check form-check-inline">
                             {% if plant.watering == "Keep Moist" %}
-                                <input id="Keep Moist" name="watering" value="Keep Moist" type="radio" checked/>
+                                <input id="Keep Moist" name="watering" value="Keep Moist" type="radio" 
+                                    checked/>
                             {% else %}
                                 <input id="Keep Moist" name="watering" value="Keep Moist" type="radio" />
                             {% endif %}
@@ -130,9 +138,11 @@
                         </div>
                         <div class="form-check form-check-inline">
                             {% if plant.grow_speed == "Medium" %}
-                                <input id="Medium" name="grow_speed" value="Medium" type="radio" required checked/>
+                                <input id="Medium" name="grow_speed" value="Medium" type="radio" 
+                                    required checked/>
                             {% else %}
-                                <input id="Medium" name="grow_speed" value="Medium" type="radio" required />
+                                <input id="Medium" name="grow_speed" value="Medium" type="radio" 
+                                    required />
                             {% endif %}
                             <label for="Medium">
                                 Medium
@@ -158,7 +168,8 @@
                     <div class="col-sm-9">
                         <div class="form-check form-check-inline">
                             {% if plant.care == "Unkillable" %}
-                                <input id="Unkillable" name="care" value="Unkillable" type="radio" checked/>
+                                <input id="Unkillable" name="care" value="Unkillable" type="radio" 
+                                    checked/>
                             {% else %}
                                 <input id="Unkillable" name="care" value="Unkillable" type="radio" />
                             {% endif %}
@@ -168,9 +179,11 @@
                         </div>
                         <div class="form-check form-check-inline">
                             {% if plant.care == "Easy Going" %}
-                                <input id="Easy Going" name="care" value="Easy Going" type="radio" required checked/>
+                                <input id="Easy Going" name="care" value="Easy Going" type="radio" 
+                                    required checked/>
                             {% else %}
-                                <input id="Easy Going" name="care" value="Easy Going" type="radio" required />
+                                <input id="Easy Going" name="care" value="Easy Going" type="radio" 
+                                    required />
                             {% endif %}
                             <label for="Easy Going">
                                 Easy Going
@@ -196,7 +209,8 @@
                     <div class="col-sm-9">
                         <div class="form-check form-check-inline">
                             {% if "Bathroom" is in plant.suitable_for %}
-                                <input id="Bathroom" name="suitable_for" value="Bathroom" type="checkbox" checked/>
+                                <input id="Bathroom" name="suitable_for" value="Bathroom" 
+                                    type="checkbox" checked/>
                             {% else %}
                                 <input id="Bathroom" name="suitable_for" value="Bathroom" type="checkbox" />
                             {% endif %}
@@ -206,7 +220,8 @@
                         </div>
                         <div class="form-check form-check-inline">
                             {% if "Bedroom" is in plant.suitable_for %}
-                                <input id="Bedroom" name="suitable_for" value="Bedroom" type="checkbox" checked/>
+                                <input id="Bedroom" name="suitable_for" value="Bedroom" 
+                                    type="checkbox" checked/>
                             {% else %}
                                 <input id="Bedroom" name="suitable_for" value="Bedroom" type="checkbox"/>
                             {% endif %}
@@ -216,9 +231,11 @@
                         </div>
                         <div class="form-check form-check-inline">
                             {% if "Living Room" is in plant.suitable_for %}
-                                <input id="Living Room" name="suitable_for" value="Living Room" type="checkbox" checked/>
+                                <input id="Living Room" name="suitable_for" value="Living Room" 
+                                    type="checkbox" checked/>
                             {% else %}
-                                <input id="Living Room" name="suitable_for" value="Living Room" type="checkbox" />
+                                <input id="Living Room" name="suitable_for" value="Living Room" 
+                                    type="checkbox" />
                             {% endif %}
                             <label for="Living Room">
                                 Living Room
@@ -226,9 +243,11 @@
                         </div>
                         <div class="form-check form-check-inline">
                             {% if "Small Spaces" is in plant.suitable_for %}
-                                <input id="Small Spaces" name="suitable_for" value="Small Spaces" type="checkbox" checked/>
+                                <input id="Small Spaces" name="suitable_for" value="Small Spaces" 
+                                    type="checkbox" checked/>
                             {% else %}
-                                <input id="Small Spaces" name="suitable_for" value="Small Spaces" type="checkbox" />
+                                <input id="Small Spaces" name="suitable_for" value="Small Spaces" 
+                                    type="checkbox" />
                             {% endif %}
                             <label for="Small Spaces">
                                 Small Spaces
@@ -236,9 +255,11 @@
                         </div>
                         <div class="form-check form-check-inline">
                             {% if "Hanging Planters" is in plant.suitable_for %}
-                                <input id="Hanging Planters" name="suitable_for" value="Hanging Planters" type="checkbox" checked/>
+                                <input id="Hanging Planters" name="suitable_for" value="Hanging Planters" 
+                                    type="checkbox" checked/>
                             {% else %}
-                                <input id="Hanging Planters" name="suitable_for" value="Hanging Planters" type="checkbox" />
+                                <input id="Hanging Planters" name="suitable_for" value="Hanging Planters" 
+                                    type="checkbox" />
                             {% endif %}
                             <label for="Hanging Planters">
                                 Hanging Planters
@@ -254,9 +275,11 @@
                     <div class="col-8">
                         <div class="custom-control custom-switch custom-control-inline">
                             {% if plant.toxic == "Yes" %}
-                                <input type="checkbox" class="custom-control-input" id="toxic" name="toxic" checked>
+                                <input type="checkbox" class="custom-control-input" id="toxic" 
+                                    name="toxic" checked>
                             {% else %}
-                                <input type="checkbox" class="custom-control-input" id="toxic" name="toxic">
+                                <input type="checkbox" class="custom-control-input" id="toxic" 
+                                    name="toxic">
                             {% endif %}
                             <label class="custom-control-label" for="toxic">
                                 Yes
@@ -272,9 +295,11 @@
                     <div class="col-8">
                         <div class="custom-control custom-switch">
                             {% if plant.humidity == "Yes, please" %}
-                            <input type="checkbox" class="custom-control-input" id="humidity" name="humidity" checked>
+                            <input type="checkbox" class="custom-control-input" id="humidity" 
+                                name="humidity" checked>
                             {% else %}
-                            <input type="checkbox" class="custom-control-input" id="humidity" name="humidity">
+                            <input type="checkbox" class="custom-control-input" id="humidity" 
+                                name="humidity">
                             {% endif %}
                             <label class="custom-control-label col-sm-6" for="humidity">
                                 Yes, please
@@ -285,9 +310,11 @@
             <!-- submit -->
                 <div class="row">
                     <div class="col-12 text-center">
-                        <a class="btn btn-red" href="{{ url_for('profile', username=session['user']) }}">Cancel</a>
+                        <a class="btn btn-red" href="{{ url_for('profile', username=session['user']) }}">
+                            Cancel
+                        </a>
                         <button type="submit" class="btn btn-light-green">
-                            Edit Plant <i class="far fa-edit"></i></i>
+                            Edit Plant <i class="far fa-edit"></i>
                         </button>
                     </div>
                 </div>
