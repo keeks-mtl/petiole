@@ -32,22 +32,34 @@ def created_by_is_user(username):
 @app.route("/")
 @app.route("/plants")
 def plants():
-    """
-    Gets all plants from database.
-    Divides the number of plants in database by number of plants on page.
-    Renders plants page by plants and divides them into other pages.
-    """
-    plants_collection = mongo.db.plants
-    page = int(request.args.get('page') or 1)
-    # number of plants per page
-    num = 12
-    # finds how many pages there will be
-    count = ceil(float(plants_collection.count_documents({}) / num))
-    plants = list(plants_collection.find({}).sort("plant_like", -1).skip(
-        (page - 1) * num).limit(num))
-    return render_template(
-        "plants.html", plants=plants,
-        page=page, count=count, search=False)
+    try:
+        # Get the plants collection
+        plants_collection = mongo.db.plants
+
+        # Get the current page from the query parameters or default to page 1
+        page = int(request.args.get('page', 1))
+
+        # Number of plants per page
+        num = 12
+
+        # Calculate the total number of documents in the collection
+        total_documents = plants_collection.count_documents({})
+
+        # Calculate the number of pages
+        count = ceil(float(total_documents) / num)
+
+        # Check if the requested page is valid
+        if page < 1 or page > count:
+            return render_template("error.html", message="Invalid page number")
+
+        # Fetch the plants for the current page
+        plants = list(plants_collection.find({}).sort("plant_like", -1).skip((page - 1) * num).limit(num))
+
+        return render_template("plants.html", plants=plants, page=page, count=count, search=False)
+
+    except Exception as e:
+        # Handle exceptions gracefully and provide an error message
+        return render_template("error.html", message=f"An error occurred: {str(e)}")
 
 
 # Register
