@@ -59,7 +59,7 @@ def plants():
 
     except Exception as e:
         # Handle exceptions gracefully and provide an error message
-        return render_template("error.html", message=f"An error occurred: {str(e)}")
+        return render_template("404.html", message=f"An error occurred: {str(e)}")
 
 
 # Register
