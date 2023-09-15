@@ -3,6 +3,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+from pymongo.mongo_client import MongoClient
 from bson.objectid import ObjectId
 from math import ceil
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -18,6 +19,14 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+try:
+    # Ping the MongoDB database
+    mongo.cx.server_info()
+    print("Pinged your deployment. You successfully connected to MongoDB!")
+
+except Exception as e:
+    print("Error connecting to MongoDB:", e)
+    mongo = None
 
 # check if username matches current user
 def created_by_is_user(username):
