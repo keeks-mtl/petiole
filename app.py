@@ -58,13 +58,14 @@ def plants():
         return render_template(
             "plants.html", plants=plants,
             page=page, count=count, search=False)
-    except Exception as e:
-        # Handle the exception gracefully
-        print("Error while fetching data from MongoDB:", e)
-        # Optionally, you can add a retry mechanism here
-        # For example, wait for a few seconds before retrying
-        sleep(5)  # Sleep for 5 seconds
-        return redirect(url_for("plants"))  # Redirect to the same page for retry
+     except Exception as e:
+            # Handle the exception gracefully
+            print("Error while fetching data from MongoDB:", e)
+            retry_count -= 1  # Decrement the retry count
+            if retry_count > 0:
+                sleep(5)  # Sleep for 5 seconds before retrying
+            else:
+                return "Error: Maximum retry attempts reached"  # Return an error message after 5 retries
 
 
 # Register
