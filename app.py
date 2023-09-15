@@ -37,26 +37,33 @@ def created_by_is_user(username):
     return False
 
 
-# Plants Page (all)
 @app.route("/")
 @app.route("/plants")
 def plants():
     """
-    Gets all plants from database.
-    Divides the number of plants in database by number of plants on page.
-    Renders plants page by plants and divides them into other pages.
+    Gets all plants from the database.
+    Divides the number of plants in the database by the number of plants on the page.
+    Renders the plants page by plants and divides them into other pages.
     """
-    plants_collection = mongo.db.plants
-    page = int(request.args.get('page') or 1)
-    # number of plants per page
-    num = 12
-    # finds how many pages there will be
-    count = ceil(float(plants_collection.count_documents({}) / num))
-    plants = list(plants_collection.find({}).sort("plant_like", -1).skip(
-        (page - 1) * num).limit(num))
-    return render_template(
-        "plants.html", plants=plants,
-        page=page, count=count, search=False)
+    try:
+        plants_collection = mongo.db.plants
+        page = int(request.args.get('page') or 1)
+        # Number of plants per page
+        num = 12
+        # Finds how many pages there will be
+        count = ceil(float(plants_collection.count_documents({}) / num))
+        plants = list(plants_collection.find({}).sort("plant_like", -1).skip(
+            (page - 1) * num).limit(num))
+        return render_template(
+            "plants.html", plants=plants,
+            page=page, count=count, search=False)
+    except Exception as e:
+        # Handle the exception gracefully
+        print("Error while fetching data from MongoDB:", e)
+        # Optionally, you can add a retry mechanism here
+        # For example, wait for a few seconds before retrying
+        sleep(5)  # Sleep for 5 seconds
+        return redirect(url_for("plants"))  # Redirect to the same page for retry
 
 
 # Register
